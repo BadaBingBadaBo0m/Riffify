@@ -1,5 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
+from .playlist_songs import playlist_songs
 
 class Song(db.Model):
     __tablename__ = 'songs'
@@ -15,12 +16,12 @@ class Song(db.Model):
     song_body = db.Column(db.String)
     song_length = db.Column(db.Integer)
     album_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('albums.id')))
-    playlist_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('playlists.id')))
+    # playlist_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('playlists.id')))
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now)
 
     albums = db.relationship('Album', back_populates='songs')
-    playlists = db.relationship('Playlist', back_populates='songs')
+    playlists = db.relationship('Playlist', secondary=playlist_songs, back_populates='songs')
     liked_songs = db.relationship('LikedSong', back_populates='songs', cascade='all, delete-orphan')
 
     def to_dict(self):

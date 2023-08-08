@@ -6,10 +6,15 @@ def seed_songs():
         name='Better Days',
         created_by=1,
         album_id=1,
-        playlist_id=1
+    )
+    tests = Song(
+        name='test',
+        created_by=1,
+        album_id=1,
     )
 
     db.session.add(better_days)
+    db.session.add(tests)
     db.session.commit()
 
 def undo_songs():
