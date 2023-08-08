@@ -7,18 +7,22 @@ class Song(db.Model):
     if environment == 'production':
         __table_args__ = { 'schema': SCHEMA }
 
-    id = db.Column(id.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     artists = db.Column(db.String(50))
     created_by = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     plays = db.Column(db.Integer, default=0)
     song_body = db.Column(db.String)
     song_length = db.Column(db.Integer)
+    album_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('albums.id')))
+    playlist_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('playlists.id')))
+    liked_songs_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('liked_songs.id')))
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now)
 
     albums = db.relationship('Album', back_populates='songs')
     playlists = db.relationship('Playlist', back_populates='songs')
+    # liked_songs = db.relationship('LikedSong', back_populates='songs')
 
     def to_dict(self):
         return {

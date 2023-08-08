@@ -7,7 +7,7 @@ class Playlist(db.Model):
     if environment == 'production':
         __table_args__ = { 'schema': SCHEMA }
 
-    id = db.Column(id.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     owner = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     description = db.Column(db.String(1000))
@@ -16,3 +16,13 @@ class Playlist(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.now)
 
     songs = db.relationship('Song', back_populates='playlists', cascade='all, delete-orphan')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'description': self.description,
+            'picture': self.picture,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at
+        }
