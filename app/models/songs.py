@@ -12,9 +12,12 @@ class Song(db.Model):
     artists = db.Column(db.String(50))
     created_by = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     plays = db.Column(db.Integer, default=0)
+    song_body = db.Column(db.String)
     song_length = db.Column(db.Integer)
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now)
+
+    albums = db.relationship('Album', back_populates='songs', cascade='all, delete-orphan')
 
     def to_dict(self):
         return {
