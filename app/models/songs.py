@@ -17,7 +17,8 @@ class Song(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now)
 
-    albums = db.relationship('Album', back_populates='songs', cascade='all, delete-orphan')
+    albums = db.relationship('Album', back_populates='songs')
+    playlists = db.relationship('Playlist', back_populates='songs')
 
     def to_dict(self):
         return {

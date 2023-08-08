@@ -1,19 +1,18 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
 
-class Album(db.Model):
-    __tablename__ = 'albums'
+class Playlist(db.Model):
+    __tablename__ = 'playlists'
 
     if environment == 'production':
         __table_args__ = { 'schema': SCHEMA }
 
     id = db.Column(id.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
-    artists = db.Column(db.String)
-    created_by = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
+    owner = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     description = db.Column(db.String(1000))
-    art = db.Column(db.String)
+    picture = db.Column(db.String, default='/playlist-pic.png')
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now)
-    
-    songs = db.relationship('Songs', back_populates='albums', cascade='all, delete-orphan')
+
+    songs = db.relationship('Song', back_populates='playlists', cascade='all, delete-orphan')
