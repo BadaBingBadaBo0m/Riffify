@@ -1,4 +1,4 @@
-# Riffify
+# Tritone
 
 a clone of spotify
 
