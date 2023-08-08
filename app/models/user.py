@@ -19,6 +19,7 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now)
     hashed_password = db.Column(db.String(255), nullable=False)
+    liked_songs = db.relationship('LikedSong', back_populates='user', cascade='all, delete-orphan')
 
     @property
     def password(self):
