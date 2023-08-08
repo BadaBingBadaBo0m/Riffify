@@ -4,7 +4,7 @@ from sqlalchemy import text
 def seed_albums():
     the_way_it_ends = Album(
         name='The Way It Ends',
-        created_by=1
+        created_by_id=1
     )
 
     db.session.add(the_way_it_ends)

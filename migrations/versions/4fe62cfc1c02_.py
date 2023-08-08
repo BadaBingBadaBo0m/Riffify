@@ -1,19 +1,18 @@
 """empty message
 
-Revision ID: fd5a36180c44
+Revision ID: 4fe62cfc1c02
 Revises: 
-Create Date: 2023-08-08 14:20:49.031949
+Create Date: 2023-08-08 15:06:32.942638
 
 """
 from alembic import op
 import sqlalchemy as sa
-
 import os
 environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
-revision = 'fd5a36180c44'
+revision = '4fe62cfc1c02'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -39,12 +38,12 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=50), nullable=False),
     sa.Column('artists', sa.String(), nullable=True),
-    sa.Column('created_by', sa.Integer(), nullable=True),
+    sa.Column('created_by_id', sa.Integer(), nullable=True),
     sa.Column('description', sa.String(length=1000), nullable=True),
     sa.Column('art', sa.String(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
-    sa.ForeignKeyConstraint(['created_by'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['created_by_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('songs',

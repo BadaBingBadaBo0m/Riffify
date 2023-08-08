@@ -10,13 +10,14 @@ class Album(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     artists = db.Column(db.String)
-    created_by = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
+    created_by_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     description = db.Column(db.String(1000))
     art = db.Column(db.String)
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now)
     
     songs = db.relationship('Song', back_populates='albums', cascade='all, delete-orphan')
+    created_by_user = db.relationship('User', back_populates='albums')
 
     def to_dict(self):
         return {
