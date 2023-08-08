@@ -16,13 +16,12 @@ class Song(db.Model):
     song_length = db.Column(db.Integer)
     album_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('albums.id')))
     playlist_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('playlists.id')))
-    liked_songs_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('liked_songs.id')))
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now)
 
     albums = db.relationship('Album', back_populates='songs')
     playlists = db.relationship('Playlist', back_populates='songs')
-    # liked_songs = db.relationship('LikedSong', back_populates='songs')
+    liked_songs = db.relationship('LikedSong', back_populates='songs', cascade='all, delete-orphan')
 
     def to_dict(self):
         return {

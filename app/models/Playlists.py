@@ -12,10 +12,11 @@ class Playlist(db.Model):
     owner = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     description = db.Column(db.String(1000))
     picture = db.Column(db.String, default='/playlist-pic.png')
+    # song_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('songs.id')))
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now)
 
-    songs = db.relationship('Song', back_populates='playlists', cascade='all, delete-orphan')
+    songs = db.relationship('Song', back_populates='playlists')
 
     def to_dict(self):
         return {
