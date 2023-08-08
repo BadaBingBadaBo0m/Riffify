@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 4fe62cfc1c02
+Revision ID: 3733e4ee1b7f
 Revises: 
-Create Date: 2023-08-08 15:06:32.942638
+Create Date: 2023-08-08 15:15:31.689239
 
 """
 from alembic import op
@@ -12,7 +12,7 @@ environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
-revision = '4fe62cfc1c02'
+revision = '3733e4ee1b7f'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -72,13 +72,13 @@ def upgrade():
     op.create_table('playlists',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=50), nullable=False),
-    sa.Column('owner', sa.Integer(), nullable=True),
+    sa.Column('owner_id', sa.Integer(), nullable=True),
     sa.Column('description', sa.String(length=1000), nullable=True),
     sa.Column('picture', sa.String(), nullable=True),
     sa.Column('song_id', sa.Integer(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
-    sa.ForeignKeyConstraint(['owner'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['owner_id'], ['users.id'], ),
     sa.ForeignKeyConstraint(['song_id'], ['songs.id'], ),
     sa.PrimaryKeyConstraint('id')
     )

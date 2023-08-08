@@ -4,7 +4,7 @@ from sqlalchemy import text
 def seed_playlists():
     better_days = Playlist(
         name='Bangers',
-        owner=1
+        owner_id=1
     )
 
     db.session.add(better_days)
