@@ -1,18 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SideBar from '../SideBar'
-import Recommended from '../Recommended'
+import MediaPlayer from '../MediaPlayer'
+import Navbar from '../Navbar'
+
 import './homepage.css'
 
-const HomePage = () => {
-
+const HomePage = ({ Content }) => {
 
   return (
     <div id='home-container'>
       <SideBar />
 
       <div id='main-content'>
-        <Recommended />
+        <Navbar />
+        < Content />
       </div>
+
+      <MediaPlayer />
     </div>
   )
 }

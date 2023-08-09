@@ -1,13 +1,19 @@
 import React from 'react'
 import './sidebar.css'
+import { useHistory } from 'react-router-dom'
 
 const SideBar = () => {
+  const history = useHistory()
+
+  const testRedirect = () => {
+    history.push('/test')
+  }
 
   return (
     <div id='side-bar-container'>
       <ul id='home-button-container'>
         <li>
-          <button>Home</button>
+          <button onClick={testRedirect}>Home</button>
         </li>
         <li>
           <button>Search</button>
