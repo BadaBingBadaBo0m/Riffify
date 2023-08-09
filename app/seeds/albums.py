@@ -4,19 +4,23 @@ from sqlalchemy import text
 def seed_albums():
     the_way_it_ends = Album(
         name='The Way It Ends',
-        created_by_id=1
+        created_by_id=1,
+        art='/Currents-the-way-it-ends.jpg'
     )
     aggressive = Album(
         name='Aggressive',
-        created_by_id=1
+        created_by_id=1,
+        art='/Beartooth-aggressive.jpg'
     )
     dissentient = Album(
         name='dissentient',
-        created_by_id=2
+        created_by_id=2,
+        art='/Angelmaker-dissentient.jpg'
     )
     the_death_of_peace_of_mind = Album(
         name='THE DEATH OF PEACE OF MIND',
-        created_by_id=2
+        created_by_id=2,
+        art='/Bad-omens-the-death-of-peace-of-mind.png'
     )
 
     db.session.add(the_way_it_ends)

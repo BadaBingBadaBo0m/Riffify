@@ -2,6 +2,42 @@
   border-radius: 10px;
 }
 
-#recommended {
+#recommended-playlists-title,
+#recommended-albums-title {
   color: white;
+}
+
+#recommended-albums {
+  margin-left: 2rem;
+  color: white;
+}
+
+#album-list-container {
+  padding: 0;
+
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  overflow-x: auto;
+  margin-right: 1rem;
+}
+
+#single-album {
+  background-color: #242424;
+  width: 10rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: .5rem;
+}
+
+#album-art-list {
+  width: 9rem;
+}
+
+#album-name {
+  margin: 0;
+  text-align: center;
+  margin-top: .8rem;
 }

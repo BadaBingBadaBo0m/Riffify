@@ -12,8 +12,12 @@ const HomePage = ({ Content }) => {
       <SideBar />
 
       <div id='main-content'>
-        <Navbar />
-        <Content />
+        <div id='navbar-container'>
+          <Navbar />
+        </div>
+        <div id='content-container'>
+          <Content />
+        </div>
       </div>
 
       <MediaPlayer />
