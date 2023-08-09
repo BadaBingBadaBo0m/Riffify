@@ -13,7 +13,7 @@ const HomePage = ({ Content }) => {
 
       <div id='main-content'>
         <Navbar />
-        < Content />
+        <Content />
       </div>
 
       <MediaPlayer />

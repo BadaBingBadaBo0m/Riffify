@@ -6,7 +6,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import UploadPicture from "./components/AWSForm";
 import HomePage from "./components/Homepage";
 import Recommended from './components/Recommended'
-import TestRedirect from "./components/TestRedirect";
+import AlbumForm from "./components/AlbumForm";
 import { authenticate } from "./store/session";
 // import Navigation from "./components/Navigation";
 
@@ -24,8 +24,8 @@ function App() {
           <Route exact path='/' >
             <HomePage Content={Recommended} />
           </Route>
-          <Route exact path='/test' >
-            <HomePage Content={TestRedirect} />
+          <Route exact path='/new-album' >
+            <HomePage Content={AlbumForm} />
           </Route>
           <Route path="/login" >
             <LoginFormPage />

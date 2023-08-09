@@ -93,6 +93,7 @@
   font-size: .9rem;
   background-color: white;
   color: black;
+  border: none;
 
   display: flex;
   align-items: center;

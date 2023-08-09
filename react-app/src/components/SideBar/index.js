@@ -5,20 +5,18 @@ import { useHistory } from 'react-router-dom'
 const SideBar = () => {
   const history = useHistory()
 
-  const testRedirect = () => {
-    history.push('/test')
-  }
 
   return (
     <div id='side-bar-container'>
       <ul id='home-button-container'>
         <li>
-          <button onClick={testRedirect}>Home</button>
+          <button onClick={() => history.push('/')}>Home</button>
         </li>
         <li>
           <button>Search</button>
         </li>
       </ul>
+
       <div id='playlist-container'>
         <div id='library-container'>
           <h2 id='library-heading'>Your Library</h2>
@@ -32,13 +30,9 @@ const SideBar = () => {
         <div id='owned-albums-container'>
           <h2 id='owned-albums-title'>Your Albums</h2>
           <div id='owned-albums-'>
-            <span id='create-album'>Create new album</span>
+            <span id='create-album' onClick={() => history.push('/new-album')}>Create new album</span>
           </div>
         </div>
-      </div>
-
-      <div id='album-container'>
-
       </div>
     </div>
   )

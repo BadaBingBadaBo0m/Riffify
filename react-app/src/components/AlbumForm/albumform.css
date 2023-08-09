@@ -1,0 +1,26 @@
+#album-form-container {
+  color: white;
+}
+
+#album-form {
+  max-width: 40rem;
+  margin: auto;
+  background-color: #000000;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#album-form-input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#album-form-input {
+  width: 15rem;
+  height: 2rem;
+  background-color: #242424;
+
+}
