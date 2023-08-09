@@ -16,6 +16,12 @@
 
 #library-container {
   background-color: #121212;
+  margin: .8rem;
+}
+
+#library-heading {
+  color: #a7a7a7;
+  font-size: 1.2rem;
 }
 
 #playlist-container {
@@ -27,7 +33,7 @@
 }
 
 #home-button-container {
-  background-color: #242424;
+  background-color: #121212;
   color: white;
 }
 
