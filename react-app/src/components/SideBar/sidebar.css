@@ -1,0 +1,37 @@
+#side-bar-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr 1.8fr;
+  gap: 10px 0px;
+  grid-template-areas:
+    "ButtonContainer"
+    "PlaylistContainer";
+}
+
+#home-button-container {
+  border-radius: 10px;
+  list-style: none;
+  grid-area: ButtonContainer;
+}
+
+#library-container {
+  background-color: #121212;
+}
+
+#playlist-container {
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  grid-area: PlaylistContainer;
+  border-radius: 10px;
+}
+
+#home-button-container {
+  background-color: #242424;
+  color: white;
+}
+
+#create-first-playlist {
+  background-color: #242424;
+  color: white;
+}
