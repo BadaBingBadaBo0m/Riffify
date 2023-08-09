@@ -4,7 +4,7 @@ from ..forms import AlbumForm
 from app.models import db, Album, User
 from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 
-album_routes = Blueprint('album', __name__)
+album_routes = Blueprint('albums', __name__)
 
 @album_routes.route('/')
 def get_all_albums():

@@ -24,7 +24,7 @@ class Album(db.Model):
             'id': self.id,
             'name': self.name,
             'artists': self.artists,
-            'created_by': self.created_by,
+            'created_by_id': self.created_by_id,
             'description': self.description,
             'art': self.art,
             'created_at': self.created_at,
