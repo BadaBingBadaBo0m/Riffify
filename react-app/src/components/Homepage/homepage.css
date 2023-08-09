@@ -22,6 +22,7 @@
 #main-content {
   grid-area: Main-content;
 
+  overflow: auto;
   background-color: #000000;
   border-radius: 10px;
   background: rgb(18, 18, 18);
