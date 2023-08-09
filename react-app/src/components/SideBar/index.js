@@ -17,9 +17,9 @@ const SideBar = () => {
         <div id='library-container'>
           <h2 id='library-heading'>Your Library</h2>
           <div id='create-first-playlist'>
-            <h2>Create your first playlist</h2>
-            <p>It's easy, we'll help you</p>
-            <button>Create playlist</button>
+            <h2 id='first-playlist-heading'>Create your first playlist</h2>
+            <p id='first-playlist-desc'>It's easy, we'll help you</p>
+            <span id='create-playlist-button'>Create playlist</span>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import SideBar from '../SideBar'
+import Recommended from '../Recommended'
 import './homepage.css'
 
 const HomePage = () => {
@@ -10,7 +11,7 @@ const HomePage = () => {
       <SideBar />
 
       <div id='main-content'>
-        <h1>Bruh</h1>
+        <Recommended />
       </div>
     </div>
   )

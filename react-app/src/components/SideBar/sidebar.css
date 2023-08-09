@@ -16,12 +16,12 @@
 
 #library-container {
   background-color: #121212;
-  margin: .8rem;
+  margin: .6rem;
 }
 
 #library-heading {
   color: #a7a7a7;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 #playlist-container {
@@ -40,4 +40,30 @@
 #create-first-playlist {
   background-color: #242424;
   color: white;
+  padding: .5rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+#first-playlist-heading {
+  font-size: 1rem;
+  margin: 0;
+}
+
+#first-playlist-desc {
+  font-size: .8rem;
+  color: #fefefe;
+}
+
+#create-playlist-button {
+  width: 7.5rem;
+  height: 2rem;
+  border-radius: 500px;
+  background-color: white;
+  color: black;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
