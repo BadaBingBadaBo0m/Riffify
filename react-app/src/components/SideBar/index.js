@@ -28,6 +28,13 @@ const SideBar = () => {
             <span id='create-playlist-button'>Create playlist</span>
           </div>
         </div>
+
+        <div id='owned-albums-container'>
+          <h2 id='owned-albums-title'>Your Albums</h2>
+          <div id='owned-albums-'>
+            <span id='create-album'>Create new album</span>
+          </div>
+        </div>
       </div>
 
       <div id='album-container'>

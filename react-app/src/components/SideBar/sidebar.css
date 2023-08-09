@@ -70,3 +70,31 @@
   align-items: center;
   justify-content: center;
 }
+
+#owned-albums-container {
+  background-color: #242424;
+  color: white;
+  padding: .5rem;
+  margin: .5rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+#owned-albums-title {
+  font-size: 1rem;
+  margin: 0;
+}
+
+#create-album {
+  width: 8.5rem;
+  height: 2rem;
+  border-radius: 500px;
+  font-size: .9rem;
+  background-color: white;
+  color: black;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
