@@ -29,6 +29,10 @@ const SideBar = () => {
           </div>
         </div>
       </div>
+
+      <div id='album-container'>
+
+      </div>
     </div>
   )
 }

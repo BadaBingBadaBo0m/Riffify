@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import './mediaplayer.css'
 
 const MediaPlayer = () => {
   const [play, setPlay] = useState(false);
@@ -33,11 +34,10 @@ const MediaPlayer = () => {
   }
 
   return (
-    <div>
-      <h1 id='media-test'>MediaPlayer</h1>
+    <div id='media-player-container'>
       <audio
         ref={audioRef}
-        src='https://tritone-spotify-clone.s3.amazonaws.com/Currents+Better+days.mp3'
+        src='/Currents-Better-days.mp3'
         onTimeUpdate={handleTimeUpdate}
       />
       <button onClick={play ? handlePause : handlePlay}>{play ? 'Pause' : "Play"}</button>

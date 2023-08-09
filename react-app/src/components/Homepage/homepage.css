@@ -2,16 +2,17 @@
   background-color: #000000;
   min-width: 100%;
   height: 100vh;
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: row; */
   padding: .6rem;
 
   display: grid;
   grid-template-columns: 25% 1fr;
-  grid-template-rows: 1fr;
+  grid-template-rows: 1fr .07fr;
   gap: 0px 10px;
   grid-template-areas:
-    "Playlist-bar Main-content";
+    "Playlist-bar Main-content"
+    "media-player media-player";
 }
 
 #side-bar-container {
@@ -20,13 +21,13 @@
 
 #main-content {
   grid-area: Main-content;
+
   background-color: #000000;
   border-radius: 10px;
   background: rgb(18, 18, 18);
   background: linear-gradient(0deg, rgba(18, 18, 18, 1) 60%, rgba(36, 36, 36, 1) 90%);
 }
 
-#media-test {
-  color: white;
-  /* display: none; */
+#media-player-container {
+  grid-area: media-player;
 }
