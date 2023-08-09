@@ -20,6 +20,6 @@
 
 #main-content {
   grid-area: Main-content;
-  background-color: white;
+  background-color: #000000;
   border-radius: 10px;
 }

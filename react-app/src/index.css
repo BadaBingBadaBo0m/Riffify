@@ -13,10 +13,6 @@ body {
   padding: 0;
 }
 
-#root {
-  background-color: red;
-}
-
 * {
   box-sizing: border-box;
 }
