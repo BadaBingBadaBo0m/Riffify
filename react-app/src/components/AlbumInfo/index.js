@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux";
 import Loading from '../Loading';
-import albums, { getSingleAlbum, getSongsForAlbum } from '../../store/albums';
+import { getSingleAlbum, getSongsForAlbum } from '../../store/albums';
+import AlbumDropdown from '../AlbumDropdown';
 import './albuminfo.css'
 
 const AlbumInfo = () => {
@@ -45,7 +46,7 @@ const AlbumInfo = () => {
       <div id='song-list-container'>
         <div id='play-button-like-container'>
           <button id='album-play-button'> {<i className="fa-solid fa-play"></i>} </button>
-          {user && user.id === album.created_by_id && <i class="fa-solid fa-ellipsis" id='album-dropdown-button'></i>}
+          <AlbumDropdown album={album} />
         </div>
       </div>
 
