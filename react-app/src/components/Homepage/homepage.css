@@ -22,7 +22,7 @@
 #main-content {
   grid-area: Main-content;
 
-  /* overflow: auto; */
+  overflow-y: auto;
   background-color: #000000;
   border-radius: 10px;
   background: rgb(18, 18, 18);
@@ -37,6 +37,19 @@
   grid-template-areas:
     "Navbar"
     "content";
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 500px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
 }
 
 #navbar-container {

@@ -22,11 +22,17 @@ def seed_albums():
         created_by_id=2,
         art='/Bad-omens-the-death-of-peace-of-mind.png'
     )
+    color_decay = Album(
+        name='Color Decay',
+        created_by_id=2,
+        art='/TDWP-color-decay.jpg'
+    )
 
     db.session.add(the_way_it_ends)
     db.session.add(aggressive)
     db.session.add(dissentient)
     db.session.add(the_death_of_peace_of_mind)
+    db.session.add(color_decay)
     db.session.commit()
 
 def undo_albums():

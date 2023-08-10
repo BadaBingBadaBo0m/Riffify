@@ -11,8 +11,8 @@ const Recommended = () => {
   useEffect(() => {
     dispatch(getAllAlbums())
   }, [])
+
   if (!albums) return <Loading />
-  console.log(albums)
 
   return (
     <>
