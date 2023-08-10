@@ -1,4 +1,4 @@
-const ADD_ALBUM = 'albums/post'
+const CREATE_ALBUM = 'albums/post'
 const SET_ALBUMS = '/albums/all'
 const SET_SINGLE_ALBUM = '/album'
 const SET_ALBUM_SONGS = 'album/songs'
@@ -18,12 +18,10 @@ const setAlbumSongs = (songs) => ({
   songs
 })
 
-const addPost = (post) => ({
-  type: ADD_ALBUM,
-  post
+const actionCreateAlbum = (album) => ({
+  type: CREATE_ALBUM,
+  album
 })
-
-
 
 export const getAllAlbums = () => async (dispatch) => {
   const response = await fetch('/api/albums');
@@ -60,21 +58,22 @@ export const getSongsForAlbum = (id) => async (dispatch) => {
   }
 }
 
-export const createImage = (post) => async (dispatch) => {
-  const response = await fetch(`/api/album/new`, {
+export const createAlbum = (album) => async (dispatch) => {
+  const response = await fetch(`/api/albums/new`, {
     method: "POST",
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     "Content-Type": "application/json",
-    //   },
-    body: post
+    // headers: {
+    //   'Accept': 'application/json',
+    //   "Content-Type": "application/json",
+    // },
+    body: album
   });
 
   if (response.ok) {
-    const { resPost } = await response.json();
-    dispatch(addPost(resPost));
+    const { album } = await response.json();
+    dispatch(actionCreateAlbum(album));
+    return album
   } else {
-    console.log("There was an error making your post!")
+    return response
   }
 };
 
@@ -88,8 +87,8 @@ export default function albums(state = initialState, action) {
       return { ...state, singleAlbum: action.album }
     case SET_ALBUM_SONGS:
       return { ...state, albumSongs: action.songs }
-    // case ADD_ALBUM:
-    //   return { ...state, albums: action.post }
+    case CREATE_ALBUM:
+      return { ...state, singleAlbum: action.album }
     default:
       return state
   }

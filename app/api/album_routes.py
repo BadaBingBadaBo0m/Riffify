@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from flask_login import login_required
+from flask_login import login_required, current_user
 from ..forms import AlbumForm
 from app.models import db, Album, User, Song
 from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
@@ -44,7 +44,7 @@ def delete_album_by_id(id):
 def upload_image():
     form = AlbumForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    print('************************** Route hit')
     if form.validate_on_submit():
 
         image = form.data["art"]
@@ -59,6 +59,14 @@ def upload_image():
             return { 'errors': 'URL not in upload' }
 
         url = upload["url"]
+        new_album = Album(
+            name=form.data['name'],
+            description=form.data['description'],
+            art=url,
+            created_by_id=current_user.id
+        )
+        db.session.add(new_album)
+        db.session.commit()
         # new_image = Post(image= url)
         # db.session.add(new_image)
         # db.session.commit()

@@ -11,8 +11,8 @@ class Album(db.Model):
     name = db.Column(db.String(50), nullable=False)
     artists = db.Column(db.String)
     created_by_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
-    description = db.Column(db.String(1000))
-    art = db.Column(db.String)
+    description = db.Column(db.String(1000), nullable=False)
+    art = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now)
     
