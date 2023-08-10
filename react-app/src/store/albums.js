@@ -82,6 +82,21 @@ export const createAlbum = (album) => async (dispatch) => {
   }
 };
 
+export const updateAlbum = (id, album) => async (dispatch) => {
+  const response = await fetch(`/api/albums/${id}`, {
+    method: 'PUT',
+    body: album
+  })
+
+  if (response.ok) {
+    const album = await response.json();
+    dispatch(setSingleAlbum(album))
+    return album
+  } else {
+    return response
+  }
+}
+
 export const deleteAlbum = (id) => async (dispatch) => {
   const response = await fetch(`/api/albums/${id}`, {
     method: 'DELETE'

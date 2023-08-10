@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom'
-import { createAlbum } from "../../store/albums";
+import { createAlbum, updateAlbum } from "../../store/albums";
 import { useModal } from '../../context/Modal';
 import './albumform.css'
 
@@ -21,12 +21,14 @@ const AlbumForm = ({ type, album }) => {
     const errorObj = {};
 
     if (!name) errorObj.name = 'is required.'
-    if (name.length > 50) errorObj.name = 'length cannot be greater than 50.'
+    if (name && name.length > 50) errorObj.name = 'length cannot be greater than 50.'
 
     if (!description) errorObj.description = 'is required.'
-    if (description.length > 1000) errorObj.description = 'length cannot be greater than 1000'
+    if (description && description.length > 1000) errorObj.description = 'length cannot be greater than 1000'
 
-    if (!image) errorObj.art = 'is required.'
+    if (type == 'create') {
+      if (!image) errorObj.art = 'is required.'
+    }
 
     setErrors(errorObj)
     if (Object.keys(errorObj).length) return false
@@ -38,23 +40,33 @@ const AlbumForm = ({ type, album }) => {
 
     const isValid = validateData()
 
-    if (isValid) {
+    if (isValid && type == 'create') {
       const formData = new FormData();
       formData.append('art', image);
       formData.append('name', name);
       formData.append('description', description);
       setImageLoading(true)
       const album = await dispatch(createAlbum(formData))
-      // console.log(album)
       closeModal()
       history.push(`/albums/${album.id}`)
+    }
+
+    if (isValid && type == 'update') {
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('description', description);
+      if (image) formData.append('art', image)
+      setImageLoading(true)
+      const updated_album = await dispatch(updateAlbum(album.id, formData))
+      closeModal()
+      // history.push(`/albums/${updated_album.id}`)
     }
   }
 
   return (
     <div id='album-form-container'>
       <form id='album-form'>
-        <h1 id='album-form-header'>Create a new album</h1>
+        <h1 id='album-form-header'>{type === 'create' ? 'Create a new album' : `Update ${album.name}`}</h1>
 
         <div className='album-form-input-container'>
           <label htmlFor='name'>Name {errors.name && <span className='errors'>{errors.name}</span>}</label>

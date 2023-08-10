@@ -5,6 +5,7 @@ import ConfirmModal from '../ConfirmModal';
 import { deleteAlbum } from '../../store/albums';
 import './albumdropdown.css'
 import { useHistory } from 'react-router-dom';
+import AlbumForm from '../AlbumForm';
 
 const AlbumDropdown = ({ album }) => {
   const user = useSelector((state) => state.session.user);
@@ -58,7 +59,9 @@ const AlbumDropdown = ({ album }) => {
         <div className={classShowMenu}>
           <ul className={ownedAlbum}>
             <li className='album-dropdown-li'>
-              <button className='album-dropdown-button'>Edit</button>
+              <div className='album-dropdown-button'>
+                <OpenModalButton buttonText={'Edit'} modalComponent={<AlbumForm type={'update'} album={album} />} />
+              </div>
             </li>
             <li className='album-dropdown-li'>
               <div className='album-dropdown-button'>

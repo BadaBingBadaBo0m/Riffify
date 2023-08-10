@@ -94,11 +94,12 @@ def create_new_album():
 
 @album_routes.route("/<int:id>", methods=["PUT"])
 @login_required
-def upload_image(id):
+def update_album(id):
     """
     Update an existing album
     """
     album = Album.query.get(id)
+    user = User.query.get(current_user.id)
     form = UpdateAlbumForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
@@ -110,7 +111,7 @@ def upload_image(id):
 
     if form.validate_on_submit():
 
-        if form.data.art:
+        if form.data['art']:
             remove_file_from_s3(album.art)
 
             image = form.data["art"]
@@ -129,12 +130,12 @@ def upload_image(id):
             album.description = form.data['description']
             album.art = url
             db.session.commit()
-            return { 'message': 'Success' }, 200
+            return { **album.to_dict(), 'created_by': user.private_to_dict() }, 200
         else:
             album.name = form.data['name']
             album.description = form.data['description']
             db.session.commit()
-            return { 'message': 'Success' }, 200
+            return { **album.to_dict(), 'created_by': user.private_to_dict() }, 200
 
     if form.errors:
         print(form.errors)
