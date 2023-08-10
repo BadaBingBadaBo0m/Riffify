@@ -13,7 +13,7 @@ class Song(db.Model):
     artists = db.Column(db.String(50))
     created_by = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     plays = db.Column(db.Integer, default=0)
-    song_body = db.Column(db.String)
+    song_body = db.Column(db.String, nullable=False)
     song_length = db.Column(db.Integer)
     album_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('albums.id')))
     # playlist_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('playlists.id')))
@@ -31,6 +31,7 @@ class Song(db.Model):
             'artists': self.artists,
             'created_by': self.created_by,
             'plays': self.plays,
+            'song_body': self.song_body,
             'song_length': self.song_length,
             'created_at': self.created_at,
             'updated_at': self.updated_at

@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useContext, useEffect } from 'react'
+import { SongContext } from '../../context/Song';
 import './mediaplayer.css'
 
 const MediaPlayer = () => {
@@ -6,7 +7,13 @@ const MediaPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
   const [volume, setVolume] = useState(1)
+  const { currentSong, setCurrentSong } = useContext(SongContext)
   const audioRef = useRef()
+
+  useEffect(() => {
+    audioRef.current.play()
+    setPlay(true)
+  }, [currentSong])
 
   const handlePlay = () => {
     audioRef.current.play()
@@ -35,9 +42,10 @@ const MediaPlayer = () => {
 
   return (
     <div id='media-player-container'>
+      <div className='errors'>{currentSong?.name}</div>
       <audio
         ref={audioRef}
-        src='/Currents-Better-days.mp3'
+        src={currentSong?.song_body}
         onTimeUpdate={handleTimeUpdate}
       />
       <button onClick={play ? handlePause : handlePlay}>{play ? 'Pause' : "Play"}</button>
@@ -57,7 +65,7 @@ const MediaPlayer = () => {
         value={currentTime}
         onChange={handleCurrentTime}
       />
-    </div>
+    </div >
   )
 }
 

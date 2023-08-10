@@ -90,8 +90,6 @@ def create_new_album():
         print(form.errors)
         return { 'errors': form.errors }
 
-    # return render_template("post_form.html", form=form, errors=None)
-
 @album_routes.route("/<int:id>", methods=["PUT"])
 @login_required
 def update_album(id):

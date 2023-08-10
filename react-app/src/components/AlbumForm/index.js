@@ -46,9 +46,10 @@ const AlbumForm = ({ type, album }) => {
       formData.append('name', name);
       formData.append('description', description);
       setImageLoading(true)
-      const album = await dispatch(createAlbum(formData))
+      const new_album = await dispatch(createAlbum(formData))
+      console.log(new_album)
       closeModal()
-      history.push(`/albums/${album.id}`)
+      history.push(`/albums/${new_album.id}`)
     }
 
     if (isValid && type == 'update') {

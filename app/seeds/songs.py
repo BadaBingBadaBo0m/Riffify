@@ -6,11 +6,13 @@ def seed_songs():
         name='Better Days',
         created_by=1,
         album_id=1,
+        song_body='/Currents-Better-days.mp3'
     )
     tests = Song(
-        name='test',
+        name='Kill The Ache',
         created_by=1,
         album_id=1,
+        song_body='/Currents-Kill-The-Ache.mp3'
     )
 
     db.session.add(better_days)

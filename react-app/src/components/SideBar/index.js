@@ -1,12 +1,13 @@
-import React from 'react'
-import './sidebar.css'
-import { useHistory } from 'react-router-dom'
-import OpenModalButton from '../OpenModalButton'
-import AlbumForm from '../AlbumForm'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import './sidebar.css';
+import { useHistory } from 'react-router-dom';
+import OpenModalButton from '../OpenModalButton';
+import AlbumForm from '../AlbumForm';
 
 const SideBar = () => {
-  const history = useHistory()
-
+  const history = useHistory();
+  const user = useSelector((state) => state.session.user)
 
   return (
     <div id='side-bar-container'>
@@ -29,12 +30,15 @@ const SideBar = () => {
           </div>
         </div>
 
-        <div id='owned-albums-container'>
+        <div
+          id='owned-albums-container'
+        >
           <h2 id='owned-albums-title'>Your Albums</h2>
           <div id='owned-albums-'>
             {/* <span id='create-album' onClick={() => history.push('/new-album')}>Create new album</span> */}
             <div id='create-album'>
-              <OpenModalButton buttonText={'Create new album'} modalComponent={<AlbumForm type={'create'} />} />
+              {!user && <button onClick={() => alert('Must be logged in')}>Create a album</button>}
+              {user && <OpenModalButton buttonText={'Create new album'} modalComponent={<AlbumForm type={'create'} />} />}
             </div>
           </div>
         </div>
