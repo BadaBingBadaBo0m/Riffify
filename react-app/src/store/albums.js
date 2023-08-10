@@ -66,10 +66,6 @@ export const getSongsForAlbum = (id) => async (dispatch) => {
 export const createAlbum = (album) => async (dispatch) => {
   const response = await fetch(`/api/albums/new`, {
     method: "POST",
-    // headers: {
-    //   'Accept': 'application/json',
-    //   "Content-Type": "application/json",
-    // },
     body: album
   });
 
