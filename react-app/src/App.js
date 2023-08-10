@@ -7,7 +7,7 @@ import UploadPicture from "./components/AWSForm";
 import HomePage from "./components/Homepage";
 import Recommended from './components/Recommended'
 import AlbumForm from "./components/AlbumForm";
-import AlbumInfo from "./AlbumInfo";
+import AlbumInfo from "./components/AlbumInfo";
 import { authenticate } from "./store/session";
 // import Navigation from "./components/Navigation";
 
