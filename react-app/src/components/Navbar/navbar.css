@@ -1,4 +1,48 @@
-#test {
-  margin: 0;
-  color: white;
+#navBar-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: transparent;
+}
+
+.logout-button {
+  width: 6rem;
+  height: 2.5rem;
+  border-radius: 500px;
+  font-size: .9rem;
+  background-color: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-button>button {
+  width: 6rem;
+  height: 2.5rem;
+  border-radius: 500px;
+  font-size: .9rem;
+  background-color: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+}
+
+#signup-login-button-container {
+  display: flex;
+  align-items: center;
+}
+
+.logout-login-button.loggedOut {
+  margin-left: 1rem;
+}
+
+#signUp-button>button {
+  background-color: transparent;
+  border: none;
+  color: #909090;
+  font-size: 1rem;
 }

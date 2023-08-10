@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from ..forms import AlbumForm
-from app.models import db, Album, User
+from app.models import db, Album, User, Song
 from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 
 album_routes = Blueprint('albums', __name__)
@@ -17,12 +17,15 @@ def get_all_albums():
 
 @album_routes.route('/<int:id>')
 def get_album_info(id):
-    album = Album.query.get(id)
+    # album = Album.query.get(id)
+    album = db.session.query(Album, User) \
+        .join(User, Album.created_by_id == User.id) \
+        .filter(Album.id == id).first()
 
     if album is None:
         return { 'errors': ['Album not found'] }, 404
-    
-    return {'album': album.to_dict()}
+
+    return { **album[0].to_dict(), **album[1].private_to_dict() }
 
 @album_routes.route('/<int:id>', methods=['DELETE'])
 def delete_album_by_id(id):

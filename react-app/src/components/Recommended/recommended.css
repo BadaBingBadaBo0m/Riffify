@@ -36,6 +36,11 @@
   padding: .5rem;
 }
 
+#single-album:hover {
+  cursor: pointer;
+  background-color: #292929;
+}
+
 #album-art-list {
   width: 9rem;
   border-radius: 10px;

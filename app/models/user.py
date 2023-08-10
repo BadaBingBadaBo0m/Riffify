@@ -46,3 +46,10 @@ class User(db.Model, UserMixin):
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
+
+    def private_to_dict(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'profile_pic': self.profile_pic
+        }
