@@ -2,11 +2,15 @@ import React, { useRef, useState, useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import OpenModalButton from '../OpenModalButton'
 import ConfirmModal from '../ConfirmModal';
+import { deleteAlbum } from '../../store/albums';
 import './albumdropdown.css'
+import { useHistory } from 'react-router-dom';
 
 const AlbumDropdown = ({ album }) => {
   const user = useSelector((state) => state.session.user);
+  // const album = useSelector((state) => state.albums.singleAlbum)
   const dispatch = useDispatch();
+  const history = useHistory()
   const [showMenu, setShowMenu] = useState(false);
   const albumDropdownRef = useRef();
 
@@ -21,15 +25,17 @@ const AlbumDropdown = ({ album }) => {
     document.addEventListener("click", closeMenu); //close menu on click anywhere on document exept menu or button
 
     return () => document.removeEventListener("click", closeMenu);
-  }, [showMenu]);
+  }, [showMenu, album]);
 
   const ToggleMenu = () => {
     if (!showMenu) setShowMenu(true);
     else setShowMenu(false)
   }
 
-  const handleDelete = () => {
-    console.log('delete button working')
+  const handleDelete = async () => {
+    const res = await dispatch(deleteAlbum(album.id));
+    console.log(res)
+    history.push('/')
   }
 
   const classShowMenu = showMenu ? "album-dropdown-container" : "album-dropdown-container hidden"

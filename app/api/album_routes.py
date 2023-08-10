@@ -17,6 +17,9 @@ def get_all_albums():
 
 @album_routes.route('/<int:id>')
 def get_album_info(id):
+    """
+    Query for an album by Id
+    """
     # album = Album.query.get(id)
     album = db.session.query(Album, User) \
         .join(User, Album.created_by_id == User.id) \
@@ -25,11 +28,15 @@ def get_album_info(id):
     if album is None:
         return { 'errors': ['Album not found'] }, 404
 
-    return { **album[0].to_dict(), **album[1].private_to_dict() }
+    return { **album[0].to_dict(), 'created_by': album[1].private_to_dict() }
 
 @album_routes.route('/<int:id>', methods=['DELETE'])
 def delete_album_by_id(id):
+    """
+    Delete an album by Id
+    """
     album = Album.query.get(id)
+    remove_file_from_s3(album.art)
 
     if album is None:
         return { 'errors': ['Album not found'] }, 404
@@ -42,9 +49,12 @@ def delete_album_by_id(id):
 @album_routes.route("/new", methods=["POST"])
 @login_required
 def upload_image():
+    """
+    Create a new album
+    """
+
     form = AlbumForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print('************************** Route hit')
     if form.validate_on_submit():
 
         image = form.data["art"]

@@ -2,6 +2,7 @@ const CREATE_ALBUM = 'albums/post'
 const SET_ALBUMS = '/albums/all'
 const SET_SINGLE_ALBUM = '/album'
 const SET_ALBUM_SONGS = 'album/songs'
+const DELETE_ALBUM = 'albums/delete'
 
 const setAlbums = (albums) => ({
   type: SET_ALBUMS,
@@ -21,6 +22,10 @@ const setAlbumSongs = (songs) => ({
 const actionCreateAlbum = (album) => ({
   type: CREATE_ALBUM,
   album
+})
+
+const actionDeleteAlbum = (album) => ({
+  type: DELETE_ALBUM
 })
 
 export const getAllAlbums = () => async (dispatch) => {
@@ -77,6 +82,19 @@ export const createAlbum = (album) => async (dispatch) => {
   }
 };
 
+export const deleteAlbum = (id) => async (dispatch) => {
+  const response = await fetch(`/api/albums/${id}`, {
+    method: 'DELETE'
+  })
+
+  if (response.ok) {
+    dispatch(actionDeleteAlbum())
+    return { 'message': 'Successfully deleted' }
+  } else {
+    return response.errors
+  }
+}
+
 const initialState = { albumList: null, singleAlbum: null }
 
 export default function albums(state = initialState, action) {
@@ -89,6 +107,8 @@ export default function albums(state = initialState, action) {
       return { ...state, albumSongs: action.songs }
     case CREATE_ALBUM:
       return { ...state, singleAlbum: action.album }
+    case DELETE_ALBUM:
+      return { ...state, singleAlbum: null }
     default:
       return state
   }
