@@ -1,6 +1,8 @@
 import React from 'react'
 import './sidebar.css'
 import { useHistory } from 'react-router-dom'
+import OpenModalButton from '../OpenModalButton'
+import AlbumForm from '../AlbumForm'
 
 const SideBar = () => {
   const history = useHistory()
@@ -30,7 +32,10 @@ const SideBar = () => {
         <div id='owned-albums-container'>
           <h2 id='owned-albums-title'>Your Albums</h2>
           <div id='owned-albums-'>
-            <span id='create-album' onClick={() => history.push('/new-album')}>Create new album</span>
+            {/* <span id='create-album' onClick={() => history.push('/new-album')}>Create new album</span> */}
+            <div id='create-album'>
+              <OpenModalButton buttonText={'Create new album'} modalComponent={<AlbumForm type={'create'} />} />
+            </div>
           </div>
         </div>
       </div>

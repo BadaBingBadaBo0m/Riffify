@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from ..forms import AlbumForm
+from ..forms import AlbumForm, UpdateAlbumForm
 from app.models import db, Album, User, Song
 from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 
@@ -31,16 +31,20 @@ def get_album_info(id):
     return { **album[0].to_dict(), 'created_by': album[1].private_to_dict() }
 
 @album_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
 def delete_album_by_id(id):
     """
     Delete an album by Id
     """
     album = Album.query.get(id)
-    remove_file_from_s3(album.art)
+
+    if current_user.id != album.created_by_id:
+        return { 'error': 'Unauthorized' }, 401
 
     if album is None:
         return { 'errors': ['Album not found'] }, 404
     
+    remove_file_from_s3(album.art)
     db.session.delete(album)
     db.session.commit()
     return { 'message': 'Successfully deleted' }
@@ -48,11 +52,11 @@ def delete_album_by_id(id):
 
 @album_routes.route("/new", methods=["POST"])
 @login_required
-def upload_image():
+def create_new_album():
     """
     Create a new album
     """
-
+    user = User.query.get(current_user.id)
     form = AlbumForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -60,7 +64,7 @@ def upload_image():
         image = form.data["art"]
         image.filename = get_unique_filename(image.filename)
         upload = upload_file_to_s3(image)
-        print(upload)
+        # print(upload)
 
         if "url" not in upload:
         # if the dictionary doesn't have a url key
@@ -80,10 +84,58 @@ def upload_image():
         # new_image = Post(image= url)
         # db.session.add(new_image)
         # db.session.commit()
-        return { 'message': 'Success' }
+        return { **new_album.to_dict(), 'created_by': user.private_to_dict() }, 200
 
     if form.errors:
         print(form.errors)
         return { 'errors': form.errors }
 
     # return render_template("post_form.html", form=form, errors=None)
+
+@album_routes.route("/<int:id>", methods=["PUT"])
+@login_required
+def upload_image(id):
+    """
+    Update an existing album
+    """
+    album = Album.query.get(id)
+    form = UpdateAlbumForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if album is None:
+        return { 'error': 'Resource not found'}, 404
+    
+    if current_user.id != album.created_by_id:
+        return { 'error': 'Unauthorized' }, 401
+
+    if form.validate_on_submit():
+
+        if form.data.art:
+            remove_file_from_s3(album.art)
+
+            image = form.data["art"]
+            image.filename = get_unique_filename(image.filename)
+            upload = upload_file_to_s3(image)
+            # print(upload)
+
+            if "url" not in upload:
+            # if the dictionary doesn't have a url key
+            # it means that there was an error when you tried to upload
+            # so you send back that error message (and you printed it above)
+                return { 'errors': 'URL not in upload' }, 400
+
+            url = upload["url"]
+            album.name = form.data['name']
+            album.description = form.data['description']
+            album.art = url
+            db.session.commit()
+            return { 'message': 'Success' }, 200
+        else:
+            album.name = form.data['name']
+            album.description = form.data['description']
+            db.session.commit()
+            return { 'message': 'Success' }, 200
+
+    if form.errors:
+        print(form.errors)
+        return { 'errors': form.errors }, 401

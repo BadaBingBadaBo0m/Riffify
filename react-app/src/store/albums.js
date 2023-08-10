@@ -74,7 +74,7 @@ export const createAlbum = (album) => async (dispatch) => {
   });
 
   if (response.ok) {
-    const { album } = await response.json();
+    const album = await response.json();
     dispatch(actionCreateAlbum(album));
     return album
   } else {

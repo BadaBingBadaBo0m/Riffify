@@ -86,7 +86,7 @@
   margin: 0;
 }
 
-#create-album {
+#create-album>button {
   width: 8.5rem;
   height: 2rem;
   border-radius: 500px;

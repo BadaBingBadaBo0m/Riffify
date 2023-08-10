@@ -25,9 +25,6 @@ function App() {
           <Route exact path='/' >
             <HomePage Content={Recommended} />
           </Route>
-          <Route path='/new-album' >
-            <HomePage Content={AlbumForm} />
-          </Route>
           <Route path='/albums/:albumId' >
             <HomePage Content={AlbumInfo} />
           </Route>
