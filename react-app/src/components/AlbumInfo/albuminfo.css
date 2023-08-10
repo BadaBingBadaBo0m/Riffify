@@ -50,6 +50,12 @@
   justify-content: center;
 }
 
+#album-dropdown-button {
+  color: white;
+  margin-left: 1rem;
+  font-size: 1.5rem;
+}
+
 #song-list {
   color: white;
   margin-top: 1rem;

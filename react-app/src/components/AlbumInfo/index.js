@@ -8,6 +8,7 @@ import './albuminfo.css'
 const AlbumInfo = () => {
   const { albumId } = useParams()
   const dispatch = useDispatch()
+  const user = useSelector((state) => state.session.user)
   const album = useSelector((state) => state.albums.singleAlbum)
   const songList = useSelector((state) => state.albums.albumSongs)
   let songCount = 0
@@ -19,7 +20,7 @@ const AlbumInfo = () => {
 
   if (!album || !songList) return <Loading />
   const albumDate = new Date(album.created_at)
-
+  // console.log(user.id, album)
   return (
     <div id='album-details-container'>
       {/* <div
@@ -44,7 +45,7 @@ const AlbumInfo = () => {
       <div id='song-list-container'>
         <div id='play-button-like-container'>
           <button id='album-play-button'> {<i className="fa-solid fa-play"></i>} </button>
-          <p id='album-dropdown'> <i class="fa-solid fa-ellipsis"></i> </p>
+          {user && user.id === album.created_by_id && <i class="fa-solid fa-ellipsis" id='album-dropdown-button'></i>}
         </div>
       </div>
 
