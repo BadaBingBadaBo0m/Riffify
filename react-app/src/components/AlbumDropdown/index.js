@@ -29,22 +29,25 @@ const AlbumDropdown = ({ album }) => {
 
   const ownedAlbum =
     user && user.id === album.created_by_id
-      ? "ul-channel"
+      ? "album-dropdown"
       : "hidden";
   const notOwnedAlbum =
     user && user.id !== album.created_by_id
-      ? "ul-channel"
+      ? "album-dropdown"
       : "hidden";
 
   return (
     <>
-      {user &&
-        <i class="fa-solid fa-ellipsis" id='album-dropdown-button' onClick={ToggleMenu}></i>}
+      <div ref={albumDropdownRef} id='album-dropdown-ref-div'>
+        {user &&
+          <i class="fa-solid fa-ellipsis" id='album-dropdown-button' onClick={ToggleMenu}></i>}
 
-      <div ref={albumDropdownRef}>
         <div className={classShowMenu}>
           <ul className={ownedAlbum}>
-            <li>Bruh</li>
+            <li>
+              <button>Edit</button>
+              <button>Delete</button>
+            </li>
           </ul>
         </div>
 

@@ -1,3 +1,21 @@
-li {
+.album-dropdown {
   color: white;
+}
+
+#album-dropdown-ref-div {
+  height: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  margin-bottom: .5rem;
+}
+
+.album-dropdown {
+  position: relative;
+  padding: 0;
+  top: .7rem;
+  margin-left: 1rem;
+  background-color: white;
+  height: 3rem;
 }
