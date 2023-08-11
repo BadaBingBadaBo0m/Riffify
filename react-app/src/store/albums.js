@@ -25,10 +25,10 @@ const actionCreateAlbum = (album) => ({
   album
 })
 
-const actionCreateSong = (song) => ({
-  type: CREATE_SONG,
-  song
-})
+// const actionCreateSong = (song) => ({
+//   type: CREATE_SONG,
+//   song
+// })
 
 const actionDeleteAlbum = (album) => ({
   type: DELETE_ALBUM
@@ -64,10 +64,11 @@ export const createSongForAlbum = (albumId, song) => async (dispatch) => {
     method: 'POST',
     body: song
   })
+
   console.log(response)
   if (response.ok) {
     const { song } = response.json()
-    await actionCreateSong(song)
+    // await actionCreateSong(song)
     return response
   } else {
     return response
@@ -92,7 +93,7 @@ export const createAlbum = (album) => async (dispatch) => {
 
   if (response.ok) {
     const new_album = await response.json();
-    dispatch(actionCreateAlbum(album));
+    await dispatch(actionCreateAlbum(album));
     return new_album
   } else {
     return response
@@ -141,9 +142,8 @@ export default function albums(state = initialState, action) {
       return { ...state, singleAlbum: action.album }
     case DELETE_ALBUM:
       return { ...state, singleAlbum: null }
-    case CREATE_SONG:
-      console.log('state')
-      return { ...state, albumSongs: [...state.albumSongs, action.song] }
+    // case CREATE_SONG:
+    //   return { ...state, albumSongs: [...state.albumSongs, action.song] }
     default:
       return state
   }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './songform.css'
 import { useDispatch } from 'react-redux';
-import { createSongForAlbum } from '../../store/albums';
+import { createSongForAlbum, getSongsForAlbum } from '../../store/albums';
 import { useModal } from '../../context/Modal';
 
 const SongForm = ({ type, albumId }) => {
@@ -27,7 +27,7 @@ const SongForm = ({ type, albumId }) => {
     else return true
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     const isValid = validateData()
@@ -37,9 +37,10 @@ const SongForm = ({ type, albumId }) => {
       formData.append('name', name)
       formData.append('song_body', song_body)
       setImageLoading(true)
-      const new_song = dispatch(createSongForAlbum(albumId, formData))
+      const new_song = await dispatch(createSongForAlbum(albumId, formData))
       console.log('newsong', new_song)
       if (new_song.ok) {
+        await dispatch(getSongsForAlbum(albumId))
         closeModal()
       }
     }
