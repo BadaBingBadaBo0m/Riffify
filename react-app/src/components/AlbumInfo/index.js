@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Loading from '../Loading';
 import { getSingleAlbum, getSongsForAlbum } from '../../store/albums';
 import AlbumDropdown from '../AlbumDropdown';
+import SongDropdown from '../SongDropdown';
 import './albuminfo.css'
 
 const AlbumInfo = () => {
@@ -38,7 +39,7 @@ const AlbumInfo = () => {
       </div> */}
       <div
         id='album-banner-container'
-      // style={{ backgroundImage: `url(${album.art})`, filter: 'blur(50px)', transform: 'scale(3)' }}
+      // style={{ backgroundImage: `url(${album.art})`, filter: 'blur(50px)', zIndex: -1 }}
       >
         <img src={album.art} id='album-details-cover'></img>
         <div id='album-info-container'>
@@ -63,16 +64,20 @@ const AlbumInfo = () => {
           songCount++
           return (
             <li className='song-container'>
-              <p className='song-count'>{songCount}</p>
-              <button
-                className='song-list-play-button'
-                onClick={() => handleSongChange(song)}
-              > {<i className="fa-solid fa-play"></i>}
-              </button>
-              <div className='song-info'>
-                <p className='song-name'>{song.name}</p>
-                <p className='artist-name'>{album.username}</p>
+              <div className='song-count-and-controls-container'>
+                <p className='song-count'>{songCount}</p>
+                <button
+                  className='song-list-play-button'
+                  onClick={() => handleSongChange(song)}
+                > {<i className="fa-solid fa-play"></i>}
+                </button>
+                <div className='song-info'>
+                  <p className='song-name'>{song.name}</p>
+                  <p className='artist-name'>{album.username}</p>
+                </div>
               </div>
+
+              <SongDropdown song={song} album={album} />
             </li>
           )
         })}

@@ -45,6 +45,8 @@ export const getAllAlbums = () => async (dispatch) => {
   }
 }
 
+
+
 export const getSingleAlbum = (id) => async (dispatch) => {
   const response = await fetch(`/api/albums/${id}`);
 
@@ -125,6 +127,19 @@ export const deleteAlbum = (id) => async (dispatch) => {
     return { 'message': 'Successfully deleted' }
   } else {
     return response.errors
+  }
+}
+
+export const deleteSong = (songId) => async (dispatch) => {
+  const response = await fetch(`/api/songs/${songId}`, {
+    method: 'DELETE'
+  })
+
+  if (response.ok) {
+    // await actionCreateSong(song)
+    return response
+  } else {
+    return response
   }
 }
 

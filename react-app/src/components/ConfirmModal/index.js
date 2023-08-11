@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useModal } from "../../context/Modal";
 import "./ConfirmModal.css";
 

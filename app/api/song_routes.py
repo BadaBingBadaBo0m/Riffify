@@ -60,7 +60,7 @@ def create_new_song(albumId):
         print(form.errors)
         return { 'errors': form.errors }
     
-@song_routes.route('/<int:albumId>', methods=['DELETE'])
+@song_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_song(id):
     """
