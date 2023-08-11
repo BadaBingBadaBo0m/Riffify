@@ -12,6 +12,7 @@
 
 #media-player-song-info-container {
   display: flex;
+  min-width: 14rem;
 }
 
 #media-player-album-art {

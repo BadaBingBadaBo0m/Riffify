@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import OpenModalButton from '../OpenModalButton'
 import ConfirmModal from '../ConfirmModal';
+import SongForm from '../SongForm';
 import { deleteAlbum } from '../../store/albums';
 import './albumdropdown.css'
 import { useHistory } from 'react-router-dom';
@@ -61,6 +62,11 @@ const AlbumDropdown = ({ album }) => {
             <li className='album-dropdown-li'>
               <div className='album-dropdown-button'>
                 <OpenModalButton buttonText={'Edit'} modalComponent={<AlbumForm type={'update'} album={album} />} />
+              </div>
+            </li>
+            <li className='album-dropdown-li'>
+              <div className='album-dropdown-button'>
+                <OpenModalButton buttonText={'Create song'} modalComponent={<SongForm />} />
               </div>
             </li>
             <li className='album-dropdown-li'>

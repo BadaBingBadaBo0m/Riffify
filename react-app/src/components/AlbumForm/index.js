@@ -66,7 +66,7 @@ const AlbumForm = ({ type, album }) => {
 
   return (
     <div id='album-form-container'>
-      <form id='album-form'>
+      <form id='album-form' encType='multipart/form-data'>
         <h1 id='album-form-header'>{type === 'create' ? 'Create a new album' : `Update ${album.name}`}</h1>
 
         <div className='album-form-input-container'>
