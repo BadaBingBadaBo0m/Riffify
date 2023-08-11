@@ -10,10 +10,10 @@ const MediaPlayer = () => {
   const { currentSong, setCurrentSong, contextAlbum } = useContext(SongContext)
   const audioRef = useRef()
 
-  useEffect(() => {
-    audioRef.current.play()
-    setPlay(true)
-  }, [currentSong])
+  // useEffect(() => {
+  //   audioRef.current.play()
+  //   setPlay(true)
+  // }, [currentSong])
 
   const handlePlay = () => {
     audioRef.current.play()
@@ -64,15 +64,17 @@ const MediaPlayer = () => {
           <button id='step-forward-button'> <i class="fa-solid fa-forward-step"></i> </button>
         </div>
 
-        <input
-          type='range'
-          id='song-play-bar'
-          min={0}
-          max={duration}
-          step={1}
-          value={currentTime}
-          onChange={handleCurrentTime}
-        />
+        <div id='volume-controls-container'>
+          <input
+            type='range'
+            id='song-play-bar'
+            min={0}
+            max={duration}
+            step={1}
+            value={currentTime}
+            onChange={handleCurrentTime}
+          />
+        </div>
       </div>
 
       <input
