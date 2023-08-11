@@ -66,7 +66,7 @@ const AlbumDropdown = ({ album }) => {
             </li>
             <li className='album-dropdown-li'>
               <div className='album-dropdown-button'>
-                <OpenModalButton buttonText={'Create song'} modalComponent={<SongForm />} />
+                <OpenModalButton buttonText={'Create song'} modalComponent={<SongForm type={'create'} albumId={album.id} />} />
               </div>
             </li>
             <li className='album-dropdown-li'>

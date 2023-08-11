@@ -54,7 +54,7 @@ def create_new_song(albumId):
         db.session.add(new_song)
         db.session.commit()
 
-        return { 'song': new_song.to_dict() }
+        return { 'song': new_song.to_dict() }, 200
 
     if form.errors:
         print(form.errors)

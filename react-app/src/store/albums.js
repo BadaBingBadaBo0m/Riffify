@@ -3,6 +3,7 @@ const SET_ALBUMS = '/albums/all'
 const SET_SINGLE_ALBUM = '/album'
 const SET_ALBUM_SONGS = 'album/songs'
 const DELETE_ALBUM = 'albums/delete'
+const CREATE_SONG = 'albums/songs/new'
 
 const setAlbums = (albums) => ({
   type: SET_ALBUMS,
@@ -22,6 +23,11 @@ const setAlbumSongs = (songs) => ({
 const actionCreateAlbum = (album) => ({
   type: CREATE_ALBUM,
   album
+})
+
+const actionCreateSong = (song) => ({
+  type: CREATE_SONG,
+  song
 })
 
 const actionDeleteAlbum = (album) => ({
@@ -50,6 +56,21 @@ export const getSingleAlbum = (id) => async (dispatch) => {
 
   if (response.errors) {
     console.log(response.errors)
+  }
+}
+
+export const createSongForAlbum = (albumId, song) => async (dispatch) => {
+  const response = await fetch(`/api/songs/new/${albumId}`, {
+    method: 'POST',
+    body: song
+  })
+  console.log(response)
+  if (response.ok) {
+    const { song } = response.json()
+    await actionCreateSong(song)
+    return response
+  } else {
+    return response
   }
 }
 
@@ -120,6 +141,9 @@ export default function albums(state = initialState, action) {
       return { ...state, singleAlbum: action.album }
     case DELETE_ALBUM:
       return { ...state, singleAlbum: null }
+    case CREATE_SONG:
+      console.log('state')
+      return { ...state, albumSongs: [...state.albumSongs, action.song] }
     default:
       return state
   }
