@@ -5,6 +5,7 @@
 #song-dropdown-ref-div {
   height: 1rem;
   max-width: 1rem;
+  margin-right: 2rem;
 
   display: flex;
   flex-direction: column;

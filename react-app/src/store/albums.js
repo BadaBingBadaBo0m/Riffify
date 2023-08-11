@@ -143,6 +143,19 @@ export const deleteSong = (songId) => async (dispatch) => {
   }
 }
 
+export const updateSong = (song, songId) => async (dispatch) => {
+  const response = await fetch(`/api/songs/${songId}`, {
+    method: 'PUT',
+    body: song
+  })
+
+  if (response.ok) {
+    return response
+  } else {
+    return response
+  }
+}
+
 const initialState = { albumList: null, singleAlbum: null }
 
 export default function albums(state = initialState, action) {

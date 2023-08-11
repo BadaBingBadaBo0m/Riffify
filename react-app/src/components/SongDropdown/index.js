@@ -6,6 +6,7 @@ import { useModal } from '../../context/Modal';
 import './songdropdown.css'
 import { useHistory } from 'react-router-dom';
 import { deleteSong, getSongsForAlbum } from '../../store/albums';
+import SongForm from '../SongForm';
 
 const SongDropdown = ({ song, album }) => {
   const user = useSelector((state) => state.session.user);
@@ -51,6 +52,7 @@ const SongDropdown = ({ song, album }) => {
 
         <div className={classShowMenu}>
           <ul className='song-dropdown'>
+
             <li className='song-dropdown-li'>
               {user && user.id === song.created_by && <div className='song-dropdown-button'>
                 <OpenModalButton
@@ -63,6 +65,17 @@ const SongDropdown = ({ song, album }) => {
                 />
               </div>}
             </li>
+
+            <li className='song-dropdown-li'>
+              {user && user.id === song.created_by && <div className='song-dropdown-button'>
+                <OpenModalButton
+                  buttonText={'Edit song'}
+                  modalComponent={
+                    <SongForm type={'edit'} albumId={album.id} song={song} />}
+                />
+              </div>}
+            </li>
+
           </ul>
         </div>
       </div>

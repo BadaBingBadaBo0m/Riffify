@@ -13,7 +13,7 @@ const SongProvider = props => {
     contextSongList,
     setContextSongList,
     contextAlbum,
-    setContextAlbum
+    setContextAlbum,
   }
 
   return (

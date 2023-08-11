@@ -14,7 +14,7 @@ const AlbumInfo = () => {
   const user = useSelector((state) => state.session.user)
   const album = useSelector((state) => state.albums.singleAlbum)
   const songList = useSelector((state) => state.albums.albumSongs)
-  const { setCurrentSong, setContextSongList, setContextAlbum } = useContext(SongContext)
+  const { setCurrentSong, currentSong, setContextSongList, setContextAlbum, play, setPlay } = useContext(SongContext)
   let songCount = 0
 
   useEffect(() => {
@@ -73,10 +73,9 @@ const AlbumInfo = () => {
                 </button>
                 <div className='song-info'>
                   <p className='song-name'>{song.name}</p>
-                  <p className='artist-name'>{album.username}</p>
+                  <p className='artist-name'>{album.created_by?.username}</p>
                 </div>
               </div>
-
               <SongDropdown song={song} album={album} />
             </li>
           )

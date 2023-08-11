@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import './songform.css'
 import { useDispatch } from 'react-redux';
-import { createSongForAlbum, getSongsForAlbum } from '../../store/albums';
+import { createSongForAlbum, getSongsForAlbum, updateSong } from '../../store/albums';
 import { useModal } from '../../context/Modal';
 
-const SongForm = ({ type, albumId }) => {
+const SongForm = ({ type, albumId, song }) => {
   const [errors, setErrors] = useState({});
   const [song_body, setSong_body] = useState(null);
-  const [name, setName] = useState(null);
+  const [title, setTitle] = useState('')
+  const [name, setName] = useState(song?.name || null);
   const [imageLoading, setImageLoading] = useState(false);
   const dispatch = useDispatch()
   const { closeModal } = useModal()
@@ -38,8 +39,25 @@ const SongForm = ({ type, albumId }) => {
       formData.append('song_body', song_body)
       setImageLoading(true)
       const new_song = await dispatch(createSongForAlbum(albumId, formData))
-      console.log('newsong', new_song)
+
       if (new_song.ok) {
+        await dispatch(getSongsForAlbum(albumId))
+        closeModal()
+      }
+    }
+
+    if (isValid && type === 'edit') {
+      const formData = new FormData();
+      formData.append('name', name)
+
+      if (song_body) {
+        formData.append('song_body', song_body)
+      }
+      console.log(song.id)
+      setImageLoading(true)
+      const updated_song = await dispatch(updateSong(formData, song.id))
+
+      if (updated_song.ok) {
         await dispatch(getSongsForAlbum(albumId))
         closeModal()
       }
@@ -49,7 +67,9 @@ const SongForm = ({ type, albumId }) => {
   return (
     <div id='create-song-container'>
       <form id='create-song-from'>
-        <h1 id='Song-form-title'>Create a new song</h1>
+        <h1 id='Song-form-title'>
+          {type === 'create' ? 'Create a new Song' : `Edit ${song?.name}`}
+        </h1>
 
         <div className='album-form-input-container'>
           <label htmlFor='name'>Name {errors.name && <span className='errors'>{errors.name}</span>}</label>
