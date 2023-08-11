@@ -38,16 +38,16 @@ def delete_album_by_id(id):
     """
     album = Album.query.get(id)
 
-    if current_user.id != album.created_by_id:
-        return { 'error': 'Unauthorized' }, 401
-
     if album is None:
-        return { 'errors': ['Album not found'] }, 404
+        return { 'errors': 'Album not found' }, 404
+    
+    if current_user.id != album.created_by_id:
+        return { 'errors': 'Unauthorized' }, 401
     
     remove_file_from_s3(album.art)
     db.session.delete(album)
     db.session.commit()
-    return { 'message': 'Successfully deleted' }
+    return { 'message': 'Successfully deleted' }, 200
 
 
 @album_routes.route("/new", methods=["POST"])

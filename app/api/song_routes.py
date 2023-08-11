@@ -59,3 +59,22 @@ def create_new_song(albumId):
     if form.errors:
         print(form.errors)
         return { 'errors': form.errors }
+    
+@song_routes.route('/<int:albumId>', methods=['DELETE'])
+@login_required
+def delete_song(id):
+    """
+    Delete a song
+    """
+    song = Song.query.get(id)
+
+    if song is None:
+        return { 'error': 'Song not found' }, 404
+    
+    if current_user.id != song.created_by:
+        return { 'errors': 'Unauthorized' }
+    
+    remove_file_from_s3(song.song_body)
+    db.session.delete(song)
+    db.session.commit()
+    return { 'message': 'Successfully deleted' }, 200
