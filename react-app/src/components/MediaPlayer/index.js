@@ -10,10 +10,10 @@ const MediaPlayer = () => {
   const { currentSong, setCurrentSong, contextAlbum } = useContext(SongContext)
   const audioRef = useRef()
 
-  // useEffect(() => {
-  //   audioRef.current.play()
-  //   setPlay(true)
-  // }, [currentSong])
+  useEffect(() => {
+    audioRef.current.play()
+    setPlay(true)
+  }, [currentSong])
 
   const handlePlay = () => {
     audioRef.current.play()
