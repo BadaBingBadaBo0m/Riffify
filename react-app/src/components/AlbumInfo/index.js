@@ -13,7 +13,7 @@ const AlbumInfo = () => {
   const user = useSelector((state) => state.session.user)
   const album = useSelector((state) => state.albums.singleAlbum)
   const songList = useSelector((state) => state.albums.albumSongs)
-  const { currentSong, setCurrentSong, contextSongList, setContextSongList } = useContext(SongContext)
+  const { setCurrentSong, setContextSongList, setContextAlbum } = useContext(SongContext)
   let songCount = 0
 
   useEffect(() => {
@@ -24,6 +24,7 @@ const AlbumInfo = () => {
   const handleSongChange = (song) => {
     setCurrentSong(song)
     setContextSongList(songList)
+    setContextAlbum(album)
   }
 
   if (!album || !songList) return <Loading />

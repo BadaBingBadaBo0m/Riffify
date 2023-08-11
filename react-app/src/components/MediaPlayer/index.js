@@ -7,13 +7,13 @@ const MediaPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
   const [volume, setVolume] = useState(1)
-  const { currentSong, setCurrentSong } = useContext(SongContext)
+  const { currentSong, setCurrentSong, contextAlbum } = useContext(SongContext)
   const audioRef = useRef()
 
-  useEffect(() => {
-    audioRef.current.play()
-    setPlay(true)
-  }, [currentSong])
+  // useEffect(() => {
+  //   audioRef.current.play()
+  //   setPlay(true)
+  // }, [currentSong])
 
   const handlePlay = () => {
     audioRef.current.play()
@@ -39,31 +39,50 @@ const MediaPlayer = () => {
     setCurrentTime(e.target.value)
     audioRef.current.currentTime = e.target.value
   }
-
+  console.log(contextAlbum)
   return (
-    <div id='media-player-container'>
-      <div className='errors'>{currentSong?.name}</div>
+    <div id={currentSong ? 'media-player-container' : 'hidden'}>
       <audio
         ref={audioRef}
         src={currentSong?.song_body}
         onTimeUpdate={handleTimeUpdate}
       />
-      <button onClick={play ? handlePause : handlePlay}>{play ? 'Pause' : "Play"}</button>
+
+      <div id='media-player-song-info-container'>
+        <img id='media-player-album-art' src={contextAlbum?.art}></img>
+        <div id='media-player-song-info'>
+          <h2 id='media-player-song-name'>{currentSong?.name}</h2>
+          <p id='media-player-artist-name'>{contextAlbum?.created_by.username}</p>
+        </div>
+      </div>
+
+      <div id='media-player-controls-container'>
+        <div>
+          <button> <i class="fa-solid fa-backward-step"></i> </button>
+          {!audioRef.current?.paused && <button onClick={handlePause}> <i class="fa-solid fa-circle-pause"></i> </button>}
+          {audioRef.current?.paused && <button onClick={handlePlay}> <i class="fa-solid fa-circle-play"></i> </button>}
+          <button> <i class="fa-solid fa-forward-step"></i> </button>
+        </div>
+
+        <input
+          type='range'
+          id='song-play-bar'
+          min={0}
+          max={duration}
+          step={1}
+          value={currentTime}
+          onChange={handleCurrentTime}
+        />
+      </div>
+
       <input
         type='range'
+        id='song-volume-bar'
         min={0}
         max={1}
         step={0.01}
         value={volume}
         onChange={handleVolume}
-      />
-      <input
-        type='range'
-        min={0}
-        max={duration}
-        step={1}
-        value={currentTime}
-        onChange={handleCurrentTime}
       />
     </div >
   )
