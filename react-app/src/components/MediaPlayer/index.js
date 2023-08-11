@@ -57,11 +57,11 @@ const MediaPlayer = () => {
       </div>
 
       <div id='media-player-controls-container'>
-        <div>
-          <button> <i class="fa-solid fa-backward-step"></i> </button>
-          {!audioRef.current?.paused && <button onClick={handlePause}> <i class="fa-solid fa-circle-pause"></i> </button>}
-          {audioRef.current?.paused && <button onClick={handlePlay}> <i class="fa-solid fa-circle-play"></i> </button>}
-          <button> <i class="fa-solid fa-forward-step"></i> </button>
+        <div id='media-player-controls'>
+          <button id='step-back-button'> <i class="fa-solid fa-backward-step"></i> </button>
+          {!audioRef.current?.paused && <button className='media-player-play-button' onClick={handlePause}> <i class="fa-solid fa-circle-pause"></i> </button>}
+          {audioRef.current?.paused && <button className='media-player-play-button' onClick={handlePlay}> <i class="fa-solid fa-circle-play"></i> </button>}
+          <button id='step-forward-button'> <i class="fa-solid fa-forward-step"></i> </button>
         </div>
 
         <input
