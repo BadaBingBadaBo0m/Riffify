@@ -42,7 +42,7 @@
 #create-first-playlist {
   background-color: #242424;
   color: white;
-  padding: .5rem;
+  padding: 1rem;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -74,25 +74,21 @@
 #owned-albums-container {
   background-color: #242424;
   color: white;
-  padding: .5rem;
+  padding: 1rem;
   margin: .5rem;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  min-height: 7.8rem;
 }
 
 #owned-albums-title {
   font-size: 1rem;
   margin: 0;
+  margin-bottom: 1rem;
 }
 
-#create-album-button-container {
-  width: fit-content;
-  margin: 0;
-  margin-right: 0;
-}
-
-#create-album>button {
+#create-album-button-container>button {
   width: 8.5rem;
   height: 2rem;
   border-radius: 500px;
@@ -119,4 +115,8 @@
   align-items: center;
   justify-content: center;
   margin: 0;
+}
+
+.create-album-tooltip {
+  margin-left: .5rem;
 }
