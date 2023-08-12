@@ -16,8 +16,10 @@ const MediaPlayer = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      audioRef.current.play()
-      setPlay(true)
+      if (currentSong) {
+        audioRef.current.play()
+        setPlay(true)
+      }
     }, 1000);
     setCurrentSongIndex(contextSongList.map((songMap) => songMap.id).indexOf(currentSong?.id))
 

@@ -4,6 +4,7 @@ import './sidebar.css';
 import { useHistory } from 'react-router-dom';
 import OpenModalButton from '../OpenModalButton';
 import AlbumForm from '../AlbumForm';
+import { Tooltip } from 'react-tooltip';
 
 const SideBar = () => {
   const history = useHistory();
@@ -36,13 +37,18 @@ const SideBar = () => {
           <h2 id='owned-albums-title'>Your Albums</h2>
           <div id='owned-albums-'>
             {/* <span id='create-album' onClick={() => history.push('/new-album')}>Create new album</span> */}
-            <div id='create-album'>
-              {!user && <button onClick={() => alert('Must be logged in')}>Create a album</button>}
+            <div id='create-album-button-container'>
+              {!user && <button id='dead-create-album'>Create a album</button>}
               {user && <OpenModalButton buttonText={'Create new album'} modalComponent={<AlbumForm type={'create'} />} />}
             </div>
           </div>
+          <div id='create-album' data-tooltip-id='create-album-tooltip'>
+          </div>
         </div>
       </div>
+      <Tooltip id='create-album-tooltip' variant='info' openOnClick clickable place='right'>
+        <span>Test</span>
+      </Tooltip>
     </div>
   )
 }
