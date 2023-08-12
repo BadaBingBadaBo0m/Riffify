@@ -8,7 +8,7 @@ import './recommended.css'
 const Recommended = () => {
   const dispatch = useDispatch();
   const history = useHistory()
-  const albums = useSelector((state) => state.albums.albumList?.albums)
+  const albums = useSelector((state) => state.albums.albumList)
 
   useEffect(() => {
     dispatch(getAllAlbums())

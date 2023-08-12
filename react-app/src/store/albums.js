@@ -3,6 +3,7 @@ const SET_ALBUMS = '/albums/all'
 const SET_SINGLE_ALBUM = '/album'
 const SET_ALBUM_SONGS = 'album/songs'
 const DELETE_ALBUM = 'albums/delete'
+const SET_USERS_ALBUMS = 'albums/current'
 const CREATE_SONG = 'albums/songs/new'
 
 const setAlbums = (albums) => ({
@@ -13,6 +14,11 @@ const setAlbums = (albums) => ({
 const setSingleAlbum = (album) => ({
   type: SET_SINGLE_ALBUM,
   album
+})
+
+const setUsersAlbums = (albums) => ({
+  type: SET_USERS_ALBUMS,
+  albums
 })
 
 const setAlbumSongs = (songs) => ({
@@ -38,14 +44,25 @@ export const getAllAlbums = () => async (dispatch) => {
   const response = await fetch('/api/albums');
 
   if (response.ok) {
-    const data = await response.json();
+    // const data = await response.json();
+    const { albums } = await response.json();
 
-    dispatch(setAlbums(data));
-    return data;
+    dispatch(setAlbums(albums));
+    return albums;
   }
 }
 
+export const getUsersAlbums = () => async (dispatch) => {
+  const response = await fetch('/api/albums/current');
 
+  if (response.ok) {
+    const { albums } = await response.json()
+    dispatch(setUsersAlbums(albums))
+    return albums
+  }
+
+  return response
+}
 
 export const getSingleAlbum = (id) => async (dispatch) => {
   const response = await fetch(`/api/albums/${id}`);
@@ -156,7 +173,7 @@ export const updateSong = (song, songId) => async (dispatch) => {
   }
 }
 
-const initialState = { albumList: null, singleAlbum: null }
+const initialState = { albumList: null, singleAlbum: null, usersAlbums: null }
 
 export default function albums(state = initialState, action) {
   switch (action.type) {
@@ -170,6 +187,8 @@ export default function albums(state = initialState, action) {
       return { ...state, singleAlbum: action.album }
     case DELETE_ALBUM:
       return { ...state, singleAlbum: null }
+    case SET_USERS_ALBUMS:
+      return { ...state, usersAlbums: action.albums }
     // case CREATE_SONG:
     //   return { ...state, albumSongs: [...state.albumSongs, action.song] }
     default:
