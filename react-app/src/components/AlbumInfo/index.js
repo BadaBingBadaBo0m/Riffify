@@ -33,21 +33,23 @@ const AlbumInfo = () => {
   // console.log(user.id, album)
   return (
     <div id='album-details-container'>
-      {/* <div
-        style={{ backgroundImage: `url(${album.art})`, filter: 'blur(50px)', transform: 'scale(3)' }}
-      >
-      </div> */}
       <div
-        id='album-banner-container'
-      // style={{ backgroundImage: `url(${album.art})`, filter: 'blur(50px)', zIndex: -1 }}
-      >
-        <img src={album.art} id='album-details-cover'></img>
-        <div id='album-info-container'>
-          <p>Album</p>
-          <h1>{album.name}</h1>
-          <div id='album-creator-info-container'>
-            <img src={album.created_by?.profile_pic} id='artistPfp'></img>
-            <p>{album.created_by?.username} &#x2022; {albumDate.getFullYear()} &#x2022; {songList.length} songs</p>
+        // Remnants from an attempt to make the background the same color as album cover
+        // style={{ backgroundImage: `url(${album.art})` }}
+        className='blurred-background'>
+
+        <div
+          id='album-banner-container'
+
+        >
+          <img src={album.art} id='album-details-cover'></img>
+          <div id='album-info-container'>
+            <p>Album</p>
+            <h1>{album.name}</h1>
+            <div id='album-creator-info-container'>
+              <img src={album.created_by?.profile_pic} id='artistPfp'></img>
+              <p>{album.created_by?.username} &#x2022; {albumDate.getFullYear()} &#x2022; {songList.length} songs</p>
+            </div>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from '../../store/session';
+import { SongContext } from '../../context/Song';
 import OpenModalButton from '../OpenModalButton'
 import LoginFormModal from '../LoginFormModal'
 import SignupFormModal from '../SignupFormModal';
@@ -9,7 +10,12 @@ import './navbar.css'
 const Navbar = () => {
   const dispatch = useDispatch()
   const user = useSelector((state) => state.session.user)
+  const { setCurrentSong } = useContext(SongContext)
 
+  const handleLogout = async () => {
+    await dispatch(logout())
+    setCurrentSong(null)
+  }
 
   return (
     <div id='navBar-container'>
@@ -30,7 +36,7 @@ const Navbar = () => {
 
       {user &&
         <div>
-          <button className='logout-button' onClick={() => dispatch(logout())}>Logout</button>
+          <button className='logout-button' onClick={handleLogout}>Logout</button>
         </div>}
 
     </div>

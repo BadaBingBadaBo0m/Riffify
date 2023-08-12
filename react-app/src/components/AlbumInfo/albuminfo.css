@@ -9,6 +9,9 @@
   /* margin: 1rem 1rem; */
   overflow: hidden;
   display: flex;
+
+  /* background-color: transparent;
+  backdrop-filter: blur(200px); */
 }
 
 #album-details-cover {

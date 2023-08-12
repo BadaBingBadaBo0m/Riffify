@@ -21,6 +21,12 @@ const MediaPlayer = () => {
         setPlay(true)
       }
     }, 1000);
+
+    if (!currentSong) {
+      audioRef.current.pause()
+      setPlay(false)
+    }
+
     setCurrentSongIndex(contextSongList.map((songMap) => songMap.id).indexOf(currentSong?.id))
 
     const localAudio = localStorage.getItem('tritone-volume')
