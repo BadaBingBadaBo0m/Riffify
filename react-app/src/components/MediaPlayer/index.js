@@ -18,10 +18,8 @@ const MediaPlayer = () => {
     setTimeout(() => {
       audioRef.current.play()
       setPlay(true)
-    }, 1500);
+    }, 1000);
     setCurrentSongIndex(contextSongList.map((songMap) => songMap.id).indexOf(currentSong?.id))
-    // console.log(contextSongList)
-    // console.log(currentSongIndex)
 
     const localAudio = localStorage.getItem('tritone-volume')
     if (localAudio) {
@@ -49,7 +47,6 @@ const MediaPlayer = () => {
   const handlePlay = () => {
     audioRef.current.play()
     setPlay(true)
-    // console.log(contextSongList.map((songMap) => songMap.id).indexOf(currentSong.id))
   }
 
   const handleBack = () => {
@@ -61,7 +58,7 @@ const MediaPlayer = () => {
   }
 
   const handleSkip = () => {
-    if (currentTime === duration && shuffle) {
+    if (shuffle) {
       setCurrentSong(contextSongList[randomIndex])
     } else {
       setCurrentSong(contextSongList[currentSongIndex + 1] || contextSongList[0])
