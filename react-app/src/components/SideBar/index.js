@@ -35,14 +35,12 @@ const SideBar = () => {
           id='owned-albums-container'
         >
           <h2 id='owned-albums-title'>Your Albums</h2>
-          <div id='owned-albums-'>
-            {/* <span id='create-album' onClick={() => history.push('/new-album')}>Create new album</span> */}
-            <div id='create-album-button-container'>
-              {!user && <button id='dead-create-album'>Create a album</button>}
-              {user && <OpenModalButton buttonText={'Create new album'} modalComponent={<AlbumForm type={'create'} />} />}
-            </div>
+          <div id='create-album-button-container' data-tooltip-id='create-album-tooltip'>
+            {!user && <button id='dead-create-album'>Create a album</button>}
+            {user && <OpenModalButton buttonText={'Create new album'} modalComponent={<AlbumForm type={'create'} />} />}
           </div>
-          <div id='create-album' data-tooltip-id='create-album-tooltip'>
+
+          <div id='owned-albums-'>
           </div>
         </div>
       </div>
