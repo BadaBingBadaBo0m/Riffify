@@ -9,12 +9,18 @@ const MediaPlayer = () => {
   const [volume, setVolume] = useState(1)
   const [repeat, setRepeat] = useState(false)
   const [shuffle, setShuffle] = useState(false)
-  const { currentSong, setCurrentSong, contextAlbum } = useContext(SongContext)
+  const [currentSongIndex, setCurrentSongIndex] = useState(null)
+  const { currentSong, setCurrentSong, contextAlbum, contextSongList } = useContext(SongContext)
   const audioRef = useRef()
 
   useEffect(() => {
-    audioRef.current.play()
-    setPlay(true)
+    setTimeout(() => {
+      audioRef.current.play()
+      setPlay(true)
+    }, 1000);
+    setCurrentSongIndex(contextSongList.map((songMap) => songMap.id).indexOf(currentSong?.id))
+    // console.log(contextSongList)
+    // console.log(currentSongIndex)
 
     const localAudio = localStorage.getItem('tritone-volume')
     if (localAudio) {
@@ -29,12 +35,25 @@ const MediaPlayer = () => {
     } else {
       audioRef.current.loop = false
     }
-  }, [repeat])
 
+    if (currentTime === duration && !repeat) {
+
+    }
+  }, [repeat, duration])
 
   const handlePlay = () => {
     audioRef.current.play()
     setPlay(true)
+    // console.log(contextSongList.map((songMap) => songMap.id).indexOf(currentSong.id))
+    console.log(currentSongIndex)
+  }
+
+  const handleBack = () => {
+    setCurrentSong(contextSongList[currentSongIndex - 1] || contextSongList[contextSongList.length - 1])
+  }
+
+  const handleSkip = () => {
+    setCurrentSong(contextSongList[currentSongIndex + 1] || contextSongList[0])
   }
 
   const handlePause = () => {
@@ -83,13 +102,13 @@ const MediaPlayer = () => {
         <div id='media-player-controls'>
           <button className={shuffle ? 'shuffle-button active' : 'shuffle-button'}> <i class="fa-solid fa-shuffle"></i> </button>
 
-          <button id='step-back-button'> <i class="fa-solid fa-backward-step"></i> </button>
+          <button id='step-back-button' onClick={handleBack}> <i class="fa-solid fa-backward-step"></i> </button>
 
           {!audioRef.current?.paused && <button className='media-player-play-button' onClick={handlePause}> <i class="fa-solid fa-circle-pause"></i> </button>}
 
           {audioRef.current?.paused && <button className='media-player-play-button' onClick={handlePlay}> <i class="fa-solid fa-circle-play"></i> </button>}
 
-          <button id='step-forward-button'> <i class="fa-solid fa-forward-step"></i> </button>
+          <button id='step-forward-button' onClick={handleSkip}> <i class="fa-solid fa-forward-step"></i> </button>
 
           <button className={repeat ? 'repeat-button active' : 'repeat-button'} onClick={handleRepeat}> <i class="fa-solid fa-repeat"></i> </button>
         </div>
@@ -99,7 +118,7 @@ const MediaPlayer = () => {
             type='range'
             id='song-play-bar'
             min={0}
-            max={duration}
+            max={duration || ''}
             step={1}
             value={currentTime}
             onChange={handleCurrentTime}

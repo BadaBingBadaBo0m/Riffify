@@ -4,7 +4,7 @@ export const SongContext = React.createContext();
 
 const SongProvider = props => {
   const [currentSong, setCurrentSong] = useState(null);
-  const [contextSongList, setContextSongList] = useState(null);
+  const [contextSongList, setContextSongList] = useState([]);
   const [contextAlbum, setContextAlbum] = useState(null);
 
   const contextValue = {
