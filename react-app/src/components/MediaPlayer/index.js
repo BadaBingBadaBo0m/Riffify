@@ -12,12 +12,13 @@ const MediaPlayer = () => {
   const [currentSongIndex, setCurrentSongIndex] = useState(null)
   const { currentSong, setCurrentSong, contextAlbum, contextSongList } = useContext(SongContext)
   const audioRef = useRef()
+  const randomIndex = Math.floor(Math.random() * (contextSongList.length - 0) + 0)
 
   useEffect(() => {
     setTimeout(() => {
       audioRef.current.play()
       setPlay(true)
-    }, 1000);
+    }, 1500);
     setCurrentSongIndex(contextSongList.map((songMap) => songMap.id).indexOf(currentSong?.id))
     // console.log(contextSongList)
     // console.log(currentSongIndex)
@@ -37,23 +38,34 @@ const MediaPlayer = () => {
     }
 
     if (currentTime === duration && !repeat) {
-
+      setCurrentSong(contextSongList[currentSongIndex + 1] || contextSongList[0])
     }
-  }, [repeat, duration])
+
+    if (currentTime === duration && shuffle) {
+      setCurrentSong(contextSongList[randomIndex])
+    }
+  }, [repeat, currentTime])
 
   const handlePlay = () => {
     audioRef.current.play()
     setPlay(true)
     // console.log(contextSongList.map((songMap) => songMap.id).indexOf(currentSong.id))
-    console.log(currentSongIndex)
   }
 
   const handleBack = () => {
-    setCurrentSong(contextSongList[currentSongIndex - 1] || contextSongList[contextSongList.length - 1])
+    if (currentTime === duration && shuffle) {
+      setCurrentSong(contextSongList[randomIndex])
+    } else {
+      setCurrentSong(contextSongList[currentSongIndex - 1] || contextSongList[contextSongList.length - 1])
+    }
   }
 
   const handleSkip = () => {
-    setCurrentSong(contextSongList[currentSongIndex + 1] || contextSongList[0])
+    if (currentTime === duration && shuffle) {
+      setCurrentSong(contextSongList[randomIndex])
+    } else {
+      setCurrentSong(contextSongList[currentSongIndex + 1] || contextSongList[0])
+    }
   }
 
   const handlePause = () => {
@@ -82,6 +94,11 @@ const MediaPlayer = () => {
     else setRepeat(false)
   }
 
+  const handleShuffle = () => {
+    if (!shuffle) setShuffle(true)
+    else setShuffle(false)
+  }
+
   return (
     <div id={currentSong ? 'media-player-container' : 'hidden'}>
       <audio
@@ -100,7 +117,7 @@ const MediaPlayer = () => {
 
       <div id='media-player-controls-container'>
         <div id='media-player-controls'>
-          <button className={shuffle ? 'shuffle-button active' : 'shuffle-button'}> <i class="fa-solid fa-shuffle"></i> </button>
+          <button className={shuffle ? 'shuffle-button active' : 'shuffle-button'} onClick={handleShuffle}> <i class="fa-solid fa-shuffle"></i> </button>
 
           <button id='step-back-button' onClick={handleBack}> <i class="fa-solid fa-backward-step"></i> </button>
 
