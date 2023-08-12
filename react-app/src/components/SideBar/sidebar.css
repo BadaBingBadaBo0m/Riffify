@@ -102,6 +102,10 @@
   justify-content: center;
 }
 
+#create-album-button-container {
+  width: fit-content;
+}
+
 #dead-create-album {
   width: 8.5rem;
   height: 2rem;
@@ -118,5 +122,32 @@
 }
 
 .create-album-tooltip {
-  margin-left: .5rem;
+  margin-left: .1rem;
+  border-radius: 10px !important;
+  width: 20rem !important;
+  padding: 1rem !important;
+}
+
+#album-tooltip-button-container {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+#album-tooltip-header {
+  font-size: 1.2rem;
+  margin: 0;
+  margin-bottom: .7rem;
+}
+
+#album-tooltip-sub-header {
+  margin: 0;
+}
+
+#album-tooltip-signUp-button>button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
 }
