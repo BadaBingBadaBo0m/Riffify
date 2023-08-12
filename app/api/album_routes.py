@@ -50,6 +50,24 @@ def delete_album_by_id(id):
     return { 'message': 'Successfully deleted' }, 200
 
 
+@album_routes.route('/current')
+def get_current_users_albums():
+    """
+    Query for all of current user's albums
+    """
+    if current_user is None:
+        return { 'errors' 'Unauthorized' }
+    
+    albums = Album.query.filter(Album.created_by_id == current_user.id).all()
+
+    users_albums = []
+
+    for album in albums:
+        users_albums.append(album.to_dict())
+
+    return { 'albums': users_albums }
+
+
 @album_routes.route("/new", methods=["POST"])
 @login_required
 def create_new_album():
