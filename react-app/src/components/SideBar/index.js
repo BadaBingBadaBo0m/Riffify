@@ -10,6 +10,7 @@ import { Tooltip } from 'react-tooltip';
 
 const SideBar = () => {
   const [albumTooltip, setAlbumTooltip] = useState(false)
+  const [tooltipType, setTooltipType] = useState('')
   const history = useHistory();
   const user = useSelector((state) => state.session.user)
 
@@ -25,6 +26,16 @@ const SideBar = () => {
     }
   })
 
+  const createAlbumTooltip = () => {
+    setTooltipType('album')
+    setAlbumTooltip(true)
+  }
+
+  const createPlaylistTooltip = () => {
+    setTooltipType('playlist')
+    setAlbumTooltip(true)
+  }
+
   return (
     <>
       <div id='side-bar-container'>
@@ -37,13 +48,13 @@ const SideBar = () => {
           </li>
         </ul>
 
-        <div id='playlist-container'>
+        <div id='playlist-albums-container'>
           <div id='library-container'>
             <h2 id='library-heading'>Your Library</h2>
-            <div id='create-first-playlist'>
+            <div id='create-first-playlist' data-tooltip-id='create-playlist-tooltip'>
               <h2 id='first-playlist-heading'>Create your first playlist</h2>
               <p id='first-playlist-desc'>It's easy, we'll help you</p>
-              <span id='create-playlist-button'>Create playlist</span>
+              <button id='dead-create-playlist-button' onClick={createPlaylistTooltip}>Create playlist</button>
             </div>
           </div>
 
@@ -51,14 +62,14 @@ const SideBar = () => {
             <h2 id='owned-albums-title'>Your Albums</h2>
 
             <div id='create-album-button-container'>
-              {!user && <button id='dead-create-album' onClick={() => setAlbumTooltip(true)}>Create a album</button>}
+              {!user && <button id='dead-create-album' onClick={createAlbumTooltip}>Create a album</button>}
               {user && <OpenModalButton buttonText={'Create new album'} modalComponent={<AlbumForm type={'create'} />} />}
             </div>
           </div>
         </div>
       </div>
       <Tooltip
-        id='create-album-tooltip'
+        id={`create-${tooltipType}-tooltip`}
         variant='info'
         openOnClick
         clickable
@@ -68,8 +79,10 @@ const SideBar = () => {
         isOpen={albumTooltip}
       >
         <div id='album-tooltip-header-container'>
-          <h2 id='album-tooltip-header'>Create a Album</h2>
-          <p id='album-tooltip-sub-header'>Login to create a album</p>
+          {tooltipType === 'album' && < h2 id='album-tooltip-header'>Create an Album</h2>}
+          {tooltipType === 'playlist' && < h2 id='album-tooltip-header'>Create a playlist</h2>}
+          {tooltipType === 'album' && <p id='album-tooltip-sub-header'>Login to create an album</p>}
+          {tooltipType === 'playlist' && <p id='album-tooltip-sub-header'>Login to create a playlist</p>}
         </div>
 
         <div id='album-tooltip-button-container'>
@@ -80,7 +93,7 @@ const SideBar = () => {
             <OpenModalButton buttonText={'Sign up'} modalComponent={<SignupFormModal />} />
           </div>
         </div>
-      </Tooltip>
+      </Tooltip >
     </>
   )
 }
