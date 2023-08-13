@@ -8,6 +8,9 @@ song_routes = Blueprint('songs', __name__)
 
 @song_routes.route('/<int:id>')
 def get_songs_for_album(id):
+    """
+    Get songs from album by album id
+    """
     all_songs = Song.query.filter(Song.album_id == id).all()
 
     songs = []

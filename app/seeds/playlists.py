@@ -2,12 +2,22 @@ from app.models import db, Playlist, environment, SCHEMA
 from sqlalchemy import text
 
 def seed_playlists():
-    better_days = Playlist(
+    bangers = Playlist(
         name='Bangers',
         owner_id=1
     )
+    sorta_bangers = Playlist(
+        name='Sorta-bangers',
+        owner_id=1
+    )
+    i_am_out_of_name_ideas = Playlist(
+        name='I am out of name ideas',
+        owner_id=2
+    )
 
-    db.session.add(better_days)
+    db.session.add(bangers)
+    db.session.add(sorta_bangers)
+    db.session.add(i_am_out_of_name_ideas)
     db.session.commit()
 
 def undo_playlists():

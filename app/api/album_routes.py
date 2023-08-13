@@ -51,6 +51,7 @@ def delete_album_by_id(id):
 
 
 @album_routes.route('/current')
+@login_required
 def get_current_users_albums():
     """
     Query for all of current user's albums

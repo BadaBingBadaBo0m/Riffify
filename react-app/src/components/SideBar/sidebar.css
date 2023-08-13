@@ -54,7 +54,7 @@
   align-items: flex-end;
 }
 
-#create-first-playlist {
+#create-playlist {
   grid-area: playlist-container;
   /* background-color: #121212; */
   /* background-color: #242424; */
@@ -81,6 +81,16 @@
 #first-playlist-heading {
   font-size: 1rem;
   margin: 0;
+}
+
+#playlist-list-heading {
+  font-size: 1rem;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+#playlist-list-container {
+  padding: 0;
 }
 
 #first-playlist-desc {

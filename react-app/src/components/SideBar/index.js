@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Tooltip } from 'react-tooltip';
 import { getUsersAlbums } from '../../store/albums';
+import playlists, { getUsersPlaylists } from '../../store/playlists';
 import OpenModalButton from '../OpenModalButton';
 import LoginFormModal from '../LoginFormModal'
 import SignupFormModal from '../SignupFormModal';
@@ -17,10 +18,12 @@ const SideBar = () => {
   const history = useHistory();
   const user = useSelector((state) => state.session.user)
   const usersAlbums = useSelector((state) => state.albums.usersAlbums)
+  const usersPlaylists = useSelector((state) => state.playlists.usersPlaylists)
 
   useEffect(() => {
     if (user) {
       dispatch(getUsersAlbums())
+      dispatch(getUsersPlaylists())
     }
   }, [user])
 
@@ -62,11 +65,35 @@ const SideBar = () => {
 
           <h2 id='library-heading'>Your Library</h2>
 
-          <div id='create-first-playlist' data-tooltip-id='create-playlist-tooltip'>
-            <h2 id='first-playlist-heading'>Create your first playlist</h2>
-            <p id='first-playlist-desc'>It's easy, we'll help you</p>
-            <button id='dead-create-playlist-button' onClick={createPlaylistTooltip}>Create playlist</button>
-          </div>
+          {!user &&
+            < div id='create-playlist' data-tooltip-id='create-playlist-tooltip'>
+              <h2 id='first-playlist-heading'>Create your first playlist</h2>
+              <p id='first-playlist-desc'>It's easy, we'll help you</p>
+              <button id='dead-create-playlist-button' onClick={createPlaylistTooltip}>Create playlist</button>
+            </div>
+          }
+
+          {user && (usersPlaylists && usersPlaylists.length === 0) &&
+            < div id='create-playlist' data-tooltip-id='create-playlist-tooltip'>
+              <h2 id='first-playlist-heading'>Create your first playlist</h2>
+              <p id='first-playlist-desc'>It's easy, we'll help you</p>
+              <button id='dead-create-playlist-button' onClick={() => console.log('button')}>Create playlist</button>
+            </div>
+          }
+
+          {user && (usersPlaylists && usersPlaylists.length > 0) &&
+            <div id='create-playlist' data-tooltip-id='create-playlist-tooltip'>
+              <h2 id='playlist-list-heading'>Your Playlists</h2>
+              <button id='dead-create-playlist-button' onClick={() => console.log('button')}>Create playlist</button>
+              <ul id='playlist-list-container'>
+                {usersPlaylists.map(playlist => (
+                  <li>
+                    <h1>{playlist.name}</h1>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          }
 
           <div id='owned-albums-container' data-tooltip-id='create-album-tooltip'>
             {(!user || !usersAlbums || usersAlbums.length === 0) && <h2 id='owned-albums-title'>Create your first album</h2>}

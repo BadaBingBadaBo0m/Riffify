@@ -5,7 +5,12 @@ def seed_playlist_songs():
     connection = db.engine.connect()
 
     data = [
-        {"playlist_id":1, "song_id": 1}
+        {"playlist_id":1, "song_id": 1},
+        {"playlist_id":1, "song_id": 2},
+        {"playlist_id":1, "song_id": 3},
+        {"playlist_id":1, "song_id": 4},
+        {"playlist_id":2, "song_id": 1},
+        {"playlist_id":2, "song_id": 2},
     ]
 
     for song in data:
