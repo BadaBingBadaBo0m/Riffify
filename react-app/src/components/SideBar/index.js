@@ -8,6 +8,7 @@ import LoginFormModal from '../LoginFormModal'
 import SignupFormModal from '../SignupFormModal';
 import AlbumForm from '../AlbumForm';
 import './sidebar.css';
+import { NavLink } from 'react-router-dom';
 
 const SideBar = () => {
   const [albumTooltip, setAlbumTooltip] = useState(false)
@@ -58,7 +59,9 @@ const SideBar = () => {
         </ul>
 
         <div id='playlist-albums-container'>
+
           <h2 id='library-heading'>Your Library</h2>
+
           <div id='create-first-playlist' data-tooltip-id='create-playlist-tooltip'>
             <h2 id='first-playlist-heading'>Create your first playlist</h2>
             <p id='first-playlist-desc'>It's easy, we'll help you</p>
@@ -74,20 +77,30 @@ const SideBar = () => {
               {user && <OpenModalButton buttonText={'Create new album'} modalComponent={<AlbumForm type={'create'} />} />}
             </div>
 
-            <div id='user-album-list-container'>
+            <ul id='user-owned-albums-container'>
               {usersAlbums && usersAlbums.map(album => (
-                <>
-                  <h1>{album.name}</h1>
-                  <h1>test</h1>
-                  <h1>test</h1>
-                  <h1>test</h1>
-                  <h1>test</h1>
-                </>
+                <li>
+                  <NavLink
+                    to={`/albums/${album.id}`}
+                    id='owned-album'
+                    activeStyle={{
+                      backgroundColor: '#242424',
+                    }}
+                    style={{
+                      color: 'white',
+                      textDecoration: 'none'
+                    }}
+                    className='album-navLink'
+                  >
+                    <img id='owned-album-cover' src={album.art}></img>
+                    <h2 id='owned-album-name'>{album.name}</h2>
+                  </NavLink>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
-      </div>
+      </div >
       <Tooltip
         id={`create-${tooltipType}-tooltip`}
         variant='info'

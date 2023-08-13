@@ -20,7 +20,7 @@ const AlbumInfo = () => {
   useEffect(() => {
     dispatch(getSingleAlbum(albumId))
     dispatch(getSongsForAlbum(albumId))
-  }, [])
+  }, [albumId])
 
   const handleSongChange = (song) => {
     setCurrentSong(song)

@@ -36,7 +36,7 @@
   grid-auto-columns: 1fr;
   grid-auto-rows: 1fr;
   grid-template-columns: 1fr;
-  grid-template-rows: 4em max-content max-content;
+  grid-template-rows: 3em max-content max-content;
   gap: 0px 0px;
   grid-template-areas:
     "library-heading"
@@ -46,15 +46,27 @@
 
 #library-heading {
   color: #a7a7a7;
-  font-size: 1rem;
+  font-size: 1.3rem;
   grid-area: library-heading;
+  margin: 0;
+  margin-left: 1.5rem;
+  display: flex;
+  align-items: flex-end;
 }
 
 #create-first-playlist {
   grid-area: playlist-container;
-  background-color: #121212;
+  /* background-color: #121212; */
+  /* background-color: #242424; */
+  /* border-radius: 10px; */
+  border-bottom: 2px solid #242424;
   margin: .6rem;
   height: fit-content;
+  color: white;
+  padding: 1rem;
+  padding-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 #owned-albums-container {
@@ -64,15 +76,6 @@
 #home-button-container {
   background-color: #121212;
   color: white;
-}
-
-#create-first-playlist {
-  background-color: #242424;
-  color: white;
-  padding: 1rem;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
 }
 
 #first-playlist-heading {
@@ -99,12 +102,11 @@
 }
 
 #owned-albums-container {
-  background-color: #242424;
+  /* background-color: #242424; */
   color: white;
   padding: 1rem;
   margin: .5rem;
   border-radius: 10px;
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   min-height: 7.8rem;
@@ -155,6 +157,37 @@
   border-radius: 10px !important;
   width: 20rem !important;
   padding: 1rem !important;
+}
+
+#user-owned-albums-container {
+  padding: 0;
+  margin-top: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* #album-navLink {
+  padding: 1rem;
+} */
+
+#owned-album {
+  display: flex;
+  align-items: center;
+  padding: .4rem;
+  border-radius: 10px;
+}
+
+#owned-album-cover {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 5px;
+}
+
+#owned-album-name {
+  font-size: 1rem;
+  margin-left: .7rem;
 }
 
 #album-tooltip-button-container {

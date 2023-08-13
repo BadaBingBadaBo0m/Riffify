@@ -4,6 +4,7 @@ const SET_SINGLE_ALBUM = '/album'
 const SET_ALBUM_SONGS = 'album/songs'
 const DELETE_ALBUM = 'albums/delete'
 const SET_USERS_ALBUMS = 'albums/current'
+const CLEAR_STATE = 'albums/clear'
 const CREATE_SONG = 'albums/songs/new'
 
 const setAlbums = (albums) => ({
@@ -29,6 +30,10 @@ const setAlbumSongs = (songs) => ({
 const actionCreateAlbum = (album) => ({
   type: CREATE_ALBUM,
   album
+})
+
+export const actionClearAlbumsState = () => ({
+  type: CLEAR_STATE
 })
 
 // const actionCreateSong = (song) => ({
@@ -189,6 +194,8 @@ export default function albums(state = initialState, action) {
       return { ...state, singleAlbum: null }
     case SET_USERS_ALBUMS:
       return { ...state, usersAlbums: action.albums }
+    case CLEAR_STATE:
+      return { ...state, albumList: state.albumList, singleAlbum: null, usersAlbums: null }
     // case CREATE_SONG:
     //   return { ...state, albumSongs: [...state.albumSongs, action.song] }
     default:
