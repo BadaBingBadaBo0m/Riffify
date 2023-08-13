@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from 'react-router-dom'
 import { logout } from '../../store/session';
 import { SongContext } from '../../context/Song';
 import OpenModalButton from '../OpenModalButton'
@@ -9,11 +10,13 @@ import './navbar.css'
 
 const Navbar = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
   const user = useSelector((state) => state.session.user)
   const { setCurrentSong } = useContext(SongContext)
 
   const handleLogout = async () => {
     await dispatch(logout())
+    history.push('/')
     setCurrentSong(null)
   }
 

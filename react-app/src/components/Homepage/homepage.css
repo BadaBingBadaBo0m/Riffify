@@ -9,7 +9,7 @@
 
   display: grid;
   grid-template-columns: 25% 1fr;
-  grid-template-rows: 1fr .07fr;
+  grid-template-rows: 1fr max-content;
   gap: 0px 10px;
   grid-template-areas:
     "Playlist-bar Main-content"
