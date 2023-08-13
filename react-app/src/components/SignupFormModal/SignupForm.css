@@ -48,3 +48,30 @@
   margin-bottom: 1rem;
   width: 10rem;
 }
+
+#first-last-name {
+  margin-bottom: 2rem;
+}
+
+#first-last-name {
+  display: flex;
+  width: 15rem;
+}
+
+.first-name-inputs {
+  width: 7.5rem;
+  background-color: #121212;
+  color: white;
+  border: 1px solid #727272;
+  height: 2rem;
+  padding: .8rem;
+}
+
+.last-name-inputs {
+  width: 7.5rem;
+  background-color: #121212;
+  color: white;
+  border: 1px solid #727272;
+  height: 2rem;
+  padding: .8rem;
+}

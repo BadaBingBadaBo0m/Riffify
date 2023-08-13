@@ -9,6 +9,8 @@ function SignupFormModal() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
@@ -16,7 +18,7 @@ function SignupFormModal() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, firstName, lastName, email, password));
       if (data) {
         setErrors(data);
       } else {
@@ -59,6 +61,30 @@ function SignupFormModal() {
             required
             className="signUp-inputs"
           />
+        </div>
+
+        <div id="first-last-name">
+          <div>
+            <label className="first-name-label">Fist name</label>
+            <input
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+              className="first-name-inputs"
+            />
+          </div>
+
+          <div>
+            <label className="last-name-label">Last name</label>
+            <input
+              type="text"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+              className="last-name-inputs"
+            />
+          </div>
         </div>
 
         <div className="signUp-inputs-labels">
