@@ -4,9 +4,9 @@ from ..forms import AlbumForm, UpdateAlbumForm
 from app.models import db, playlist_songs, Playlist, Song
 from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 
-playlist_routs = Blueprint('playlists', __name__)
+playlist_routes = Blueprint('playlists', __name__)
 
-@playlist_routs.route('/current')
+@playlist_routes.route('/current')
 @login_required
 def get_users_playlists():
     """
@@ -21,7 +21,23 @@ def get_users_playlists():
 
     return { 'playlists': user_playlists }
 
-@playlist_routs.route('/<int:id>/songs')
+@playlist_routes.route('/<int:id>')
+@login_required
+def get_single_playlist(id):
+    """
+    Gets all the info about a playlist
+    """
+    playlist = Playlist.query.get(id)
+
+    if playlist is None:
+        return { 'errors': 'Playlist not found' }, 404
+    
+    if playlist.owner_id != current_user.id:
+        return { 'errors': 'Unauthorized' }, 401
+    
+    return { 'playlist': playlist.to_dict() }
+
+@playlist_routes.route('/<int:id>/songs')
 @login_required
 def get_songs_in_playlist(id):
     """
@@ -33,7 +49,7 @@ def get_songs_in_playlist(id):
         return { 'errors': 'Playlist not found' }, 404
     
     if playlist.owner_id != current_user.id:
-        return { 'error': 'Unauthorized' }
+        return { 'errors': 'Unauthorized' }, 401
 
     songs = [song for song in playlist.songs]
 

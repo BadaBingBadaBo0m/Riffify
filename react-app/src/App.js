@@ -8,6 +8,7 @@ import HomePage from "./components/Homepage";
 import Recommended from './components/Recommended'
 import AlbumForm from "./components/AlbumForm";
 import AlbumInfo from "./components/AlbumInfo";
+import PlaylistInfo from "./components/Playlist";
 import { authenticate } from "./store/session";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 // import Navigation from "./components/Navigation";
@@ -28,6 +29,12 @@ function App() {
           </Route>
           <Route path='/albums/:albumId' >
             <HomePage Content={AlbumInfo} />
+          </Route>
+          <Route path='/playlists/:playlistId'>
+            <HomePage Content={PlaylistInfo} />
+          </Route>
+          <Route path='*'>
+            <h2>Page not found</h2>
           </Route>
           {/* <Route path="/login" >
             <LoginFormPage />
