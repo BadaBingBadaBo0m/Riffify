@@ -54,7 +54,7 @@ const AlbumInfo = () => {
         </div>
       </div>
 
-      <div id='song-list-container'>
+      <div id='album-dropdown-play-button'>
         <div id='play-button-like-container'>
           <button id='album-play-button'> {<i className="fa-solid fa-play"></i>} </button>
           <AlbumDropdown album={album} />
@@ -68,11 +68,11 @@ const AlbumInfo = () => {
             <li className='song-container'>
               <div className='song-count-and-controls-container'>
                 <p className='song-count'>{songCount}</p>
-                <button
+                {user && <button
                   className='song-list-play-button'
                   onClick={() => handleSongChange(song)}
                 > {<i className="fa-solid fa-play"></i>}
-                </button>
+                </button>}
                 <div className='song-info'>
                   <p className='song-name'>{song.name}</p>
                   <p className='artist-name'>{album.created_by?.username}</p>
