@@ -54,8 +54,8 @@ const AlbumDropdown = ({ album }) => {
   return (
     <>
       <div ref={albumDropdownRef} id='album-dropdown-ref-div'>
-        {user &&
-          <i class="fa-solid fa-ellipsis" id='album-dropdown-button' onClick={ToggleMenu}></i>}
+        {user && album.created_by.id === user.id &&
+          < i class="fa-solid fa-ellipsis" id='album-dropdown-button' onClick={ToggleMenu}></i>}
 
         <div className={classShowMenu}>
           <ul className={ownedAlbum}>
@@ -85,12 +85,12 @@ const AlbumDropdown = ({ album }) => {
           </ul>
         </div>
 
-        <div className={classShowMenu}>
+        {/* <div className={classShowMenu}>
           <ul className={notOwnedAlbum}>
             <li>Bruh not owned</li>
           </ul>
-        </div>
-      </div>
+        </div> */}
+      </div >
     </>
   )
 }

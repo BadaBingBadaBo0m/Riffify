@@ -10,17 +10,21 @@ import SongForm from '../SongForm';
 
 const SongDropdown = ({ song, album }) => {
   const user = useSelector((state) => state.session.user);
+  const playlists = useSelector((state) => state.playlists.usersPlaylists)
   const { closeModal } = useModal()
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  const [showPlaylistMenu, setShowPlaylistMenu] = useState(false);
   const songDropdownRef = useRef();
 
   useEffect(() => {
     if (!showMenu) return;
 
     const closeMenu = (e) => {
-      if (songDropdownRef.current && !songDropdownRef.current.contains(e.target))
+      if (songDropdownRef.current && !songDropdownRef.current.contains(e.target)) {
+        setShowPlaylistMenu(false)
         setShowMenu(false);
+      }
     };
 
     document.addEventListener("click", closeMenu); //close menu on click anywhere on document exept menu or button
@@ -43,6 +47,7 @@ const SongDropdown = ({ song, album }) => {
   }
 
   const classShowMenu = showMenu ? "song-dropdown-container" : "song-dropdown-container hidden"
+  const showPlaylistDropdown = showPlaylistMenu ? 'song-add-to-playlist-list-dropdown' : 'song-add-to-playlist-list-dropdown hidden'
 
   return (
     <>
@@ -76,6 +81,21 @@ const SongDropdown = ({ song, album }) => {
               </div>}
             </li>
 
+            <li className='song-dropdown-li'>
+              {user && playlists.length > 0 && <div className='song-dropdown-button'>
+                <button onClick={() => setShowPlaylistMenu(!showPlaylistMenu)}>Add to playlist</button>
+              </div>}
+            </li>
+
+          </ul>
+
+          <ul className={showPlaylistDropdown}>
+            <h2 className='playlists-list-dropdown-header'>Playlists</h2>
+            {playlists.map(playlist => (
+              <li>
+                <button className='song-playlist-dropdown-button'>{playlist.name}</button>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
