@@ -88,7 +88,21 @@ const SideBar = () => {
               <ul id='playlist-list-container'>
                 {usersPlaylists.map(playlist => (
                   <li>
-                    <h1>{playlist.name}</h1>
+                    <NavLink
+                      to={`/playlists/${playlist.id}`}
+                      id='owned-album'
+                      activeStyle={{
+                        backgroundColor: '#242424',
+                      }}
+                      style={{
+                        color: 'white',
+                        textDecoration: 'none'
+                      }}
+                      className='album-navLink'
+                    >
+                      <img id='owned-album-cover' src={playlist.picture}></img>
+                      <h2 id='owned-album-name'>{playlist.name}</h2>
+                    </NavLink>
                   </li>
                 ))}
               </ul>

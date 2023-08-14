@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from ..forms import AlbumForm, UpdateAlbumForm
-from app.models import db, playlist_songs, Playlist, Song
+from app.models import db, playlist_songs, Playlist, Song, Album, User
 from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 
 playlist_routes = Blueprint('playlists', __name__)
@@ -47,7 +47,7 @@ def get_songs_in_playlist(id):
 
     if playlist is None:
         return { 'errors': 'Playlist not found' }, 404
-    
+
     if playlist.owner_id != current_user.id:
         return { 'errors': 'Unauthorized' }, 401
 
@@ -56,6 +56,11 @@ def get_songs_in_playlist(id):
     song_list = []
 
     for song in songs:
-        song_list.append(song.to_dict())
+        # album = Album.query.get(song.album_id)
+        album = db.session.query(Album, User) \
+        .join(User, song.created_by == User.id) \
+        .filter(Album.id == song.album_id).first()
+
+        song_list.append( { **song.to_dict(), 'album': { **album[0].to_dict(), 'created_by': {**album[1].private_to_dict()} } })
 
     return { 'songs': song_list }

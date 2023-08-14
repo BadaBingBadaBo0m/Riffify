@@ -9,7 +9,7 @@
   /* margin: 1rem 1rem; */
   overflow: hidden;
   display: flex;
-
+  padding: 1rem;
   /* background-color: transparent;
   backdrop-filter: blur(200px); */
 }
@@ -99,7 +99,7 @@
 }
 
 .song-info {
-  margin-left: 1rem;
+  margin-left: .6rem;
 }
 
 .song-name {

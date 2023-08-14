@@ -1,0 +1,24 @@
+#playlist-details-container {
+  min-height: 12rem;
+}
+
+#playlist-banner-container {
+  background-color: #242424;
+  align-items: end;
+  width: 100%;
+  /* margin: 1rem 1rem; */
+  overflow: hidden;
+  display: flex;
+  padding: 1rem;
+  /* background-color: transparent;
+  backdrop-filter: blur(200px); */
+}
+
+#playlist-details-cover {
+  width: 12rem;
+}
+
+#playlist-song-album-art {
+  width: 2.4rem;
+  margin-left: .8rem;
+}

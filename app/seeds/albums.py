@@ -7,9 +7,14 @@ def seed_albums():
         created_by_id=1,
         art='/Currents-the-way-it-ends.jpg'
     )
+    the_death_we_seek = Album(
+        name='The Death We Seek',
+        created_by_id=1,
+        art='https://tritone-spotify-clone.s3.amazonaws.com/The-death-we-seak-album-cover.jpg'
+    )
     aggressive = Album(
         name='Aggressive',
-        created_by_id=1,
+        created_by_id=2,
         art='/Beartooth-aggressive.jpg'
     )
     dissentient = Album(
@@ -29,6 +34,7 @@ def seed_albums():
     )
 
     db.session.add(the_way_it_ends)
+    db.session.add(the_death_we_seek)
     db.session.add(aggressive)
     db.session.add(dissentient)
     db.session.add(the_death_of_peace_of_mind)

@@ -9,6 +9,10 @@ def seed_playlist_songs():
         {"playlist_id":1, "song_id": 2},
         {"playlist_id":1, "song_id": 3},
         {"playlist_id":1, "song_id": 4},
+        {"playlist_id":1, "song_id": 20},
+        {"playlist_id":1, "song_id": 15},
+        {"playlist_id":1, "song_id": 14},
+        {"playlist_id":1, "song_id": 18},
         {"playlist_id":2, "song_id": 1},
         {"playlist_id":2, "song_id": 2},
     ]

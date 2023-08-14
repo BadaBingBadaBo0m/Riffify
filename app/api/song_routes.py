@@ -16,7 +16,11 @@ def get_songs_for_album(id):
     songs = []
 
     for song in all_songs:
-        songs.append(song.to_dict())
+        album = db.session.query(Album, User) \
+        .join(User, song.created_by == User.id) \
+        .filter(Album.id == song.album_id).first()
+        songs.append( { **song.to_dict(), 'album': { **album[0].to_dict(), 'created_by': {**album[1].private_to_dict()} } })
+        # songs.append(song.to_dict())
     
     return songs
 

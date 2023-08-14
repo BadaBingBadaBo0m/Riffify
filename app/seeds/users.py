@@ -11,6 +11,13 @@ def seed_users():
         last_name='currents',
         password='password'
     )
+    beartooth = User(
+        username='Beartooth',
+        email='beartooth@aa.io',
+        first_name='Beartooth',
+        last_name='Beartooth',
+        password='password'
+    )
     demo = User(
         username='Demo', 
         email='demo@aa.io', 
@@ -31,6 +38,7 @@ def seed_users():
         password='password')
 
     db.session.add(currents)
+    db.session.add(beartooth)
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)

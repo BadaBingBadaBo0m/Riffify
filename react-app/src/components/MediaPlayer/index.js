@@ -113,7 +113,7 @@ const MediaPlayer = () => {
       />
 
       <div id='media-player-song-info-container'>
-        <img id='media-player-album-art' src={contextAlbum?.art}></img>
+        <img id='media-player-album-art' src={currentSong?.album.art}></img>
         <div id='media-player-song-info'>
           <h2 id='media-player-song-name'>{currentSong?.name}</h2>
           <p id='media-player-artist-name'>{contextAlbum?.created_by.username}</p>
