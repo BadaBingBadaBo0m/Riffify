@@ -66,7 +66,7 @@ const SongForm = ({ type, albumId, song }) => {
 
   return (
     <div id='create-song-container'>
-      <form id='create-song-from'>
+      <form id='create-song-from' encType='multipart/form-data'>
         <h1 id='Song-form-title'>
           {type === 'create' ? 'Create a new Song' : `Edit ${song?.name}`}
         </h1>

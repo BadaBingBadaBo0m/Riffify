@@ -117,7 +117,7 @@ export const createAlbum = (album) => async (dispatch) => {
 
   if (response.ok) {
     const new_album = await response.json();
-    await dispatch(actionCreateAlbum(album));
+    await dispatch(actionCreateAlbum(new_album));
     return new_album
   } else {
     return response
@@ -189,7 +189,7 @@ export default function albums(state = initialState, action) {
     case SET_ALBUM_SONGS:
       return { ...state, albumSongs: action.songs }
     case CREATE_ALBUM:
-      return { ...state, singleAlbum: action.album }
+      return { ...state, singleAlbum: action.album, usersAlbums: [...state.usersAlbums, action.album] }
     case DELETE_ALBUM:
       return { ...state, singleAlbum: null }
     case SET_USERS_ALBUMS:

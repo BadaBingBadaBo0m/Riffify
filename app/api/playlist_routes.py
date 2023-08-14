@@ -64,3 +64,40 @@ def get_songs_in_playlist(id):
         song_list.append( { **song.to_dict(), 'album': { **album[0].to_dict(), 'created_by': {**album[1].private_to_dict()} } })
 
     return { 'songs': song_list }
+
+@playlist_routes.route('/new/<int:count>', methods=['POST'])
+@login_required
+def create_new_playlist(count):
+    """
+    Creates a new playlist
+    """
+    user = User.query.get(current_user.id)
+
+    new_playlist = Playlist(
+        name=f"My Playlist #{count}",
+        owner_id=user.id
+    )
+
+    db.session.add(new_playlist)
+    db.session.commit()
+    
+    return { 'playlist': new_playlist.to_dict() }
+
+@playlist_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_playlist(id):
+    """
+    Deletes a playlist by ID
+    """
+    playlist = Playlist.query.get(id)
+
+    if playlist is None:
+        return { 'error': 'Resource not found'}, 404
+
+    if playlist.owner_id != current_user.id:
+        return { 'errors' 'Unauthorized' }, 401
+    
+    db.session.delete(playlist)
+    db.session.commit()
+
+    return { 'message': 'Successfully deleted' }, 200

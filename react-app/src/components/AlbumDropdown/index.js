@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import OpenModalButton from '../OpenModalButton'
 import ConfirmModal from '../ConfirmModal';
 import SongForm from '../SongForm';
-import { deleteAlbum } from '../../store/albums';
+import { deleteAlbum, getUsersAlbums } from '../../store/albums';
 import './albumdropdown.css'
 import { useHistory } from 'react-router-dom';
 import AlbumForm from '../AlbumForm';
@@ -36,7 +36,7 @@ const AlbumDropdown = ({ album }) => {
 
   const handleDelete = async () => {
     const res = await dispatch(deleteAlbum(album.id));
-    console.log(res)
+    dispatch(getUsersAlbums())
     history.push('/')
   }
 

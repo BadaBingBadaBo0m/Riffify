@@ -1,6 +1,7 @@
 const SET_USER_PLAYLISTS = '/playlists/current'
 const SET_PLAYLIST_SONGS = '/playlists/songs'
 const SET_SINGLE_PLAYLIST = '/playlists/singlePlaylist'
+const CREATE_PLAYLIST = '/playlists/new'
 
 const setUsersPlaylists = (playlists) => ({
   type: SET_USER_PLAYLISTS,
@@ -15,6 +16,11 @@ const setSinglePlaylist = (playlist) => ({
 const setPlaylistSongs = (songs) => ({
   type: SET_PLAYLIST_SONGS,
   songs
+})
+
+const setNewPlaylist = (playlist) => ({
+  type: CREATE_PLAYLIST,
+  playlist
 })
 
 export const getUsersPlaylists = () => async (dispatch) => {
@@ -48,6 +54,20 @@ export const getPlaylistSongs = (playlistId) => async (dispatch) => {
     const { songs } = await response.json()
     dispatch(setPlaylistSongs(songs))
     return songs
+  } else {
+    return response
+  }
+}
+
+export const createPlaylist = (count) => async (dispatch) => {
+  const response = await fetch(`/api/playlists/new/${count}`, {
+    method: 'POST'
+  })
+
+  if (response.ok) {
+    const { playlist } = await response.json()
+
+    return playlist
   } else {
     return response
   }
