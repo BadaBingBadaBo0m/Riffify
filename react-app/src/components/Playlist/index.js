@@ -60,12 +60,12 @@ const PlaylistInfo = () => {
             <li className='song-container' onMouseEnter={() => setPlayButton(true)} onMouseLeave={() => setPlayButton(false)}>
               <div className='song-count-and-controls-container'>
                 <p className='song-count'>{songCount}</p>
-                <img src={song.album.art} id='playlist-song-album-art'></img>
                 {user && <button
                   className='song-list-play-button'
                   onClick={() => handleSongChange(song)}
                 > {<i className="fa-solid fa-play"></i>}
                 </button>}
+                <img src={song.album.art} id='playlist-song-album-art'></img>
                 <div className='song-info'>
                   <p className='song-name'>{song.name}</p>
                   <p className='artist-name'>{song.album.created_by.username}</p>
