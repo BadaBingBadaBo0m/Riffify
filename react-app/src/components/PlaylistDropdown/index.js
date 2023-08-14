@@ -5,7 +5,7 @@ import ConfirmModal from '../ConfirmModal';
 import SongForm from '../SongForm';
 import { deleteAlbum, getUsersAlbums } from '../../store/albums';
 import { useHistory } from 'react-router-dom';
-import AlbumForm from '../AlbumForm';
+import PlaylistForm from '../PlaylistForm';
 import './playlistDropdown.css'
 import { deletePlaylist, getUsersPlaylists } from '../../store/playlists';
 
@@ -39,9 +39,6 @@ const PlaylistDropdown = ({ playlist }) => {
     const res = await dispatch(deletePlaylist(playlist.id))
     dispatch(getUsersPlaylists())
     history.push('/')
-    // const res = await dispatch(deleteAlbum(album.id));
-    // dispatch(getUsersAlbums())
-    // history.push('/')
   }
 
   const classShowMenu = showMenu ? "album-dropdown-container" : "album-dropdown-container hidden"
@@ -65,14 +62,7 @@ const PlaylistDropdown = ({ playlist }) => {
           <ul className={ownedAlbum}>
             <li className='album-dropdown-li'>
               <div className='album-dropdown-button'>
-                <button>Edit - dummy button</button>
-                {/* <OpenModalButton buttonText={'Edit'} modalComponent={<AlbumForm type={'update'} album={album} />} /> */}
-              </div>
-            </li>
-            <li className='album-dropdown-li'>
-              <div className='album-dropdown-button'>
-                <button>other dummy button</button>
-                {/* <OpenModalButton buttonText={'Create song'} modalComponent={<SongForm type={'create'} albumId={album.id} />} /> */}
+                <OpenModalButton buttonText={'Edit'} modalComponent={<PlaylistForm playlist={playlist} />} />
               </div>
             </li>
             <li className='album-dropdown-li'>

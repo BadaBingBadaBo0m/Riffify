@@ -23,8 +23,8 @@ const AlbumForm = ({ type, album }) => {
     if (!name) errorObj.name = 'is required.'
     if (name && name.length > 50) errorObj.name = 'length cannot be greater than 50.'
 
-    if (!description) errorObj.description = 'is required.'
-    if (description && description.length > 1000) errorObj.description = 'length cannot be greater than 1000'
+    // if (!description) errorObj.description = 'is required.'
+    // if (description && description.length > 1000) errorObj.description = 'length cannot be greater than 1000'
 
     if (type == 'create') {
       if (!image) errorObj.art = 'is required.'
@@ -80,7 +80,7 @@ const AlbumForm = ({ type, album }) => {
           />
         </div>
 
-        <div className='album-form-input-container'>
+        {/* <div className='album-form-input-container'>
           <label htmlFor='name'>Description {errors.description && <span className='errors'>{errors.description}</span>}</label>
           <textarea
             className='album-form-textarea'
@@ -89,7 +89,7 @@ const AlbumForm = ({ type, album }) => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-        </div>
+        </div> */}
 
         <div className='album-form-input-container'>
           <label htmlFor='name'>Album art {errors.art && <span className='errors'>{errors.art}</span>}</label>

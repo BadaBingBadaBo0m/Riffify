@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from ..forms import AlbumForm, UpdateAlbumForm
+from ..forms import PlaylistForm
 from app.models import db, playlist_songs, Playlist, Song, Album, User
 from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 
@@ -92,7 +92,7 @@ def delete_playlist(id):
     playlist = Playlist.query.get(id)
 
     if playlist is None:
-        return { 'error': 'Resource not found'}, 404
+        return { 'errors': 'Resource not found'}, 404
 
     if playlist.owner_id != current_user.id:
         return { 'errors' 'Unauthorized' }, 401
@@ -101,3 +101,48 @@ def delete_playlist(id):
     db.session.commit()
 
     return { 'message': 'Successfully deleted' }, 200
+
+@playlist_routes.route('<int:id>', methods=['PUT'])
+@login_required
+def update_playlist(id):
+    """
+    Update playlist by id
+    """
+    playlist = Playlist.query.get(id)
+
+    if playlist is None:
+        return { 'errors': 'Resource not found'}, 404
+    
+    if playlist.owner_id != current_user.id:
+        return { 'errors' 'Unauthorized' }, 401
+    
+    form = PlaylistForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        
+        if form.data['picture']:
+            remove_file_from_s3(playlist.picture)
+
+            image = form.data["picture"]
+            image.filename = get_unique_filename(image.filename)
+            upload = upload_file_to_s3(image)
+            # print(upload)
+            if "url" not in upload:
+                # if the dictionary doesn't have a url key
+                # it means that there was an error when you tried to upload
+                # so you send back that error message (and you printed it above)
+                return { 'errors': 'URL not in upload' }, 400
+        
+            url = upload['url']
+            playlist.name = form.data['name']
+            playlist.picture = url
+            db.session.commit()
+            return { **playlist.to_dict() }
+        else:
+            playlist.name = form.data['name']
+            db.session.commit()
+            return { **playlist.to_dict() }
+        
+    if form.errors:
+        return { 'errors': form.errors }

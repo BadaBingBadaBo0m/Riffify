@@ -7,4 +7,4 @@ ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg" }
 
 class PlaylistForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
-    picture = FileField('Playlist picture', validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))])
+    picture = FileField('Playlist picture', validators=[FileAllowed(list(ALLOWED_EXTENSIONS))])

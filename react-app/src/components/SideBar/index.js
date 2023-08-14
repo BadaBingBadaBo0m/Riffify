@@ -83,7 +83,7 @@ const SideBar = () => {
             < div id='create-playlist' data-tooltip-id='create-playlist-tooltip'>
               <h2 id='first-playlist-heading'>Create your first playlist</h2>
               <p id='first-playlist-desc'>It's easy, we'll help you</p>
-              <button id='dead-create-playlist-button' onClick={() => console.log('button')}>Create playlist</button>
+              <button id='dead-create-playlist-button' onClick={handleCreatePlaylist}>Create playlist</button>
             </div>
           }
 
