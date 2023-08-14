@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux";
 import Loading from '../Loading';
 import { getPlaylist, getPlaylistSongs } from '../../store/playlists';
-import AlbumDropdown from '../AlbumDropdown';
+import PlaylistDropdown from '../PlaylistDropdown';
 import SongDropdown from '../SongDropdown';
 import './playlist.css'
 
@@ -49,7 +49,7 @@ const PlaylistInfo = () => {
       <div id='album-dropdown-play-button'>
         <div id='play-button-like-container'>
           <button id='album-play-button'> {<i className="fa-solid fa-play"></i>} </button>
-          {/* <AlbumDropdown album={album} /> */}
+          <PlaylistDropdown playlist={playlist} />
         </div>
       </div>
 

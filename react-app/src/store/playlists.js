@@ -2,6 +2,7 @@ const SET_USER_PLAYLISTS = '/playlists/current'
 const SET_PLAYLIST_SONGS = '/playlists/songs'
 const SET_SINGLE_PLAYLIST = '/playlists/singlePlaylist'
 const CREATE_PLAYLIST = '/playlists/new'
+const DELETE_PLAYLIST = '/playlists/delete'
 
 const setUsersPlaylists = (playlists) => ({
   type: SET_USER_PLAYLISTS,
@@ -21,6 +22,10 @@ const setPlaylistSongs = (songs) => ({
 const setNewPlaylist = (playlist) => ({
   type: CREATE_PLAYLIST,
   playlist
+})
+
+const actionDeletePlaylist = () => ({
+  type: DELETE_PLAYLIST
 })
 
 export const getUsersPlaylists = () => async (dispatch) => {
@@ -73,6 +78,16 @@ export const createPlaylist = (count) => async (dispatch) => {
   }
 }
 
+export const deletePlaylist = (id) => async (dispatch) => {
+  const response = await fetch(`/api/playlists/${id}`, {
+    method: 'DELETE'
+  })
+
+  if (response.ok) {
+
+  }
+}
+
 const initialState = { usersPlaylists: null, playlistSongs: null, singlePlaylist: null }
 
 export default function playlists(state = initialState, action) {
@@ -85,6 +100,8 @@ export default function playlists(state = initialState, action) {
       return { ...state, singlePlaylist: action.playlist }
     case CREATE_PLAYLIST:
       return { ...state, usersPlaylists: [...state.usersPlaylists, action.playlist] }
+    case DELETE_PLAYLIST:
+      return { ...state, singlePlaylist: null }
     default:
       return state
   }

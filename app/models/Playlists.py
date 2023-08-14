@@ -23,6 +23,7 @@ class Playlist(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
+            'owner_id': self.owner_id,
             'name': self.name,
             'description': self.description,
             'picture': self.picture,
