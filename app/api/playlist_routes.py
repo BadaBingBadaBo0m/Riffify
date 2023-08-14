@@ -51,11 +51,9 @@ def get_songs_in_playlist(id):
     if playlist.owner_id != current_user.id:
         return { 'errors': 'Unauthorized' }, 401
 
-    songs = [song for song in playlist.songs]
-
     song_list = []
 
-    for song in songs:
+    for song in playlist.songs:
         # album = Album.query.get(song.album_id)
         album = db.session.query(Album, User) \
         .join(User, song.created_by == User.id) \
@@ -64,6 +62,68 @@ def get_songs_in_playlist(id):
         song_list.append( { **song.to_dict(), 'album': { **album[0].to_dict(), 'created_by': {**album[1].private_to_dict()} } })
 
     return { 'songs': song_list }
+
+@playlist_routes.route('/<int:playlistId>/song/<int:songId>', methods=['POST'])
+@login_required
+def add_song_to_playlist(playlistId, songId):
+    """
+    Adds a song to a playlist
+    """
+    playlist = Playlist.query.get(playlistId)
+    song = Song.query.get(songId)
+
+    if playlist is None:
+        return { 'errors': 'Playlist not found' }, 404
+    
+    if Song is None:
+        return { 'errors': 'Song not found' }, 404
+
+    if playlist.owner_id != current_user.id:
+        return { 'errors': 'Unauthorized' }, 401
+    
+    if song in playlist.songs:
+        return { 'errors': 'Song is already in playlist' }
+
+    playlist.songs.append(song)
+    db.session.commit()
+
+    song_list = []
+
+    for song in playlist.songs:
+        album = db.session.query(Album, User) \
+        .join(User, song.created_by == User.id) \
+        .filter(Album.id == song.album_id).first()
+
+        song_list.append( { **song.to_dict(), 'album': { **album[0].to_dict(), 'created_by': {**album[1].private_to_dict()} } })
+
+    return { 'songs': song_list }
+
+@playlist_routes.route('/<int:playlistId>/song/<int:songId>', methods=['DELETE'])
+@login_required
+def remove_song_from_playlist(playlistId, songId):
+    """
+    Removes a song from a playlist
+    """
+    playlist = Playlist.query.get(playlistId)
+    song = Song.query.get(songId)
+
+    if playlist is None:
+        return { 'errors': 'Playlist not found' }, 404
+    
+    if song is None:
+        return { 'errors': 'Song not found' }, 404
+
+    if playlist.owner_id != current_user.id:
+        return { 'errors': 'Unauthorized' }, 401
+
+    for currentSong in playlist.songs:
+        if currentSong.id == songId:
+            playlist.songs.remove(currentSong)
+            db.session.commit()
+            return { 'message': 'Successfully deleted' }, 200
+        
+    return { 'errors': 'Song not in playlist' }, 404
+
 
 @playlist_routes.route('/new/<int:count>', methods=['POST'])
 @login_required
