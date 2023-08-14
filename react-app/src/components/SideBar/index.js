@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Tooltip } from 'react-tooltip';
 import { getUsersAlbums } from '../../store/albums';
-import playlists, { getUsersPlaylists } from '../../store/playlists';
+import playlists, { createPlaylist, getUsersPlaylists } from '../../store/playlists';
 import OpenModalButton from '../OpenModalButton';
 import LoginFormModal from '../LoginFormModal'
 import SignupFormModal from '../SignupFormModal';
@@ -19,6 +19,7 @@ const SideBar = () => {
   const user = useSelector((state) => state.session.user)
   const usersAlbums = useSelector((state) => state.albums.usersAlbums)
   const usersPlaylists = useSelector((state) => state.playlists.usersPlaylists)
+  let playlistCount = 1
 
   useEffect(() => {
     if (user) {
@@ -38,6 +39,11 @@ const SideBar = () => {
       }
     }
   }, [albumTooltip])
+
+  const handleCreatePlaylist = async () => {
+    const new_playlist = await dispatch(createPlaylist(playlistCount))
+    history.push(`/playlists/${new_playlist.id}`)
+  }
 
   const createAlbumTooltip = () => {
     setTooltipType('album')
@@ -84,27 +90,30 @@ const SideBar = () => {
           {user && (usersPlaylists && usersPlaylists.length > 0) &&
             <div id='create-playlist' data-tooltip-id='create-playlist-tooltip'>
               <h2 id='playlist-list-heading'>Your Playlists</h2>
-              <button id='dead-create-playlist-button' onClick={() => console.log('button')}>Create playlist</button>
+              <button id='dead-create-playlist-button' onClick={handleCreatePlaylist}>Create playlist</button>
               <ul id='playlist-list-container'>
-                {usersPlaylists.map(playlist => (
-                  <li>
-                    <NavLink
-                      to={`/playlists/${playlist.id}`}
-                      id='owned-album'
-                      activeStyle={{
-                        backgroundColor: '#242424',
-                      }}
-                      style={{
-                        color: 'white',
-                        textDecoration: 'none'
-                      }}
-                      className='album-navLink'
-                    >
-                      <img id='owned-album-cover' src={playlist.picture}></img>
-                      <h2 id='owned-album-name'>{playlist.name}</h2>
-                    </NavLink>
-                  </li>
-                ))}
+                {usersPlaylists.map(playlist => {
+                  playlistCount++
+                  return (
+                    <li>
+                      <NavLink
+                        to={`/playlists/${playlist.id}`}
+                        id='owned-album'
+                        activeStyle={{
+                          backgroundColor: '#242424',
+                        }}
+                        style={{
+                          color: 'white',
+                          textDecoration: 'none'
+                        }}
+                        className='album-navLink'
+                      >
+                        <img id='owned-album-cover' src={playlist.picture}></img>
+                        <h2 id='owned-album-name'>{playlist.name}</h2>
+                      </NavLink>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
           }

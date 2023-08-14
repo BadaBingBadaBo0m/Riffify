@@ -66,7 +66,7 @@ export const createPlaylist = (count) => async (dispatch) => {
 
   if (response.ok) {
     const { playlist } = await response.json()
-
+    dispatch(setNewPlaylist(playlist))
     return playlist
   } else {
     return response
@@ -83,6 +83,8 @@ export default function playlists(state = initialState, action) {
       return { ...state, playlistSongs: action.songs }
     case SET_SINGLE_PLAYLIST:
       return { ...state, singlePlaylist: action.playlist }
+    case CREATE_PLAYLIST:
+      return { ...state, usersPlaylists: [...state.usersPlaylists, action.playlist] }
     default:
       return state
   }
