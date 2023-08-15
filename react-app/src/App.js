@@ -33,6 +33,9 @@ function App() {
           <Route path='/playlists/:playlistId'>
             <HomePage Content={PlaylistInfo} />
           </Route>
+          <Route path='/likedSongs'>
+            <HomePage Content={PlaylistInfo} type={'likedSongs'} />
+          </Route>
           <Route path='*'>
             <h2>Page not found</h2>
           </Route>

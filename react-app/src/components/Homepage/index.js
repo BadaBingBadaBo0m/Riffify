@@ -6,7 +6,7 @@ import { SongContext } from '../../context/Song';
 
 import './homepage.css'
 
-const HomePage = ({ Content }) => {
+const HomePage = ({ Content, type }) => {
   const { currentSong, setCurrentSong, contextAlbum } = useContext(SongContext)
 
   return (
@@ -18,7 +18,7 @@ const HomePage = ({ Content }) => {
           <Navbar />
         </div>
         <div id='content-container'>
-          <Content />
+          <Content type={type ? type : ''} />
         </div>
       </div>
 

@@ -1,14 +1,49 @@
-from app.models import db, LikedSong, environment, SCHEMA
+from app.models import db, liked_songs, environment, SCHEMA
 from sqlalchemy import text
 
 def seed_liked_songs():
-    the_way_it_ends = LikedSong(
-        user_id=1,
-        song_id=1
-    )
+    connection = db.engine.connect()
 
-    db.session.add(the_way_it_ends)
-    db.session.commit()
+    data = [
+        {"user_id":1, "song_id": 1},
+        {"user_id":1, "song_id": 2},
+        {"user_id":1, "song_id": 3},
+    ]
+
+    for song in data:
+        connection.execute(liked_songs.insert(), song)
+
+    connection.close()
+
+
+    # user1Song1 = LikedSong(
+    #     user_id=1,
+    #     song_id=1
+    # )
+    # user1Song2 = LikedSong(
+    #     user_id=1,
+    #     song_id=2
+    # )
+    # user1Song3 = LikedSong(
+    #     user_id=1,
+    #     song_id=3
+    # )
+    # user1Song4 = LikedSong(
+    #     user_id=1,
+    #     song_id=4
+    # )
+    # user1Song5 = LikedSong(
+    #     user_id=1,
+    #     song_id=15
+    # )
+
+
+    # db.session.add(user1Song1)
+    # db.session.add(user1Song2)
+    # db.session.add(user1Song3)
+    # db.session.add(user1Song4)
+    # db.session.add(user1Song5)
+    # db.session.commit()
 
 def undo_liked_songs():
     if environment == "production":

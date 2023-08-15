@@ -162,7 +162,7 @@ def delete_playlist(id):
 
     return { 'message': 'Successfully deleted' }, 200
 
-@playlist_routes.route('<int:id>', methods=['PUT'])
+@playlist_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def update_playlist(id):
     """
@@ -206,3 +206,18 @@ def update_playlist(id):
         
     if form.errors:
         return { 'errors': form.errors }
+
+@playlist_routes.route('/likedSongs')
+@login_required
+def get_users_liked_songs():
+    """
+    Gets current user's liked songs
+    """
+    user = User.query.get(current_user.id)
+
+    liked_songs = []
+
+    for song in user.liked_songs:
+        liked_songs.append(song.to_dict())
+
+    return { 'songs': liked_songs }

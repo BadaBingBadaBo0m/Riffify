@@ -9,7 +9,7 @@ import SongDropdown from '../SongDropdown';
 import './playlist.css'
 import PlaylistSongDropdown from '../PlaylistSongDropdown';
 
-const PlaylistInfo = () => {
+const PlaylistInfo = ({ type }) => {
   const { playlistId } = useParams()
   const dispatch = useDispatch()
   const user = useSelector((state) => state.session.user)
@@ -39,7 +39,7 @@ const PlaylistInfo = () => {
         <img src={playlist.picture} id='album-details-cover'></img>
         <div id='album-info-container'>
           <p>Playlist</p>
-          <h1>{playlist.name}</h1>
+          <h1>{type === 'likedSongs' ? 'Liked Songs' : playlist.name}</h1>
           <div id='album-creator-info-container'>
           </div>
         </div>

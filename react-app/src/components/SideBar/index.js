@@ -92,6 +92,23 @@ const SideBar = () => {
               <h2 id='playlist-list-heading'>Your Playlists</h2>
               <button id='dead-create-playlist-button' onClick={handleCreatePlaylist}>Create playlist</button>
               <ul id='playlist-list-container'>
+                <li>
+                  <NavLink
+                    to={`/likedSongs`}
+                    id='owned-album'
+                    activeStyle={{
+                      backgroundColor: '#242424',
+                    }}
+                    style={{
+                      color: 'white',
+                      textDecoration: 'none'
+                    }}
+                    className='album-navLink'
+                  >
+                    <img id='owned-album-cover' src='/likedSongs.png'></img>
+                    <h2 id='owned-album-name'>Liked Songs</h2>
+                  </NavLink>
+                </li>
                 {usersPlaylists.map(playlist => {
                   playlistCount++
                   return (
