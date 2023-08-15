@@ -31,12 +31,12 @@ const AlbumInfo = () => {
 
   const handleLike = async (song) => {
     await dispatch(addSongToLikedSongs(song.id))
-    await dispatch(getSongsForAlbum(albumId))
+    await dispatch(getSongsForAlbum(albumId, user?.id))
   }
 
   const handleUnLike = async (song) => {
     await dispatch(removeSongFromLikedSongs(song.id))
-    await dispatch(getSongsForAlbum(albumId))
+    await dispatch(getSongsForAlbum(albumId, user?.id))
   }
 
   if (!album || !songList) return <Loading />
