@@ -112,7 +112,7 @@ const SongDropdown = ({ song, album }) => {
             </li>
 
             <li className='song-dropdown-li'>
-              {user && playlists.length > 0 && <div className='song-dropdown-button'>
+              {user && playlists && playlists.length > 0 && <div className='song-dropdown-button'>
                 <button onClick={() => setShowPlaylistMenu(!showPlaylistMenu)}>Add to playlist</button>
               </div>}
             </li>
