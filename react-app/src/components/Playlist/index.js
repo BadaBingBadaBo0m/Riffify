@@ -3,7 +3,7 @@ import { SongContext } from '../../context/Song';
 import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux";
 import Loading from '../Loading';
-import { getLikedSongs, getPlaylist, getPlaylistSongs } from '../../store/playlists';
+import { getLikedSongs, getPlaylist, getPlaylistSongs, addSongToLikedSongs, removeSongFromLikedSongs } from '../../store/playlists';
 import PlaylistDropdown from '../PlaylistDropdown';
 import SongDropdown from '../SongDropdown';
 import './playlist.css'
@@ -30,6 +30,16 @@ const PlaylistInfo = () => {
     setCurrentSong(song)
     setContextSongList(songList)
     setContextAlbum(song.album)
+  }
+
+  const handleLike = async (song) => {
+    await dispatch(addSongToLikedSongs(song.id))
+    dispatch(getPlaylistSongs(playlistId))
+  }
+
+  const handleUnLike = async (song) => {
+    await dispatch(removeSongFromLikedSongs(song.id))
+    dispatch(getPlaylistSongs(playlistId))
   }
 
   // console.log(user.id, album)
@@ -71,8 +81,8 @@ const PlaylistInfo = () => {
                 </div>
               </div>
               <div className='like-song-button-n-dropdown-container'>
-                {!song.liked && <button className='like-button'> <i className="fa-regular fa-heart"></i> </button>}
-                {song.liked && <button className='liked-button'> <i className="fa-solid fa-heart"></i> </button>}
+                {!song.liked && <button className={`${song.id} like-button`} onClick={() => handleLike(song)}> <i className="fa-regular fa-heart"></i> </button>}
+                {song.liked && <button className={`${song.id} liked-button`} onClick={() => handleUnLike(song)}> <i className="fa-solid fa-heart"></i> </button>}
                 <PlaylistSongDropdown playlist={playlist} song={song} />
               </div>
               {/* <SongDropdown song={song} album={album} /> */}

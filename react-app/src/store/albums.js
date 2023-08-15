@@ -22,7 +22,7 @@ const setUsersAlbums = (albums) => ({
   albums
 })
 
-const setAlbumSongs = (songs) => ({
+export const setAlbumSongs = (songs) => ({
   type: SET_ALBUM_SONGS,
   songs
 })
