@@ -119,6 +119,14 @@ export const addSongToPlaylist = (playlistId, songId) => async (dispatch) => {
   }
 }
 
+export const removeSongFromPlaylist = (playlistId, songId) => async (dispatch) => {
+  const response = await fetch(`/api/playlists/${playlistId}/song/${songId}`, {
+    method: 'DELETE'
+  })
+
+  return response
+}
+
 const initialState = { usersPlaylists: null, playlistSongs: null, singlePlaylist: null }
 
 export default function playlists(state = initialState, action) {

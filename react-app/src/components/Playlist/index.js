@@ -7,6 +7,7 @@ import { getPlaylist, getPlaylistSongs } from '../../store/playlists';
 import PlaylistDropdown from '../PlaylistDropdown';
 import SongDropdown from '../SongDropdown';
 import './playlist.css'
+import PlaylistSongDropdown from '../PlaylistSongDropdown';
 
 const PlaylistInfo = () => {
   const { playlistId } = useParams()
@@ -71,6 +72,7 @@ const PlaylistInfo = () => {
                   <p className='artist-name'>{song.album.created_by.username}</p>
                 </div>
               </div>
+              <PlaylistSongDropdown playlist={playlist} song={song} />
               {/* <SongDropdown song={song} album={album} /> */}
             </li>
           )

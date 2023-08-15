@@ -3,14 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import OpenModalButton from '../OpenModalButton'
 import ConfirmModal from '../ConfirmModal';
 import { useModal } from '../../context/Modal';
-import './songdropdown.css'
 import { useHistory } from 'react-router-dom';
 import { deleteSong, getSongsForAlbum } from '../../store/albums';
 import { addSongToPlaylist } from '../../store/playlists';
-import OpenModal from '../OpenModal';
 import SongForm from '../SongForm';
-import ErrorModal from '../ErrorModal';
 import { Tooltip } from 'react-tooltip'
+import './songdropdown.css'
 
 const SongDropdown = ({ song, album }) => {
   const user = useSelector((state) => state.session.user);
