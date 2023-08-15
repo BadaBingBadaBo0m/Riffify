@@ -41,15 +41,13 @@ const PlaylistInfo = () => {
           <p>Playlist</p>
           <h1>{playlist.name}</h1>
           <div id='album-creator-info-container'>
-            {/* <img src={user.profile_pic} id='artistPfp'></img> */}
-            {/* <p>{playlist.created_by?.username} &#x2022; {albumDate.getFullYear()} &#x2022; {songList.length} songs</p> */}
           </div>
         </div>
       </div>
 
       <div id='album-dropdown-play-button'>
         <div id='play-button-like-container'>
-          <button id='album-play-button'> {<i className="fa-solid fa-play"></i>} </button>
+          <button id='album-play-button' onClick={() => handleSongChange(songList[0])}> {<i className="fa-solid fa-play"></i>} </button>
           <PlaylistDropdown playlist={playlist} />
         </div>
       </div>

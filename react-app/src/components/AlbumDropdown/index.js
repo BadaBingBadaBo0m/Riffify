@@ -1,5 +1,6 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect, useContext } from 'react'
 import { useSelector, useDispatch } from "react-redux";
+import { SongContext } from '../../context/Song';
 import OpenModalButton from '../OpenModalButton'
 import ConfirmModal from '../ConfirmModal';
 import SongForm from '../SongForm';
@@ -11,6 +12,7 @@ import AlbumForm from '../AlbumForm';
 const AlbumDropdown = ({ album }) => {
   const user = useSelector((state) => state.session.user);
   // const album = useSelector((state) => state.albums.singleAlbum)
+  const { currentSong, setCurrentSong } = useContext(SongContext)
   const dispatch = useDispatch();
   const history = useHistory()
   const [showMenu, setShowMenu] = useState(false);
@@ -37,6 +39,9 @@ const AlbumDropdown = ({ album }) => {
   const handleDelete = async () => {
     const res = await dispatch(deleteAlbum(album.id));
     dispatch(getUsersAlbums())
+    if (currentSong && currentSong.album.id === album.id) {
+      setCurrentSong(null)
+    }
     history.push('/')
   }
 

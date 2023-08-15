@@ -56,7 +56,7 @@ const AlbumInfo = () => {
 
       <div id='album-dropdown-play-button'>
         <div id='play-button-like-container'>
-          <button id='album-play-button'> {<i className="fa-solid fa-play"></i>} </button>
+          <button id='album-play-button' onClick={() => handleSongChange(songList[0])}> {<i className="fa-solid fa-play"></i>} </button>
           <AlbumDropdown album={album} />
         </div>
       </div>

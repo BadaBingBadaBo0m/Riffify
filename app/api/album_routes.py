@@ -44,6 +44,9 @@ def delete_album_by_id(id):
     if current_user.id != album.created_by_id:
         return { 'errors': 'Unauthorized' }, 401
     
+    for song in album.songs:
+        remove_file_from_s3(song.song_body)
+    
     remove_file_from_s3(album.art)
     db.session.delete(album)
     db.session.commit()
