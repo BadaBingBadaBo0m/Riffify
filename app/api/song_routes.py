@@ -6,15 +6,15 @@ from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_fro
 
 song_routes = Blueprint('songs', __name__)
 
-@song_routes.route('/<int:id>')
-def get_songs_for_album(id):
+@song_routes.route('/<int:albumId>')
+@login_required
+def get_songs_for_album(albumId):
     """
     Get songs from album by album id
     """
-    all_songs = Song.query.filter(Song.album_id == id).all()
-
-    if current_user:
-        user = User.query.get(current_user.id)
+    all_songs = Song.query.filter(Song.album_id == albumId).all()
+    
+    user = User.query.get(current_user.id)
 
     songs = []
 
@@ -23,10 +23,28 @@ def get_songs_for_album(id):
         .join(User, song.created_by == User.id) \
         .filter(Album.id == song.album_id).first()
         liked = False
-        if song in user.liked_songs:
+        if user is not None and song in user.liked_songs:
             liked = True
             
         songs.append( { **song.to_dict(), 'liked': liked, 'album': { **album[0].to_dict(), 'created_by': {**album[1].private_to_dict()} } })
+    
+    return songs
+
+@song_routes.route('/loggedOut/<int:albumId>')
+def get_songs_for_album_when_logged_out(albumId):
+    """
+    Get songs from album by album id when logged out
+    """
+    all_songs = Song.query.filter(Song.album_id == albumId).all()
+
+    songs = []
+
+    for song in all_songs:
+        album = db.session.query(Album, User) \
+        .join(User, song.created_by == User.id) \
+        .filter(Album.id == song.album_id).first()
+            
+        songs.append( { **song.to_dict(), 'album': { **album[0].to_dict(), 'created_by': {**album[1].private_to_dict()} } })
     
     return songs
 

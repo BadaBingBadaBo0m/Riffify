@@ -99,8 +99,13 @@ export const createSongForAlbum = (albumId, song) => async (dispatch) => {
   }
 }
 
-export const getSongsForAlbum = (id) => async (dispatch) => {
-  const response = await fetch(`/api/songs/${id}`);
+export const getSongsForAlbum = (albumId, userId) => async (dispatch) => {
+  let response
+  if (userId) {
+    response = await fetch(`/api/songs/${albumId}`);
+  } else {
+    response = await fetch(`/api/songs/loggedOut/${albumId}`);
+  }
 
   if (response.ok) {
     const data = await response.json();

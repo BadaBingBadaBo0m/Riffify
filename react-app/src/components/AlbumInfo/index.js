@@ -20,7 +20,7 @@ const AlbumInfo = () => {
 
   useEffect(() => {
     dispatch(getSingleAlbum(albumId))
-    dispatch(getSongsForAlbum(albumId))
+    dispatch(getSongsForAlbum(albumId, user?.id))
   }, [albumId])
 
   const handleSongChange = (song) => {
@@ -90,8 +90,8 @@ const AlbumInfo = () => {
                 </div>
               </div>
               <div className='like-song-button-n-dropdown-container'>
-                {!song.liked && <button className={`${song.id} like-button`} onClick={() => handleLike(song)}> <i className="fa-regular fa-heart"></i> </button>}
-                {song.liked && <button className={`${song.id} liked-button`} onClick={() => handleUnLike(song)}> <i className="fa-solid fa-heart"></i> </button>}
+                {user && !song.liked && <button className={`${song.id} like-button`} onClick={() => handleLike(song)}> <i className="fa-regular fa-heart"></i> </button>}
+                {user && song.liked && <button className={`${song.id} liked-button`} onClick={() => handleUnLike(song)}> <i className="fa-solid fa-heart"></i> </button>}
                 <SongDropdown song={song} album={album} />
               </div>
             </li>
