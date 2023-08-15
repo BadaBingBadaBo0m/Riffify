@@ -254,8 +254,15 @@ def add_song_to_liked_songs(songId):
     song_list = []
 
     for song in user.liked_songs:
-        song_list.append({ **song.to_dict() })
-
+        album = db.session.query(Album, User) \
+        .join(User, song.created_by == User.id) \
+        .filter(Album.id == song.album_id).first()
+        liked = False
+        if song in user.liked_songs:
+            liked = True
+            
+        song_list.append( { **song.to_dict(), 'liked': liked, 'album': { **album[0].to_dict(), 'created_by': {**album[1].private_to_dict()} } })
+    
     return { 'songs': song_list }
 
 @playlist_routes.route('/likedSongs/<int:songId>', methods=['DELETE'])
@@ -276,4 +283,16 @@ def remove_song_from_liked_songs(songId):
     user.liked_songs.remove(song)
     db.session.commit()
 
-    return { 'message': 'Successfully removed' }
+    song_list = []
+
+    for song in user.liked_songs:
+        album = db.session.query(Album, User) \
+        .join(User, song.created_by == User.id) \
+        .filter(Album.id == song.album_id).first()
+        liked = False
+        if song in user.liked_songs:
+            liked = True
+            
+        song_list.append( { **song.to_dict(), 'liked': liked, 'album': { **album[0].to_dict(), 'created_by': {**album[1].private_to_dict()} } })
+    
+    return { 'songs': song_list }
