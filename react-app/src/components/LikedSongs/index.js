@@ -6,25 +6,23 @@ import Loading from '../Loading';
 import { getLikedSongs, getPlaylist, getPlaylistSongs } from '../../store/playlists';
 import PlaylistDropdown from '../PlaylistDropdown';
 import SongDropdown from '../SongDropdown';
-import './playlist.css'
 import PlaylistSongDropdown from '../PlaylistSongDropdown';
+// import './playlist.css'
 
-const PlaylistInfo = () => {
-  const { playlistId } = useParams()
+const LikedSongs = () => {
   const dispatch = useDispatch()
   const user = useSelector((state) => state.session.user)
-  const playlist = useSelector((state) => state.playlists.singlePlaylist)
+  // const playlist = useSelector((state) => state.playlists.singlePlaylist)
   const songList = useSelector((state) => state.playlists.playlistSongs)
   const { setCurrentSong, currentSong, setContextSongList, setContextAlbum, play, setPlay } = useContext(SongContext)
   const [playButton, setPlayButton] = useState(false)
   let songCount = 0
 
   useEffect(() => {
-    dispatch(getPlaylist(playlistId))
-    dispatch(getPlaylistSongs(playlistId))
-  }, [playlistId])
+    dispatch(getLikedSongs())
+  }, [])
 
-  if (!playlist || !songList) return <Loading />
+  if (!songList) return <Loading />
 
   const handleSongChange = (song) => {
     setCurrentSong(song)
@@ -36,10 +34,10 @@ const PlaylistInfo = () => {
   return (
     <div id='playlist-details-container'>
       <div id='playlist-banner-container'>
-        <img src={playlist.picture} id='album-details-cover'></img>
+        <img src='/likedSongs.png' id='album-details-cover'></img>
         <div id='album-info-container'>
           <p>Playlist</p>
-          <h1>{playlist.name}</h1>
+          <h1>Liked Songs</h1>
           <div id='album-creator-info-container'>
           </div>
         </div>
@@ -48,7 +46,6 @@ const PlaylistInfo = () => {
       <div id='album-dropdown-play-button'>
         <div id='play-button-like-container'>
           <button id='album-play-button' onClick={() => handleSongChange(songList[0])}> {<i className="fa-solid fa-play"></i>} </button>
-          <PlaylistDropdown playlist={playlist} />
         </div>
       </div>
 
@@ -73,9 +70,7 @@ const PlaylistInfo = () => {
               <div className='like-song-button-n-dropdown-container'>
                 {!song.liked && <button className='like-button'> <i className="fa-regular fa-heart"></i> </button>}
                 {song.liked && <button className='liked-button'> <i className="fa-solid fa-heart"></i> </button>}
-                <PlaylistSongDropdown playlist={playlist} song={song} />
               </div>
-              {/* <SongDropdown song={song} album={album} /> */}
             </li>
           )
         })}
@@ -86,4 +81,4 @@ const PlaylistInfo = () => {
   )
 }
 
-export default PlaylistInfo
+export default LikedSongs

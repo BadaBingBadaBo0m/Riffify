@@ -13,14 +13,20 @@ def get_songs_for_album(id):
     """
     all_songs = Song.query.filter(Song.album_id == id).all()
 
+    if current_user:
+        user = User.query.get(current_user.id)
+
     songs = []
 
     for song in all_songs:
         album = db.session.query(Album, User) \
         .join(User, song.created_by == User.id) \
         .filter(Album.id == song.album_id).first()
-        songs.append( { **song.to_dict(), 'album': { **album[0].to_dict(), 'created_by': {**album[1].private_to_dict()} } })
-        # songs.append(song.to_dict())
+        liked = False
+        if song in user.liked_songs:
+            liked = True
+            
+        songs.append( { **song.to_dict(), 'liked': liked, 'album': { **album[0].to_dict(), 'created_by': {**album[1].private_to_dict()} } })
     
     return songs
 

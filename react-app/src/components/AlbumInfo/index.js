@@ -28,6 +28,14 @@ const AlbumInfo = () => {
     setContextAlbum(album)
   }
 
+  const handleLike = () => {
+    console.log('like')
+  }
+
+  const handleUnLike = () => {
+    console.log('unLiked')
+  }
+
   if (!album || !songList) return <Loading />
   const albumDate = new Date(album.created_at)
   // console.log(user.id, album)
@@ -78,7 +86,11 @@ const AlbumInfo = () => {
                   <p className='artist-name'>{album.created_by?.username}</p>
                 </div>
               </div>
-              <SongDropdown song={song} album={album} />
+              <div className='like-song-button-n-dropdown-container'>
+                {!song.liked && <button className='like-button' onClick={() => handleLike(song)}> <i className="fa-regular fa-heart"></i> </button>}
+                {song.liked && <button className='liked-button' onClick={() => handleUnLike(song)}> <i className="fa-solid fa-heart"></i> </button>}
+                <SongDropdown song={song} album={album} />
+              </div>
             </li>
           )
         })}

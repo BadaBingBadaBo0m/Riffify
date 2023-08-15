@@ -9,6 +9,7 @@ import Recommended from './components/Recommended'
 import AlbumForm from "./components/AlbumForm";
 import AlbumInfo from "./components/AlbumInfo";
 import PlaylistInfo from "./components/Playlist";
+import LikedSongs from "./components/LikedSongs";
 import { authenticate } from "./store/session";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 // import Navigation from "./components/Navigation";
@@ -34,7 +35,7 @@ function App() {
             <HomePage Content={PlaylistInfo} />
           </Route>
           <Route path='/likedSongs'>
-            <HomePage Content={PlaylistInfo} type={'likedSongs'} />
+            <HomePage Content={LikedSongs} />
           </Route>
           <Route path='*'>
             <h2>Page not found</h2>

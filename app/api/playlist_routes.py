@@ -44,6 +44,7 @@ def get_songs_in_playlist(id):
     Gets all of the songs in a playlist
     """
     playlist = Playlist.query.get(id)
+    user = User.query.get(current_user.id)
 
     if playlist is None:
         return { 'errors': 'Playlist not found' }, 404
@@ -58,8 +59,11 @@ def get_songs_in_playlist(id):
         album = db.session.query(Album, User) \
         .join(User, song.created_by == User.id) \
         .filter(Album.id == song.album_id).first()
+        liked = False
+        if song in user.liked_songs:
+            liked = True
 
-        song_list.append( { **song.to_dict(), 'album': { **album[0].to_dict(), 'created_by': {**album[1].private_to_dict()} } })
+        song_list.append( { **song.to_dict(), 'liked': liked, 'album': { **album[0].to_dict(), 'created_by': {**album[1].private_to_dict()} } })
 
     return { 'songs': song_list }
 
@@ -215,9 +219,61 @@ def get_users_liked_songs():
     """
     user = User.query.get(current_user.id)
 
-    liked_songs = []
+    song_list = []
 
     for song in user.liked_songs:
-        liked_songs.append(song.to_dict())
+        album = db.session.query(Album, User) \
+        .join(User, song.created_by == User.id) \
+        .filter(Album.id == song.album_id).first()
+        liked = False
+        if song in user.liked_songs:
+            liked = True
 
-    return { 'songs': liked_songs }
+        song_list.append( { **song.to_dict(), 'liked': liked, 'album': { **album[0].to_dict(), 'created_by': {**album[1].private_to_dict()} } })
+
+    return { 'songs': song_list }
+
+@playlist_routes.route('/likedSongs/<int:songId>', methods=['POST'])
+@login_required
+def add_song_to_liked_songs(songId):
+    """
+    Add song to liked songs
+    """
+    user = User.query.get(current_user.id)
+    song = Song.query.get(songId)
+
+    if song is None:
+        return { 'errors': 'Song not found' }, 404
+
+    if song in user.liked_songs:
+        return { 'errors': 'Song already in Liked Songs' }, 500
+
+    user.liked_songs.append(song)
+    db.session.commit()
+
+    song_list = []
+
+    for song in user.liked_songs:
+        song_list.append({ **song.to_dict() })
+
+    return { 'songs': song_list }
+
+@playlist_routes.route('/likedSongs/<int:songId>', methods=['DELETE'])
+@login_required
+def remove_song_from_liked_songs(songId):
+    """
+    Removes a song from liked songs
+    """
+    user = User.query.get(current_user.id)
+    song = Song.query.get(songId)
+
+    if song is None:
+        return { 'errors': 'Song not found' }, 404
+
+    if song not in user.liked_songs:
+        return { 'errors': 'Song not in Liked Songs' }
+    
+    user.liked_songs.remove(song)
+    db.session.commit()
+
+    return { 'message': 'Successfully removed' }

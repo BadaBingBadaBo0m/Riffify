@@ -127,6 +127,18 @@ export const removeSongFromPlaylist = (playlistId, songId) => async (dispatch) =
   return response
 }
 
+export const getLikedSongs = () => async (dispatch) => {
+  const response = await fetch(`/api/playlists/likedSongs`)
+
+  if (response.ok) {
+    const { songs } = await response.json()
+    dispatch(setPlaylistSongs(songs))
+    return response
+  } else {
+    return response
+  }
+}
+
 const initialState = { usersPlaylists: null, playlistSongs: null, singlePlaylist: null }
 
 export default function playlists(state = initialState, action) {

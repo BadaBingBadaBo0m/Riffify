@@ -109,3 +109,29 @@
 .artist-name {
   margin: 0;
 }
+
+.like-song-button-n-dropdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.like-button {
+  background-color: transparent;
+  border: none;
+  color: gray;
+  padding: 0;
+  font-size: .9rem;
+}
+
+.like-button:hover {
+  color: white;
+}
+
+.liked-button {
+  background-color: transparent;
+  border: none;
+  color: #1ed760;
+  padding: 0;
+  font-size: .9rem;
+}
