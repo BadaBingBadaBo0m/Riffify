@@ -65,7 +65,7 @@ const AlbumInfo = () => {
         {songList.map(song => {
           songCount++
           return (
-            <li className='song-container'>
+            <li className='song-container' data-tooltip-id={`playlist-dropdown-message-${song.id}`}>
               <div className='song-count-and-controls-container'>
                 <p className='song-count'>{songCount}</p>
                 {user && <button

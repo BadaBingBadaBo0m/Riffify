@@ -6,7 +6,11 @@ import { useModal } from '../../context/Modal';
 import './songdropdown.css'
 import { useHistory } from 'react-router-dom';
 import { deleteSong, getSongsForAlbum } from '../../store/albums';
+import { addSongToPlaylist } from '../../store/playlists';
+import OpenModal from '../OpenModal';
 import SongForm from '../SongForm';
+import ErrorModal from '../ErrorModal';
+import { Tooltip } from 'react-tooltip'
 
 const SongDropdown = ({ song, album }) => {
   const user = useSelector((state) => state.session.user);
@@ -15,6 +19,8 @@ const SongDropdown = ({ song, album }) => {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const [showPlaylistMenu, setShowPlaylistMenu] = useState(false);
+  const [playlistConfirmTooltip, setPlaylistConfirmTooltip] = useState(false)
+  const [playlistMessage, setPlaylistMessage] = useState(null)
   const songDropdownRef = useRef();
 
   useEffect(() => {
@@ -32,6 +38,18 @@ const SongDropdown = ({ song, album }) => {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu, song]);
 
+  useEffect(() => {
+    if (playlistConfirmTooltip) {
+      const tooltipTimeout = setTimeout(() => {
+        setPlaylistConfirmTooltip(false)
+      }, 3000)
+
+      return () => {
+        clearTimeout(tooltipTimeout)
+      }
+    }
+  }, [playlistConfirmTooltip])
+
   const ToggleMenu = () => {
     if (!showMenu) setShowMenu(true);
     else setShowMenu(false)
@@ -43,6 +61,20 @@ const SongDropdown = ({ song, album }) => {
     if (confirm.ok) {
       await dispatch(getSongsForAlbum(album.id))
       closeModal()
+    }
+  }
+
+  const handleAddSongToPlaylist = async (playlistId, songId, name) => {
+    const res = await dispatch(addSongToPlaylist(playlistId, songId))
+    if (res.ok) {
+      setPlaylistMessage(`added to ${name}`)
+      setPlaylistConfirmTooltip(true)
+    }
+
+    if (res.status > 200) {
+      const { errors } = await res.json()
+      setPlaylistMessage(errors)
+      setPlaylistConfirmTooltip(true)
     }
   }
 
@@ -93,12 +125,22 @@ const SongDropdown = ({ song, album }) => {
             <h2 className='playlists-list-dropdown-header'>Playlists</h2>
             {playlists.map(playlist => (
               <li>
-                <button className='song-playlist-dropdown-button'>{playlist.name}</button>
+                <button className='song-playlist-dropdown-button' onClick={() => handleAddSongToPlaylist(playlist.id, song.id, playlist.name)}>{playlist.name}</button>
               </li>
             ))}
           </ul>
         </div>
       </div>
+      <Tooltip
+        id={`playlist-dropdown-message-${song.id}`}
+        variant='info'
+        openOnClick
+        place='top'
+        delayHide={2000}
+        isOpen={playlistConfirmTooltip}
+      >
+        <h1 id='playlist-tooltip-message'>{playlistMessage}</h1>
+      </Tooltip>
     </>
   )
 }

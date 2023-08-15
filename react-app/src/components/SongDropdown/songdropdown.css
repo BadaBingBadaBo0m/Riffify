@@ -85,12 +85,6 @@
   white-space: normal;
 }
 
-/* .album-dropdown-button>button {
-  background-color: transparent;
-  border: none;
-  color: white;
-} */
-
-/* .album-dropdown-button:hover {
-  background-color: #363636
-} */
+#playlist-tooltip-message {
+  font-size: 1rem;
+}

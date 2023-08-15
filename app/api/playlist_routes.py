@@ -82,7 +82,7 @@ def add_song_to_playlist(playlistId, songId):
         return { 'errors': 'Unauthorized' }, 401
     
     if song in playlist.songs:
-        return { 'errors': 'Song is already in playlist' }
+        return { 'errors': 'Song is already in playlist' }, 500
 
     playlist.songs.append(song)
     db.session.commit()
