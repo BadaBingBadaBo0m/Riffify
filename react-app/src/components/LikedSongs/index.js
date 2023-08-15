@@ -40,7 +40,6 @@ const LikedSongs = () => {
     await dispatch(getLikedSongs())
   }
 
-  // console.log(user.id, album)
   return (
     <div id='playlist-details-container'>
       <div id='playlist-banner-container'>
