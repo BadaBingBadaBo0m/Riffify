@@ -121,7 +121,7 @@ const SongDropdown = ({ song, album }) => {
 
           <ul className={showPlaylistDropdown}>
             <h2 className='playlists-list-dropdown-header'>Playlists</h2>
-            {playlists.map(playlist => (
+            {user && playlists.map(playlist => (
               <li>
                 <button className='song-playlist-dropdown-button' onClick={() => handleAddSongToPlaylist(playlist.id, song.id, playlist.name)}>{playlist.name}</button>
               </li>
