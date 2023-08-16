@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom'
-import { createAlbum, updateAlbum } from "../../store/albums";
+import { createAlbum, getUsersAlbums, updateAlbum } from "../../store/albums";
 import { useModal } from '../../context/Modal';
 import './albumform.css'
 
@@ -67,6 +67,7 @@ const AlbumForm = ({ type, album }) => {
         setErrors(updated_album.errors)
         setImageLoading(false)
       } else {
+        await dispatch(getUsersAlbums())
         closeModal()
       }
       // history.push(`/albums/${updated_album.id}`)

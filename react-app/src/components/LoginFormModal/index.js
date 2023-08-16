@@ -21,13 +21,22 @@ function LoginFormModal() {
     }
   }
 
+  const handleFlaskErrors = (errorsList) => {
+    let errorObj = {}
+    for (let i = 0; i < errorsList.length; i++) {
+      const splitError = errorsList[i].split(':')
+      errorObj[splitError[0].trim()] = splitError[1]
+    }
+    // console.log('obj', errorObj)
+    setErrors(errorObj)
+    console.log(errorObj)
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(data);
-    } else {
-      closeModal()
+      handleFlaskErrors(data)
     }
   };
 
@@ -35,14 +44,14 @@ function LoginFormModal() {
     <div id="login-form-container">
       <h1>Log in to Tritone</h1>
       <form onSubmit={handleSubmit} id="login-form">
-        <ul id="login-form-errors">
+        {/* <ul id="login-form-errors">
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
-        </ul>
+        </ul> */}
 
         <div className="login-inputs-labels">
-          <label className="login-labels">Email</label>
+          <label className="login-labels">Email{errors.email && <span>:</span>}{errors.email && <span className="errors"> {errors.email}</span>}</label>
           <input
             type="text"
             value={email}
@@ -53,7 +62,7 @@ function LoginFormModal() {
         </div>
 
         <div className="login-inputs-labels">
-          <label className="login-labels">Password</label>
+          <label className="login-labels">Password{errors.password && <span>:</span>}{errors.password && <span className="errors"> {errors.password}</span>}</label>
           <input
             type="password"
             value={password}
