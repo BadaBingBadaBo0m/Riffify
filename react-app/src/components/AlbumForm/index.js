@@ -63,7 +63,12 @@ const AlbumForm = ({ type, album }) => {
       if (image) formData.append('art', image)
       setImageLoading(true)
       const updated_album = await dispatch(updateAlbum(album.id, formData))
-      closeModal()
+      if (updated_album.errors) {
+        setErrors(updated_album.errors)
+        setImageLoading(false)
+      } else {
+        closeModal()
+      }
       // history.push(`/albums/${updated_album.id}`)
     }
   }
