@@ -11,6 +11,22 @@
   margin-bottom: 1.5rem;
   padding: 0;
   color: red;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signUp-errors-li {
+  width: fit-content;
+  max-width: 20rem;
+}
+
+#first-last-name-errors-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: .5rem;
 }
 
 #signUp-form {
