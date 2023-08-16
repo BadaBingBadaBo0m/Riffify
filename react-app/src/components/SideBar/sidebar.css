@@ -2,7 +2,8 @@
   max-height: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.2fr 1.8fr;
+  grid-template-rows: 5rem 1.8fr;
+  /* grid-template-rows: 0.2fr 1.8fr; */
   gap: 0px 0px;
   grid-template-areas:
     "ButtonContainer"
@@ -16,6 +17,20 @@
   list-style: none;
   grid-area: ButtonContainer;
   margin: .1rem 0;
+  padding: 0;
+  padding-left: 1.6rem;
+
+  display: flex;
+  align-items: center;
+}
+
+#home-button {
+  font-size: 1.3rem;
+}
+
+#home-house {
+  padding-right: .5rem;
+
 }
 
 /* #library-container {

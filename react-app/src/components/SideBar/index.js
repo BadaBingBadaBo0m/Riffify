@@ -60,11 +60,26 @@ const SideBar = () => {
       <div id='side-bar-container'>
         <ul id='home-button-container'>
           <li>
-            <button onClick={() => history.push('/')}>Home</button>
+            {/* <button id='home-button' onClick={() => history.push('/')}>Home</button> */}
+            <NavLink
+              exact to='/'
+              activeStyle={{
+                color: 'white',
+              }}
+              style={{
+                color: '#a7a7a7',
+                textDecoration: 'none',
+                backgroundColor: '#121212'
+              }}
+              id='home-button'
+            >
+              <i id='home-house' className="fa-solid fa-house"></i>
+              Home
+            </NavLink>
           </li>
-          <li>
+          {/* <li>
             <button>Search</button>
-          </li>
+          </li> */}
         </ul>
 
         <div id='playlist-albums-container'>
