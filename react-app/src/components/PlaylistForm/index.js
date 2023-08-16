@@ -37,8 +37,13 @@ const PlaylistForm = ({ playlist }) => {
       }
       setImageLoading(true)
       const updated_playlist = await dispatch(updatePlaylist(playlist.id, formData))
-      await dispatch(getUsersPlaylists(user.id))
-      closeModal()
+      if (updated_playlist.errors) {
+        setErrors(updated_playlist.errors)
+        setImageLoading(false)
+      } else {
+        await dispatch(getUsersPlaylists())
+        closeModal()
+      }
     }
   }
 
@@ -59,7 +64,7 @@ const PlaylistForm = ({ playlist }) => {
         </div>
 
         <div className='album-form-input-container'>
-          <label htmlFor='name'>Playlist Picture {errors.art && <span className='errors'>{errors.art}</span>}</label>
+          <label htmlFor='name'>Playlist Picture {errors.picture && <span className='errors'>{errors.picture}</span>}</label>
           <input
             className='album-form-file'
             type='file'

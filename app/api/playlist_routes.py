@@ -209,7 +209,7 @@ def update_playlist(id):
             return { **playlist.to_dict() }
         
     if form.errors:
-        return { 'errors': form.errors }
+        return { 'errors': form.errors }, 400
 
 @playlist_routes.route('/likedSongs')
 @login_required

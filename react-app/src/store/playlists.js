@@ -101,7 +101,7 @@ export const updatePlaylist = (id, playlist) => async (dispatch) => {
     dispatch(actionUpdatePlaylist(playlist))
     return playlist
   } else {
-    return response
+    return await response.json()
   }
 }
 
