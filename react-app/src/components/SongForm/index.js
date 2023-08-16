@@ -40,7 +40,10 @@ const SongForm = ({ type, albumId, song }) => {
       setImageLoading(true)
       const new_song = await dispatch(createSongForAlbum(albumId, formData))
 
-      if (new_song.ok) {
+      if (new_song.errors) {
+        setErrors(new_song.errors)
+        setImageLoading(false)
+      } else {
         await dispatch(getSongsForAlbum(albumId))
         closeModal()
       }
@@ -56,11 +59,17 @@ const SongForm = ({ type, albumId, song }) => {
       console.log(song.id)
       setImageLoading(true)
       const updated_song = await dispatch(updateSong(formData, song.id))
-
-      if (updated_song.ok) {
+      if (updated_song.errors) {
+        setErrors(updated_song.errors)
+        setImageLoading(false)
+      } else {
         await dispatch(getSongsForAlbum(albumId))
         closeModal()
       }
+      // if (updated_song.ok) {
+      //   await dispatch(getSongsForAlbum(albumId))
+      //   closeModal()
+      // }
     }
   }
 

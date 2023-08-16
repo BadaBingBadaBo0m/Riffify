@@ -89,13 +89,13 @@ export const createSongForAlbum = (albumId, song) => async (dispatch) => {
     body: song
   })
 
-  console.log(response)
+  const data = response.json()
   if (response.ok) {
-    const { song } = response.json()
+    const { song } = data
     // await actionCreateSong(song)
-    return response
+    return data
   } else {
-    return response
+    return data
   }
 }
 
@@ -176,10 +176,11 @@ export const updateSong = (song, songId) => async (dispatch) => {
     body: song
   })
 
+  const data = response.json()
   if (response.ok) {
-    return response
+    return data
   } else {
-    return response
+    return data
   }
 }
 
