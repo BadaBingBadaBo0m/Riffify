@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import './songform.css'
 import { useDispatch } from 'react-redux';
 import { createSongForAlbum, getSongsForAlbum, updateSong } from '../../store/albums';
 import { useModal } from '../../context/Modal';
+import { SongContext } from '../../context/Song';
 
 const SongForm = ({ type, albumId, song }) => {
   const [errors, setErrors] = useState({});
@@ -12,6 +13,7 @@ const SongForm = ({ type, albumId, song }) => {
   const [imageLoading, setImageLoading] = useState(false);
   const dispatch = useDispatch()
   const { closeModal } = useModal()
+  const { setContextSongList } = useContext(SongContext)
 
   const validateData = () => {
     const errorObj = {};
@@ -44,7 +46,8 @@ const SongForm = ({ type, albumId, song }) => {
         setErrors(new_song.errors)
         setImageLoading(false)
       } else {
-        await dispatch(getSongsForAlbum(albumId))
+        const songs = await dispatch(getSongsForAlbum(albumId))
+        setContextSongList(songs)
         closeModal()
       }
     }
@@ -63,7 +66,8 @@ const SongForm = ({ type, albumId, song }) => {
         setErrors(updated_song.errors)
         setImageLoading(false)
       } else {
-        await dispatch(getSongsForAlbum(albumId))
+        const songs = await dispatch(getSongsForAlbum(albumId))
+        setContextSongList(songs)
         closeModal()
       }
       // if (updated_song.ok) {

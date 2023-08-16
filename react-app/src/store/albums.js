@@ -111,6 +111,7 @@ export const getSongsForAlbum = (albumId, userId) => async (dispatch) => {
     const data = await response.json();
 
     dispatch(setAlbumSongs(data))
+    return data
   }
 }
 

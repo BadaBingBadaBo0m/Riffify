@@ -1,8 +1,9 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect, useContext } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import OpenModalButton from '../OpenModalButton'
 import ConfirmModal from '../ConfirmModal';
 import { useModal } from '../../context/Modal';
+import { SongContext } from '../../context/Song';
 import { useHistory } from 'react-router-dom';
 import { deleteSong, getSongsForAlbum } from '../../store/albums';
 import { addSongToPlaylist } from '../../store/playlists';
@@ -13,12 +14,14 @@ import './songdropdown.css'
 const SongDropdown = ({ song, album }) => {
   const user = useSelector((state) => state.session.user);
   const playlists = useSelector((state) => state.playlists.usersPlaylists)
+  const songList = useSelector((state) => state.albums.albumSongs)
   const { closeModal } = useModal()
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const [showPlaylistMenu, setShowPlaylistMenu] = useState(false);
   const [playlistConfirmTooltip, setPlaylistConfirmTooltip] = useState(false)
   const [playlistMessage, setPlaylistMessage] = useState(null)
+  const { setContextSongList } = useContext(SongContext)
   const songDropdownRef = useRef();
 
   useEffect(() => {
@@ -57,7 +60,8 @@ const SongDropdown = ({ song, album }) => {
     const confirm = await dispatch(deleteSong(song.id))
 
     if (confirm.ok) {
-      await dispatch(getSongsForAlbum(album.id))
+      const songs = await dispatch(getSongsForAlbum(album.id))
+      setContextSongList(songs)
       closeModal()
     }
   }
