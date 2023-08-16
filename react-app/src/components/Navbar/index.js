@@ -23,8 +23,8 @@ const Navbar = () => {
   return (
     <div id='navBar-container'>
       <div id='back-forward-button-container'>
-        <button> <i class="fa-solid fa-arrow-left"></i> </button>
-        <button> <i className="fa-solid fa-arrow-right"></i> </button>
+        {/* <button> <i class="fa-solid fa-arrow-left"></i> </button>
+        <button> <i className="fa-solid fa-arrow-right"></i> </button> */}
       </div>
 
       {user === null &&
