@@ -24,6 +24,7 @@
 .album-form-input-container {
   display: flex;
   flex-direction: column;
+  max-width: 17.7rem;
 }
 
 .album-form-textarea {

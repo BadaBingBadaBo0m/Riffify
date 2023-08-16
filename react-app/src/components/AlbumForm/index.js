@@ -21,7 +21,7 @@ const AlbumForm = ({ type, album }) => {
     const errorObj = {};
 
     if (!name) errorObj.name = 'is required.'
-    if (name && name.length > 50) errorObj.name = 'length cannot be greater than 50.'
+    if (name && name.length > 50) errorObj.name = 'Cannot be greater than 50 characters.'
 
     // if (!description) errorObj.description = 'is required.'
     // if (description && description.length > 1000) errorObj.description = 'length cannot be greater than 1000'
@@ -47,9 +47,13 @@ const AlbumForm = ({ type, album }) => {
       formData.append('description', description);
       setImageLoading(true)
       const new_album = await dispatch(createAlbum(formData))
-      console.log(new_album)
-      closeModal()
-      history.push(`/albums/${new_album.id}`)
+      if (new_album.errors) {
+        setErrors(new_album.errors)
+        setImageLoading(false)
+      } else {
+        closeModal()
+        history.push(`/albums/${new_album.id}`)
+      }
     }
 
     if (isValid && type == 'update') {
@@ -70,7 +74,7 @@ const AlbumForm = ({ type, album }) => {
         <h1 id='album-form-header'>{type === 'create' ? 'Create a new album' : `Update ${album.name}`}</h1>
 
         <div className='album-form-input-container'>
-          <label htmlFor='name'>Name {errors.name && <span className='errors'>{errors.name}</span>}</label>
+          <label className='album-form-label' htmlFor='name'>Name {errors.name && <span className='errors'>{errors.name}</span>}</label>
           <input
             className='album-form-input'
             type='text'
