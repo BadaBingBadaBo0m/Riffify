@@ -37,6 +37,8 @@ function LoginFormModal() {
     const data = await dispatch(login(email, password));
     if (data) {
       handleFlaskErrors(data)
+    } else {
+      closeModal()
     }
   };
 
