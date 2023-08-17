@@ -58,7 +58,7 @@ const AlbumInfo = () => {
             <p>Album</p>
             <h1>{album.name}</h1>
             <div id='album-creator-info-container'>
-              <img src={album.created_by?.profile_pic} id='artistPfp'></img>
+              {/* <img src={album.created_by?.profile_pic} id='artistPfp'></img> */}
               <p>{album.created_by?.username} &#x2022; {albumDate.getFullYear()} &#x2022; {songList.length} songs</p>
             </div>
           </div>
