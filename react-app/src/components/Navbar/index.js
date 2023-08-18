@@ -22,9 +22,9 @@ const Navbar = () => {
 
   return (
     <div id='navBar-container'>
-      <div id='back-forward-button-container'>
-        {/* <button> <i class="fa-solid fa-arrow-left"></i> </button>
-        <button> <i className="fa-solid fa-arrow-right"></i> </button> */}
+      <div id='my-links-container'>
+        <a href='https://github.com/BadaBingBadaBo0m' target='_'> <i id='github-link' className="fa-brands fa-github"></i> </a>
+        <a href='https://www.linkedin.com/in/alex-breathwit-70a011272/' target='_'> <i id='linkedIn-link' className="fa-brands fa-linkedin"></i> </a>
       </div>
 
       {user === null &&
