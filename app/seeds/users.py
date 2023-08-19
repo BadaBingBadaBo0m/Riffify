@@ -18,6 +18,55 @@ def seed_users():
         last_name='Beartooth',
         password='password'
     )
+    tdwp = User(
+        username='The devil wears prada',
+        email='tdwp@aa.io',
+        first_name='The devil',
+        last_name='Wears Prada',
+        password='password'
+    )
+    angelmaker = User(
+        username='Angelmaker',
+        email='angelmaker@aa.io',
+        first_name='Angel',
+        last_name='maker',
+        password='password'
+    )
+    bad_omens = User(
+        username='Bad Omens',
+        email='badOmens@aa.io',
+        first_name='Bad',
+        last_name='Omens',
+        password='password'
+    )
+    bleed_from_within = User(
+        username='Bleed From Within',
+        email='bfw@aa.io',
+        first_name='Bleed from',
+        last_name='Within',
+        password='password'
+    )
+    ice_nine_kills = User(
+        username='Ice Nine Kills',
+        email='ink@aa.io',
+        first_name='Ice Nine',
+        last_name='Kills',
+        password='YaLikeIceNineKills?'
+    )
+    imminence = User(
+        username='Imminence',
+        email='imminence@aa.io',
+        first_name='Imm',
+        last_name='inence',
+        password='password'
+    )
+    jinjer = User(
+        username='Jinjer',
+        email='jinjer@aa.io',
+        first_name='Jin',
+        last_name='Jer',
+        password='password'
+    )
     demo = User(
         username='Demo', 
         email='demo@aa.io', 
@@ -39,6 +88,13 @@ def seed_users():
 
     db.session.add(currents)
     db.session.add(beartooth)
+    db.session.add(tdwp)
+    db.session.add(angelmaker)
+    db.session.add(bad_omens)
+    db.session.add(bleed_from_within)
+    db.session.add(ice_nine_kills)
+    db.session.add(imminence)
+    db.session.add(jinjer)
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
