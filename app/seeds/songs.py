@@ -362,7 +362,66 @@ def seed_songs():
         album_id=5,
         song_body='/Currents-Kill-The-Ache.mp3'
     )
-
+    godless = Song(
+        name='Godless',
+        created_by=4,
+        album_id=6,
+        song_body='/Currents-Kill-The-Ache.mp3'
+    )
+    no_haven = Song(
+        name='No Haven',
+        created_by=4,
+        album_id=6,
+        song_body='/Currents-Kill-The-Ache.mp3'
+    )
+    a_dark_omen = Song(
+        name='A Dark Omen',
+        created_by=4,
+        album_id=6,
+        song_body='/Currents-Kill-The-Ache.mp3'
+    )
+    e_i_e = Song(
+        name='E.I.E',
+        created_by=4,
+        album_id=6,
+        song_body='/Currents-Kill-The-Ache.mp3'
+    )
+    dissentient = Song(
+        name='Dissentient',
+        created_by=4,
+        album_id=6,
+        song_body='/Currents-Kill-The-Ache.mp3'
+    )
+    citadel = Song(
+        name='Citadel',
+        created_by=4,
+        album_id=6,
+        song_body='/Currents-Kill-The-Ache.mp3'
+    )
+    shia_labeouf = Song(
+        name='Shia Labeouf',
+        created_by=4,
+        album_id=6,
+        song_body='/Currents-Kill-The-Ache.mp3'
+    )
+    into_oblivion = Song(
+        name='Into Oblivion',
+        created_by=4,
+        album_id=6,
+        song_body='/Currents-Kill-The-Ache.mp3'
+    )
+    abysmal = Song(
+        name='Abysmal',
+        created_by=4,
+        album_id=6,
+        song_body='/Currents-Kill-The-Ache.mp3'
+    )
+    leech = Song(
+        name='Leech',
+        created_by=4,
+        album_id=6,
+        song_body='/Currents-Kill-The-Ache.mp3'
+    )
 
     db.session.add(never_there)
     db.session.add(a_flag_to_wave)
