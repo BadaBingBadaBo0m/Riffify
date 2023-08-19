@@ -19,7 +19,7 @@ def seed_users():
         password='password'
     )
     tdwp = User(
-        username='The devil wears prada',
+        username='The Devil Wears Prada',
         email='tdwp@aa.io',
         first_name='The devil',
         last_name='Wears Prada',
