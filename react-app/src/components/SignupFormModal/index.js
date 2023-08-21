@@ -53,6 +53,8 @@ function SignupFormModal() {
     if (password.length < 6) errorObj.password = ' Must be at least 6 characters'
     if (password.length > 15) errorObj.password = ' Must be shorter than 15 characters'
 
+    if (password !== confirmPassword) errorObj.password = ' Passwords must match'
+
     setErrors(errorObj)
     console.log(errorObj)
     if (!Object.keys(errorObj).length) return true
