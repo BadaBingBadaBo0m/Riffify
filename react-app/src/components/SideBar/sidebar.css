@@ -131,6 +131,20 @@
   justify-content: center;
 }
 
+#dead-create-playlist-button-logged-in {
+  width: 8.5rem;
+  height: 2rem;
+  border-radius: 500px;
+  font-size: .9rem;
+  background-color: white;
+  color: black;
+  margin-bottom: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #owned-albums-container {
   /* background-color: #242424; */
   color: white;

@@ -98,7 +98,22 @@ const SideBar = () => {
             < div id='create-playlist' data-tooltip-id='create-playlist-tooltip'>
               <h2 id='first-playlist-heading'>Create your first playlist</h2>
               <p id='first-playlist-desc'>It's easy, we'll help you</p>
-              <button id='dead-create-playlist-button' onClick={handleCreatePlaylist}>Create playlist</button>
+              <button id='dead-create-playlist-button-logged-in' onClick={handleCreatePlaylist}>Create playlist</button>
+              <NavLink
+                to={`/likedSongs`}
+                id='owned-album'
+                activeStyle={{
+                  backgroundColor: '#242424',
+                }}
+                style={{
+                  color: 'white',
+                  textDecoration: 'none'
+                }}
+                className='album-navLink'
+              >
+                <img id='owned-album-cover' src='/likedSongs.png'></img>
+                <h2 id='owned-album-name'>Liked Songs</h2>
+              </NavLink>
             </div>
           }
 
