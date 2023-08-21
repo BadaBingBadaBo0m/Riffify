@@ -92,7 +92,7 @@ def seed_albums():
     db.session.add(the_death_we_seek)
     # db.session.add(aggressive)
     db.session.add(color_decay)
-    db.session.add(the_act)
+    # db.session.add(the_act)
     db.session.add(dissentient)
     # db.session.add(angelmaker_self_titled)
     # db.session.add(the_death_of_peace_of_mind)
