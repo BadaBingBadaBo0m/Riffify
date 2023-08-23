@@ -25,6 +25,7 @@ const AlbumInfo = () => {
 
   const handleSongChange = (song) => {
     setCurrentSong(song)
+    setPlay(true)
     setContextSongList(songList)
     setContextAlbum(album)
   }
@@ -79,11 +80,16 @@ const AlbumInfo = () => {
             <li className='song-container' data-tooltip-id={`playlist-dropdown-message-${song.id}`}>
               <div className='song-count-and-controls-container'>
                 <p className='song-count'>{songCount}</p>
-                {user && <button
-                  className='song-list-play-button'
-                  onClick={() => handleSongChange(song)}
-                > {<i className="fa-solid fa-play"></i>}
-                </button>}
+                {user && (!currentSong || currentSong.id !== song.id || play === false) &&
+                  <button
+                    className='song-list-play-button'
+                    onClick={() => handleSongChange(song)}>
+                    {<i className="fa-solid fa-play"></i>}
+                  </button>}
+                {user && currentSong && currentSong.id === song.id && play === true &&
+                  <button className='song-list-play-button' onClick={() => setPlay(false)}>
+                    {<i className="fa-solid fa-pause"></i>}
+                  </button>}
                 <div className='song-info'>
                   <p className='song-name'>{song.name}</p>
                   <p className='artist-name'>{album.created_by?.username}</p>

@@ -3,14 +3,14 @@ import { SongContext } from '../../context/Song';
 import './mediaplayer.css'
 
 const MediaPlayer = () => {
-  const [play, setPlay] = useState(false);
+  // const [play, setPlay] = useState(false);
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
   const [volume, setVolume] = useState(1)
   const [repeat, setRepeat] = useState(false)
   const [shuffle, setShuffle] = useState(false)
   const [currentSongIndex, setCurrentSongIndex] = useState(null)
-  const { currentSong, setCurrentSong, contextAlbum, contextSongList } = useContext(SongContext)
+  const { currentSong, setCurrentSong, contextAlbum, contextSongList, play, setPlay } = useContext(SongContext)
   const audioRef = useRef()
   const randomIndex = Math.floor(Math.random() * (contextSongList.length - 0) + 0)
 
@@ -50,11 +50,24 @@ const MediaPlayer = () => {
     if (currentTime === duration && shuffle) {
       setCurrentSong(contextSongList[randomIndex])
     }
-  }, [repeat, currentTime])
+
+    if (play === false) {
+      audioRef.current.pause()
+    }
+
+    if (play === true) {
+      audioRef.current.play()
+    }
+  }, [repeat, currentTime, play, shuffle])
 
   const handlePlay = () => {
     audioRef.current.play()
     setPlay(true)
+  }
+
+  const handlePause = () => {
+    audioRef.current.pause()
+    setPlay(false)
   }
 
   const handleBack = () => {
@@ -71,11 +84,6 @@ const MediaPlayer = () => {
     } else {
       setCurrentSong(contextSongList[currentSongIndex + 1] || contextSongList[0])
     }
-  }
-
-  const handlePause = () => {
-    audioRef.current.pause()
-    setPlay(false)
   }
 
   const handleVolume = (e) => {
