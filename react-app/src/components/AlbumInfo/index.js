@@ -15,7 +15,7 @@ const AlbumInfo = () => {
   const user = useSelector((state) => state.session.user)
   const album = useSelector((state) => state.albums.singleAlbum)
   const songList = useSelector((state) => state.albums.albumSongs)
-  const { setCurrentSong, currentSong, setContextSongList, setContextAlbum, play, setPlay } = useContext(SongContext)
+  const { setCurrentSong, currentSong, setContextSongList, contextAlbum, setContextAlbum, play, setPlay } = useContext(SongContext)
   let songCount = 0
 
   useEffect(() => {
@@ -28,6 +28,24 @@ const AlbumInfo = () => {
     setPlay(true)
     setContextSongList(songList)
     setContextAlbum(album)
+  }
+
+  const handleAlbumPlayButton = () => {
+    if (!currentSong) {
+      setCurrentSong(songList[0])
+      setPlay(true)
+      setContextSongList(songList)
+      setContextAlbum(album)
+    }
+    if (currentSong && currentSong.album.id === album.id) {
+      setPlay(true)
+    }
+    if (currentSong && currentSong.album.id !== album.id) {
+      setCurrentSong(songList[0])
+      setPlay(true)
+      setContextSongList(songList)
+      setContextAlbum(album)
+    }
   }
 
   const handleLike = async (song) => {
@@ -68,7 +86,20 @@ const AlbumInfo = () => {
 
       <div id='album-dropdown-play-button'>
         <div id='play-button-like-container'>
-          <button id='album-play-button' onClick={() => handleSongChange(songList[0])}> {<i className="fa-solid fa-play"></i>} </button>
+          {user && (play === false || contextAlbum.id !== album.id) && <button
+            id='album-play-button'
+            onClick={handleAlbumPlayButton}
+          >
+            {<i className="fa-solid fa-play"></i>}
+          </button>}
+
+          {user && (contextAlbum && contextAlbum.id === album.id && play === true) && <button
+            id='album-play-button'
+            onClick={() => setPlay(false)}
+          >
+            {<i className="fa-solid fa-pause"></i>}
+          </button>}
+
           <AlbumDropdown album={album} />
         </div>
       </div>
