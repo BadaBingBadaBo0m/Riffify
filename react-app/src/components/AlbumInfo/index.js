@@ -15,7 +15,7 @@ const AlbumInfo = () => {
   const user = useSelector((state) => state.session.user)
   const album = useSelector((state) => state.albums.singleAlbum)
   const songList = useSelector((state) => state.albums.albumSongs)
-  const { setCurrentSong, currentSong, setContextSongList, contextAlbum, setContextAlbum, play, setPlay } = useContext(SongContext)
+  const { setCurrentSong, currentSong, setContextSongList, contextAlbum, setContextAlbum, play, setPlay, setContextPlaylist } = useContext(SongContext)
   let songCount = 0
 
   useEffect(() => {
@@ -25,9 +25,10 @@ const AlbumInfo = () => {
 
   const handleSongChange = (song) => {
     setCurrentSong(song)
-    setPlay(true)
     setContextSongList(songList)
     setContextAlbum(album)
+    setContextPlaylist(null)
+    setPlay(true)
   }
 
   const handleAlbumPlayButton = () => {

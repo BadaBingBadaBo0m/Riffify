@@ -10,18 +10,19 @@ const MediaPlayer = () => {
   const [repeat, setRepeat] = useState(false)
   const [shuffle, setShuffle] = useState(false)
   const [currentSongIndex, setCurrentSongIndex] = useState(null)
-  const { currentSong, setCurrentSong, contextAlbum, contextSongList, play, setPlay } = useContext(SongContext)
+  const { currentSong, setCurrentSong, contextAlbum, contextSongList, contextPlaylist, play, setPlay } = useContext(SongContext)
   const audioRef = useRef()
   const randomIndex = Math.floor(Math.random() * (contextSongList.length - 0) + 0)
 
   useEffect(() => {
-    setTimeout(() => {
-      if (currentSong) {
-        audioRef.current.play()
-        setPlay(true)
-      }
-    }, 1000);
+    // setTimeout(() => {
+    if (currentSong) {
+      audioRef.current.play()
+      setPlay(true)
+    }
+    // }, 1000);
 
+    console.log(contextPlaylist)
     if (!currentSong) {
       audioRef.current.pause()
       setPlay(false)
@@ -51,17 +52,21 @@ const MediaPlayer = () => {
       setCurrentSong(contextSongList[randomIndex])
     }
 
+    const handleExternalPlay = async () => {
+      await audioRef.current.play()
+    }
+
     if (play === false) {
       audioRef.current.pause()
     }
 
     if (play === true) {
-      audioRef.current.play()
+      handleExternalPlay()
     }
   }, [repeat, currentTime, play, shuffle])
 
-  const handlePlay = () => {
-    audioRef.current.play()
+  const handlePlay = async () => {
+    await audioRef.current.play()
     setPlay(true)
   }
 

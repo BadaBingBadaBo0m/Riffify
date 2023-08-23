@@ -14,7 +14,7 @@ const LikedSongs = () => {
   const user = useSelector((state) => state.session.user)
   // const playlist = useSelector((state) => state.playlists.singlePlaylist)
   const songList = useSelector((state) => state.playlists.playlistSongs)
-  const { setCurrentSong, currentSong, setContextSongList, setContextAlbum, play, setPlay } = useContext(SongContext)
+  const { setCurrentSong, currentSong, setContextSongList, contextAlbum, setContextAlbum, play, setPlay, contextPlaylist, setContextPlaylist } = useContext(SongContext)
   const [playButton, setPlayButton] = useState(false)
   let songCount = 0
 
@@ -28,6 +28,28 @@ const LikedSongs = () => {
     setCurrentSong(song)
     setContextSongList(songList)
     setContextAlbum(song.album)
+    setContextPlaylist('likedSongs')
+    setPlay(true)
+  }
+
+  const handleLikedSongsPlayButton = () => {
+    if (!currentSong) {
+      setCurrentSong(songList[0])
+      setPlay(true)
+      setContextSongList(songList)
+      setContextAlbum(songList[0].album)
+      setContextPlaylist('likedSongs')
+    }
+    if (currentSong && contextPlaylist === 'likedSongs') {
+      setPlay(true)
+    }
+    if (currentSong && contextPlaylist !== 'likedSongs') {
+      setCurrentSong(songList[0])
+      setPlay(true)
+      setContextSongList(songList)
+      setContextAlbum(songList[0].album)
+      setContextPlaylist('likedSongs')
+    }
   }
 
   const handleLike = async (song) => {
@@ -54,7 +76,20 @@ const LikedSongs = () => {
 
       <div id='album-dropdown-play-button'>
         <div id='play-button-like-container'>
-          <button id='album-play-button' onClick={() => handleSongChange(songList[0])}> {<i className="fa-solid fa-play"></i>} </button>
+          {user && (contextPlaylist !== 'likedSongs' || (play === false && contextPlaylist === 'likedSongs')) && <button
+            id='album-play-button'
+            onClick={handleLikedSongsPlayButton}
+          >
+            {<i className="fa-solid fa-play"></i>}
+          </button>}
+
+          {user && (contextPlaylist && contextPlaylist === 'likedSongs' && play === true) && <button
+            id='album-play-button'
+            onClick={() => setPlay(false)}
+          >
+            {<i className="fa-solid fa-pause"></i>}
+          </button>}
+          {/* <button id='album-play-button' onClick={() => handleSongChange(songList[0])}> {<i className="fa-solid fa-play"></i>} </button> */}
         </div>
       </div>
 
@@ -65,11 +100,21 @@ const LikedSongs = () => {
             <li className='song-container' onMouseEnter={() => setPlayButton(true)} onMouseLeave={() => setPlayButton(false)}>
               <div className='song-count-and-controls-container'>
                 <p className='song-count'>{songCount}</p>
-                {user && <button
+                {user && (!currentSong || currentSong.id !== song.id || play === false) &&
+                  <button
+                    className='song-list-play-button'
+                    onClick={() => handleSongChange(song)}>
+                    {<i className="fa-solid fa-play"></i>}
+                  </button>}
+                {user && currentSong && currentSong.id === song.id && play === true &&
+                  <button className='song-list-play-button' onClick={() => setPlay(false)}>
+                    {<i className="fa-solid fa-pause"></i>}
+                  </button>}
+                {/* {user && <button
                   className='song-list-play-button'
                   onClick={() => handleSongChange(song)}
                 > {<i className="fa-solid fa-play"></i>}
-                </button>}
+                </button>} */}
                 <img src={song.album.art} id='playlist-song-album-art'></img>
                 <div className='song-info'>
                   <p className='song-name'>{song.name}</p>
@@ -85,7 +130,7 @@ const LikedSongs = () => {
         })}
       </ul>
 
-    </div>
+    </div >
 
   )
 }

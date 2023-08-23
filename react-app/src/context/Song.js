@@ -6,6 +6,7 @@ const SongProvider = props => {
   const [currentSong, setCurrentSong] = useState(null);
   const [contextSongList, setContextSongList] = useState([]);
   const [contextAlbum, setContextAlbum] = useState(null);
+  const [contextPlaylist, setContextPlaylist] = useState(null);
   const [play, setPlay] = useState(false);
 
   const contextValue = {
@@ -15,6 +16,8 @@ const SongProvider = props => {
     setContextSongList,
     contextAlbum,
     setContextAlbum,
+    contextPlaylist,
+    setContextPlaylist,
     play,
     setPlay
   }

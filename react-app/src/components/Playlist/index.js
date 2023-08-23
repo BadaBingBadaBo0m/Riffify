@@ -15,7 +15,7 @@ const PlaylistInfo = () => {
   const user = useSelector((state) => state.session.user)
   const playlist = useSelector((state) => state.playlists.singlePlaylist)
   const songList = useSelector((state) => state.playlists.playlistSongs)
-  const { setCurrentSong, currentSong, setContextSongList, setContextAlbum, play, setPlay } = useContext(SongContext)
+  const { setCurrentSong, currentSong, setContextSongList, contextAlbum, setContextAlbum, play, setPlay, contextPlaylist, setContextPlaylist } = useContext(SongContext)
   const [playButton, setPlayButton] = useState(false)
   let songCount = 0
 
@@ -30,6 +30,28 @@ const PlaylistInfo = () => {
     setCurrentSong(song)
     setContextSongList(songList)
     setContextAlbum(song.album)
+    setContextPlaylist(playlist)
+    setPlay(true)
+  }
+
+  const handlePlaylistPlayButton = () => {
+    if (!currentSong) {
+      setCurrentSong(songList[0])
+      setPlay(true)
+      setContextSongList(songList)
+      setContextAlbum(songList[0].album)
+      setContextPlaylist(playlist)
+    }
+    if (currentSong && contextPlaylist.id === playlist.id) {
+      setPlay(true)
+    }
+    if (currentSong && contextPlaylist.id !== playlist.id) {
+      setCurrentSong(songList[0])
+      setPlay(true)
+      setContextSongList(songList)
+      setContextAlbum(songList[0].album)
+      setContextPlaylist(playlist)
+    }
   }
 
   const handleLike = async (song) => {
@@ -42,7 +64,6 @@ const PlaylistInfo = () => {
     dispatch(getPlaylistSongs(playlistId))
   }
 
-  // console.log(user.id, album)
   return (
     <div id='playlist-details-container'>
       <div id='playlist-banner-container'>
@@ -57,7 +78,24 @@ const PlaylistInfo = () => {
 
       <div id='album-dropdown-play-button'>
         <div id='play-button-like-container'>
-          <button id='album-play-button' onClick={() => handleSongChange(songList[0])}> {<i className="fa-solid fa-play"></i>} </button>
+
+          {user &&
+            contextPlaylist && contextPlaylist !== 'likedSongs' && contextPlaylist.id === playlist.id && play === true
+            ?
+            <button
+              id='album-play-button'
+              onClick={() => setPlay(false)}
+            >
+              {<i className="fa-solid fa-pause"></i>}
+            </button>
+            :
+            <button
+              id='album-play-button'
+              onClick={handlePlaylistPlayButton}
+            >
+              {<i className="fa-solid fa-play"></i>}
+            </button>}
+
           <PlaylistDropdown playlist={playlist} />
         </div>
       </div>
@@ -69,11 +107,21 @@ const PlaylistInfo = () => {
             <li className='song-container' onMouseEnter={() => setPlayButton(true)} onMouseLeave={() => setPlayButton(false)}>
               <div className='song-count-and-controls-container'>
                 <p className='song-count'>{songCount}</p>
-                {user && <button
+                {user && (!currentSong || currentSong.id !== song.id || play === false) &&
+                  <button
+                    className='song-list-play-button'
+                    onClick={() => handleSongChange(song)}>
+                    {<i className="fa-solid fa-play"></i>}
+                  </button>}
+                {user && currentSong && currentSong.id === song.id && play === true &&
+                  <button className='song-list-play-button' onClick={() => setPlay(false)}>
+                    {<i className="fa-solid fa-pause"></i>}
+                  </button>}
+                {/* {user && <button
                   className='song-list-play-button'
                   onClick={() => handleSongChange(song)}
                 > {<i className="fa-solid fa-play"></i>}
-                </button>}
+                </button>} */}
                 <img src={song.album.art} id='playlist-song-album-art'></img>
                 <div className='song-info'>
                   <p className='song-name'>{song.name}</p>
@@ -91,7 +139,7 @@ const PlaylistInfo = () => {
         })}
       </ul>
 
-    </div>
+    </div >
 
   )
 }
