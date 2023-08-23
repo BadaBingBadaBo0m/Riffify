@@ -39,7 +39,7 @@ const AlbumInfo = () => {
     await dispatch(getSongsForAlbum(albumId, user?.id))
   }
 
-  if (!album || !songList) return <Loading />
+  if (!album || !songList || album.id != albumId) return <Loading />
   const albumDate = new Date(album.created_at)
   // console.log(user.id, album)
   return (

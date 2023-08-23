@@ -12,6 +12,7 @@ import PlaylistInfo from "./components/Playlist";
 import LikedSongs from "./components/LikedSongs";
 import { authenticate } from "./store/session";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import Loading from "./components/Loading";
 // import Navigation from "./components/Navigation";
 
 function App() {
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route path='/likedSongs'>
             <HomePage Content={LikedSongs} />
+          </Route>
+          <Route path='/loading'>
+            <HomePage Content={Loading} />
           </Route>
           <Route path='*'>
             <h2>Page not found</h2>

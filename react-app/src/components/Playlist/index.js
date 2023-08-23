@@ -24,7 +24,7 @@ const PlaylistInfo = () => {
     dispatch(getPlaylistSongs(playlistId))
   }, [playlistId])
 
-  if (!playlist || !songList) return <Loading />
+  if (!playlist || !songList || playlist.id != playlistId) return <Loading />
 
   const handleSongChange = (song) => {
     setCurrentSong(song)

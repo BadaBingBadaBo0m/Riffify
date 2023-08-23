@@ -1,10 +1,12 @@
 import React from 'react'
+import ScaleLoader from "react-spinners/ScaleLoader";
+import './loading.css'
 
 const Loading = () => {
 
   return (
     <div id='loading-container'>
-      <h1>Loading</h1>
+      <ScaleLoader color='#1ed760' height={50} width={5} radius={50} />
     </div>
   )
 }
