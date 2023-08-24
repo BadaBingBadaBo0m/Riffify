@@ -30,7 +30,7 @@ function SignupFormModal() {
     }
     // console.log('obj', errorObj)
     setErrors(errorObj)
-    console.log(errorsList)
+    // console.log(errorsList)
   }
 
   const validateData = () => {
@@ -56,7 +56,7 @@ function SignupFormModal() {
     if (password !== confirmPassword) errorObj.password = ' Passwords must match'
 
     setErrors(errorObj)
-    console.log(errorObj)
+    // console.log(errorObj)
     if (!Object.keys(errorObj).length) return true
     else return false
 

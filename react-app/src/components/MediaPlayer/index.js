@@ -22,7 +22,6 @@ const MediaPlayer = () => {
     }
     // }, 1000);
 
-    console.log(contextPlaylist)
     if (!currentSong) {
       audioRef.current.pause()
       setPlay(false)

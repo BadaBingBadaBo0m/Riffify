@@ -55,6 +55,9 @@
 
 #navbar-container {
   grid-area: Navbar;
+  position: sticky;
+  top: 0;
+  background-color: #242424;
 }
 
 #content-container {

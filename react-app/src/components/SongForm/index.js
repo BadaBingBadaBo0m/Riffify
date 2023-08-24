@@ -59,7 +59,6 @@ const SongForm = ({ type, albumId, song }) => {
       if (song_body) {
         formData.append('song_body', song_body)
       }
-      console.log(song.id)
       setImageLoading(true)
       const updated_song = await dispatch(updateSong(formData, song.id))
       if (updated_song.errors) {
