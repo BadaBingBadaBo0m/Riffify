@@ -21,6 +21,7 @@ https://tritone.onrender.com
 - CRD functionality for Playlist Songs
 
 ### Screenshot
+![TritonePic](https://github.com/BadaBingBadaBo0m/Tritone/assets/104036250/845398a2-7212-47bd-9520-a277bac8493c)
 
 
 ### Database schema
