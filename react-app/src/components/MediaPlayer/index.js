@@ -171,13 +171,14 @@ const MediaPlayer = () => {
             railStyle={
               { backgroundColor: '#4d4d4d' }
             }
-            handleStyle={[
+            handleStyle={
               {
                 backgroundColor: 'white',
                 border: 'none',
                 opacity: 1
               }
-            ]}
+            }
+
           />
         </div>
       </div>
