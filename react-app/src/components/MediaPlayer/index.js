@@ -1,6 +1,8 @@
 import React, { useState, useRef, useContext, useEffect } from 'react'
+import Slider from 'rc-slider'
 import { SongContext } from '../../context/Song';
 import './mediaplayer.css'
+import SongPlayBar from './SongPlayBar';
 
 const MediaPlayer = () => {
   // const [play, setPlay] = useState(false);
@@ -15,12 +17,12 @@ const MediaPlayer = () => {
   const randomIndex = Math.floor(Math.random() * (contextSongList.length - 0) + 0)
 
   useEffect(() => {
-    // setTimeout(() => {
-    if (currentSong) {
-      audioRef.current.play()
-      setPlay(true)
-    }
-    // }, 1000);
+    setTimeout(() => {
+      if (currentSong) {
+        audioRef.current.play()
+        setPlay(true)
+      }
+    }, 1000);
 
     if (!currentSong) {
       audioRef.current.pause()
@@ -91,9 +93,9 @@ const MediaPlayer = () => {
   }
 
   const handleVolume = (e) => {
-    setVolume(e.target.value)
-    localStorage.setItem('tritone-volume', e.target.value)
-    audioRef.current.volume = e.target.value
+    setVolume(e)
+    localStorage.setItem('tritone-volume', e)
+    audioRef.current.volume = e
   }
 
   const handleTimeUpdate = () => {
@@ -102,8 +104,8 @@ const MediaPlayer = () => {
   }
 
   const handleCurrentTime = (e) => {
-    setCurrentTime(e.target.value)
-    audioRef.current.currentTime = e.target.value
+    setCurrentTime(e)
+    audioRef.current.currentTime = e
   }
 
   const handleRepeat = () => {
@@ -148,7 +150,7 @@ const MediaPlayer = () => {
         </div>
 
         <div id='volume-controls-container'>
-          <input
+          {/* <input
             type='range'
             id='song-play-bar'
             min={0}
@@ -156,11 +158,53 @@ const MediaPlayer = () => {
             step={1}
             value={currentTime}
             onChange={handleCurrentTime}
+          /> */}
+          <Slider
+            min={0}
+            max={duration || ''}
+            step={.1}
+            value={currentTime}
+            onChange={handleCurrentTime}
+            trackStyle={
+              { backgroundColor: '#1ed760' }
+            }
+            railStyle={
+              { backgroundColor: '#4d4d4d' }
+            }
+            handleStyle={[
+              {
+                backgroundColor: 'white',
+                border: 'none',
+                opacity: 1
+              }
+            ]}
           />
         </div>
       </div>
 
-      <input
+      <div id='song-volume-bar'>
+        <Slider
+          min={0}
+          max={.5}
+          step={0.01}
+          value={volume}
+          onChange={handleVolume}
+          trackStyle={
+            { backgroundColor: '#1ed760' }
+          }
+          railStyle={
+            { backgroundColor: '#4d4d4d' }
+          }
+          handleStyle={[
+            {
+              backgroundColor: 'white',
+              border: 'none',
+              opacity: 1
+            }
+          ]}
+        />
+      </div>
+      {/* <input
         type='range'
         id='song-volume-bar'
         min={0}
@@ -168,7 +212,7 @@ const MediaPlayer = () => {
         step={0.01}
         value={volume}
         onChange={handleVolume}
-      />
+      /> */}
     </div >
   )
 }
