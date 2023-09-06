@@ -43,7 +43,7 @@ const SongDropdown = ({ song, album }) => {
     if (playlistConfirmTooltip) {
       const tooltipTimeout = setTimeout(() => {
         setPlaylistConfirmTooltip(false)
-      }, 3000)
+      }, 1200)
 
       return () => {
         clearTimeout(tooltipTimeout)
@@ -138,7 +138,7 @@ const SongDropdown = ({ song, album }) => {
         variant='info'
         openOnClick
         place='top'
-        delayHide={2000}
+        delayHide={500}
         isOpen={playlistConfirmTooltip}
       >
         <h1 id='playlist-tooltip-message'>{playlistMessage}</h1>

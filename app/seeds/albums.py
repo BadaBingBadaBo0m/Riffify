@@ -25,7 +25,7 @@ def seed_albums():
     the_act = Album(
         name='The Act',
         created_by_id=3,
-        art='/TDWP-color-decay.jpg'
+        art='https://tritone-spotify-clone.s3.amazonaws.com/Theact.jpg'
     )
     dissentient = Album(
         name='dissentient',
@@ -92,7 +92,7 @@ def seed_albums():
     db.session.add(the_death_we_seek)
     # db.session.add(aggressive)
     db.session.add(color_decay)
-    # db.session.add(the_act)
+    db.session.add(the_act)
     db.session.add(dissentient)
     # db.session.add(angelmaker_self_titled)
     # db.session.add(the_death_of_peace_of_mind)
