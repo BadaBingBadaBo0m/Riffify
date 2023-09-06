@@ -209,85 +209,85 @@ def seed_songs():
         name='Exhibition',
         created_by=3,
         album_id=3,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Exhibition+TDWP.mp3'
     )
     salt = Song(
         name='Salt',
         created_by=3,
         album_id=3,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Sslt+TDWP.mp3'
     )
     watchtower = Song(
         name='Watchtower',
         created_by=3,
         album_id=3,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Watchtower+TDWP.mp3'
     )
     noise = Song(
         name='Noise',
         created_by=3,
         album_id=3,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Noise+TDWP.mp3'
     )
     broken = Song(
         name='Broken',
         created_by=3,
         album_id=3,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Broken+TDWP.mp3'
     )
     sacrifice = Song(
         name='Sacrifice',
         created_by=3,
         album_id=3,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Sacrafice+TDWP.mp3'
     )
     trapped = Song(
         name='Trapped',
         created_by=3,
         album_id=3,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Trapped+TDWP.mp3'
     )
     time = Song(
         name='Time',
         created_by=3,
         album_id=3,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Time+TDWP.mp3'
     )
     twenty_five = Song(
         name='Twenty Five',
         created_by=3,
         album_id=3,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Twenty-five+TDWP.mp3'
     )
     fire = Song(
         name='Fire',
         created_by=3,
         album_id=3,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Fire+TDWP.mp3'
     )
     hallucinate = Song(
         name='Hallucinate',
         created_by=3,
         album_id=3,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Hallucinate+TDWP.mp3'
     )
     cancer = Song(
         name='Cancer',
         created_by=3,
         album_id=3,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Cancer+TDWP.mp3'
     )
     reaching = Song(
         name='Reaching',
         created_by=3,
         album_id=3,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Reaching+TDWP.mp3'
     )
     ignorance = Song(
         name='Ignorance',
         created_by=3,
         album_id=3,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ignorance+TDWP.mp3'
     )
 
     switchblade = Song(
@@ -459,20 +459,20 @@ def seed_songs():
     # db.session.add(rock_is_dead)
     # db.session.add(king_of_anything)
 
-    # db.session.add(exhibition)
-    # db.session.add(salt)
-    # db.session.add(watchtower)
-    # db.session.add(noise)
-    # db.session.add(broken)
-    # db.session.add(sacrifice)
-    # db.session.add(trapped)
-    # db.session.add(time)
-    # db.session.add(twenty_five)
-    # db.session.add(fire)
-    # db.session.add(hallucinate)
-    # db.session.add(cancer)
-    # db.session.add(reaching)
-    # db.session.add(ignorance)
+    db.session.add(exhibition)
+    db.session.add(salt)
+    db.session.add(watchtower)
+    db.session.add(noise)
+    db.session.add(broken)
+    db.session.add(sacrifice)
+    db.session.add(trapped)
+    db.session.add(time)
+    db.session.add(twenty_five)
+    db.session.add(fire)
+    db.session.add(hallucinate)
+    db.session.add(cancer)
+    db.session.add(reaching)
+    db.session.add(ignorance)
 
     # db.session.add(switchblade)
     # db.session.add(lines_of_your_hands)
