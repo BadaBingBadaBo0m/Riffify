@@ -294,73 +294,73 @@ def seed_songs():
         name='Switchblade',
         created_by=3,
         album_id=4,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Switchblade+TDWP.mp3'
     )
     lines_of_your_hands = Song(
         name='Lines of Your Hands',
         created_by=3,
         album_id=4,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/LInes+of+your+hands+TDWP.mp3'
     )
     chemical = Song(
         name='Chemical',
         created_by=3,
         album_id=4,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Chemical+TDWP.mp3'
     )
     wave_of_youth = Song(
         name='Wave of Youth',
         created_by=3,
         album_id=4,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Wave+of+youth+TDWP.mp3'
     )
     please_say_no = Song(
         name='Please Say No',
         created_by=3,
         album_id=4,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Please+say+no+TDWP.mp3'
     )
     the_thread = Song(
         name='The Thread',
         created_by=3,
         album_id=4,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/The+thread+TDWP.mp3'
     )
     numb = Song(
         name='Numb',
         created_by=3,
         album_id=4,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Numb+TDWP.mp3'
     )
     isnt_it_strange = Song(
         name="Isn't it Strange?",
         created_by=3,
         album_id=4,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Isnt+it+strange+TDWP.mp3'
     )
     diamond_lost = Song(
         name='Diamond Lost',
         created_by=3,
         album_id=4,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Diamong+lost+TDWP.mp3'
     )
     as_kids = Song(
         name='As Kids',
         created_by=3,
         album_id=4,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/As+kids+TDWP.mp3'
     )
     even_though = Song(
         name='Even Though',
         created_by=3,
         album_id=4,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Even+though+TDWP.mp3'
     )
     spiderhead = Song(
         name='Spiderhead',
         created_by=3,
         album_id=4,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Spiderhead+TDWP.mp3'
     )
     godless = Song(
         name='Godless',
