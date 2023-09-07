@@ -140,6 +140,7 @@ const SongDropdown = ({ song, album }) => {
         place='top'
         delayHide={500}
         isOpen={playlistConfirmTooltip}
+        style={{ position: 'fixed', zIndex: '0' }}
       >
         <h1 id='playlist-tooltip-message'>{playlistMessage}</h1>
       </Tooltip>
