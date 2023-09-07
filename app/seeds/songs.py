@@ -366,61 +366,61 @@ def seed_songs():
         name='Godless',
         created_by=4,
         album_id=5,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Godless+Angelmaker.mp3'
     )
     no_haven = Song(
         name='No Haven',
         created_by=4,
         album_id=5,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/No+Haven+Angelmaker.mp3'
     )
     a_dark_omen = Song(
         name='A Dark Omen',
         created_by=4,
         album_id=5,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/A+Dark+Omen+Angelmaker.mp3'
     )
     e_i_e = Song(
         name='E.I.E',
         created_by=4,
         album_id=5,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/E.I.E+Angelmaker.mp3'
     )
     dissentient = Song(
         name='Dissentient',
         created_by=4,
         album_id=5,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Dissentient+Angelmaker.mp3'
     )
     citadel = Song(
         name='Citadel',
         created_by=4,
         album_id=5,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Citadel+Angelmaker.mp3'
     )
     shia_labeouf = Song(
         name='Shia Labeouf',
         created_by=4,
         album_id=5,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Shita+LaBeouf+Angelmaker.mp3'
     )
     into_oblivion = Song(
         name='Into Oblivion',
         created_by=4,
         album_id=5,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Into+Oblivion+Angelmaker.mp3'
     )
     abysmal = Song(
         name='Abysmal',
         created_by=4,
         album_id=5,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Abyssal+Angelmaker.mp3'
     )
     leech = Song(
         name='Leech',
         created_by=4,
         album_id=5,
-        song_body='/Currents-Kill-The-Ache.mp3'
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Leech+Angelmaker.mp3'
     )
 
     db.session.add(never_there)
@@ -487,16 +487,16 @@ def seed_songs():
     db.session.add(even_though)
     db.session.add(spiderhead)
 
-    # db.session.add(godless)
-    # db.session.add(no_haven)
-    # db.session.add(a_dark_omen)
-    # db.session.add(e_i_e)
-    # db.session.add(dissentient)
-    # db.session.add(citadel)
-    # db.session.add(shia_labeouf)
-    # db.session.add(into_oblivion)
-    # db.session.add(abysmal)
-    # db.session.add(leech)
+    db.session.add(godless)
+    db.session.add(no_haven)
+    db.session.add(a_dark_omen)
+    db.session.add(e_i_e)
+    db.session.add(dissentient)
+    db.session.add(citadel)
+    db.session.add(shia_labeouf)
+    db.session.add(into_oblivion)
+    db.session.add(abysmal)
+    db.session.add(leech)
 
     db.session.commit()
 
