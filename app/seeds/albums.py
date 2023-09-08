@@ -47,6 +47,11 @@ def seed_albums():
         created_by_id=5,
         art='/Bad-omens-the-death-of-peace-of-mind.png'
     )
+    a_hill_to_die_upon = Album(
+        name='A Hill To Die Upon',
+        created_by_id=6,
+        art='https://tritone-spotify-clone.s3.amazonaws.com/A+hill+to+die++upon+art+Mental+Cureltyjpg.jpg'
+    )
     fracture = Album(
         name='Fracture',
         created_by_id=6,
@@ -96,6 +101,7 @@ def seed_albums():
     db.session.add(dissentient)
     # db.session.add(angelmaker_self_titled)
     db.session.add(the_death_of_peace_of_mind)
+    db.session.add(a_hill_to_die_upon)
     # db.session.add(bad_omens_self_titled)
     # db.session.add(fracture)
     # db.session.add(the_silver_scream_2)

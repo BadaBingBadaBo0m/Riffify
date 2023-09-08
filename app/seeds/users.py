@@ -39,6 +39,13 @@ def seed_users():
         last_name='Omens',
         password='password'
     )
+    mental_cruelty = User(
+        username='Mental Cruelty',
+        email='mentalCruelty@aa.io',
+        first_name='Mental',
+        last_name='Cruelty',
+        password='password'
+    )
     bleed_from_within = User(
         username='Bleed From Within',
         email='bfw@aa.io',
@@ -91,6 +98,7 @@ def seed_users():
     db.session.add(tdwp)
     db.session.add(angelmaker)
     db.session.add(bad_omens)
+    db.session.add(mental_cruelty)
     db.session.add(bleed_from_within)
     db.session.add(ice_nine_kills)
     db.session.add(imminence)

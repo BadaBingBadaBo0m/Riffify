@@ -514,6 +514,67 @@ def seed_songs():
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Miracle+BadOmens.mp3'
     )
 
+    avgang = Song(
+        name='Avgang',
+        created_by=6,
+        album_id=7,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Avang+Mental+Cruelty.mp3'
+    )
+    ultima_hypocrita = Song(
+        name='Ultima Hypocrita',
+        created_by=6,
+        album_id=7,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ultima+Hypcrita+Mental+Cruelty.mp3'
+    )
+    abadon = Song(
+        name='Abadon',
+        created_by=6,
+        album_id=7,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Abadon+Metal+Cruelty.mp3'
+    )
+    king_ov_fire = Song(
+        name='King Ov Fire',
+        created_by=6,
+        album_id=7,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/King+Ov+Fire+Mental+Cruelty.mp3'
+    )
+    eternal_eclipse = Song(
+        name='Eternal Eclipse',
+        created_by=6,
+        album_id=7,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Eternal+Eclipse+Mental+Cruelty.mp3'
+    )
+    death_worship = Song(
+        name='Death Worship',
+        created_by=6,
+        album_id=7,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Death+Worship+Mental+Cruelty.mp3'
+    )
+    fossenbrate = Song(
+        name='Fossenbrate',
+        created_by=6,
+        album_id=7,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Fossenbrate+Mental+Cruelty.mp3'
+    )
+    a_hill_to_die_upon = Song(
+        name='A Hill To Die Upon',
+        created_by=6,
+        album_id=7,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/A+Hill+to+Die+Upon+Mental+Cruelty.mp3'
+    )
+    extermination_campaign = Song(
+        name='Extermination Campaighn',
+        created_by=6,
+        album_id=7,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Extermination+Campaign+Mental+Cruelty.mp3'
+    )
+    the_left_hand_path = Song(
+        name='The Left Hand Path',
+        created_by=6,
+        album_id=7,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/The+Left+Hand+Path+Mental+Cruelty.mp3'
+    )
+
     db.session.add(never_there)
     db.session.add(a_flag_to_wave)
     db.session.add(poverty_of_self)
@@ -604,6 +665,17 @@ def seed_songs():
     db.session.add(what_do_you_want_from_me)
     db.session.add(artificial_suicide)
     db.session.add(miracle)
+
+    db.session.add(avgang)
+    db.session.add(ultima_hypocrita)
+    db.session.add(abadon)
+    db.session.add(king_ov_fire)
+    db.session.add(eternal_eclipse)
+    db.session.add(death_worship)
+    db.session.add(fossenbrate)
+    db.session.add(a_hill_to_die_upon)
+    db.session.add(extermination_campaign)
+    db.session.add(the_left_hand_path)
 
     db.session.commit()
 
