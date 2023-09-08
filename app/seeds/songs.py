@@ -423,6 +423,97 @@ def seed_songs():
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Leech+Angelmaker.mp3'
     )
 
+    concrete_jungle = Song(
+        name='CONCRETE JUNGLE',
+        created_by=5,
+        album_id=6,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/CONCRETE+JUNGLE+Bad+Omens.mp3'
+    )
+    nowhere_to_go = Song(
+        name='Nowhere To Go',
+        created_by=5,
+        album_id=6,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Nowhere+To+Go+BadOmens.mp3'
+    )
+    take_me_first = Song(
+        name='Take Me First',
+        created_by=5,
+        album_id=6,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Take+Me+First+BadOmens.mp3'
+    )
+    the_death_of_peace_of_mind = Song(
+        name='THE DEATH OF PEACE OF MIND',
+        created_by=5,
+        album_id=6,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/THE+DEATH+OF+PEACE+OF+MIND+BadOmens.mp3'
+    )
+    What_it_cost = Song(
+        name='What it Cost',
+        created_by=5,
+        album_id=6,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/What+it+Cost+BadOmens.mp3'
+    )
+    like_a_villain = Song(
+        name='Like A Villain',
+        created_by=5,
+        album_id=6,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Like+a+Villain+BadOmens.mp3'
+    )
+    bad_decisions = Song(
+        name='bad decisions',
+        created_by=5,
+        album_id=6,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Bad+decisions+Bad+Omens.mp3'
+    )
+    just_pretend = Song(
+        name='Just Pretend',
+        created_by=5,
+        album_id=6,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Just+Pretend+BadOmens.mp3'
+    )
+    the_grey = Song(
+        name='The Grey',
+        created_by=5,
+        album_id=6,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/The+Grey+BadOmens.mp3'
+    )
+    who_are_you = Song(
+        name='Who are you?',
+        created_by=5,
+        album_id=6,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Who+are+you+BadOmens.mp3'
+    )
+    somebody_else = Song(
+        name='Somebody else.',
+        created_by=5,
+        album_id=6,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Sombody+else+BadOmens.mp3'
+    )
+    idwts = Song(
+        name='IDWT$',
+        created_by=5,
+        album_id=6,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/IDWT%24+BadOmens.mp3'
+    )
+    what_do_you_want_from_me = Song(
+        name='What do you want from me?',
+        created_by=5,
+        album_id=6,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/What+do+you+want+from+me+BadOmens.mp3'
+    )
+    artificial_suicide = Song(
+        name='ARTIFICIAL SUICIDE',
+        created_by=5,
+        album_id=6,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/ARTIFICIAL+SUICIDE+BadOmens.mp3'
+    )
+    miracle = Song(
+        name='Miracle',
+        created_by=5,
+        album_id=6,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Miracle+BadOmens.mp3'
+    )
+
     db.session.add(never_there)
     db.session.add(a_flag_to_wave)
     db.session.add(poverty_of_self)
@@ -497,6 +588,22 @@ def seed_songs():
     db.session.add(into_oblivion)
     db.session.add(abysmal)
     db.session.add(leech)
+
+    db.session.add(concrete_jungle)
+    db.session.add(nowhere_to_go)
+    db.session.add(take_me_first)
+    db.session.add(the_death_of_peace_of_mind)
+    db.session.add(What_it_cost)
+    db.session.add(like_a_villain)
+    db.session.add(bad_decisions)
+    db.session.add(just_pretend)
+    db.session.add(the_grey)
+    db.session.add(who_are_you)
+    db.session.add(somebody_else)
+    db.session.add(idwts)
+    db.session.add(what_do_you_want_from_me)
+    db.session.add(artificial_suicide)
+    db.session.add(miracle)
 
     db.session.commit()
 
