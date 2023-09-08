@@ -575,6 +575,91 @@ def seed_songs():
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/The+Left+Hand+Path+Mental+Cruelty.mp3'
     )
 
+    opening_night = Song(
+        name='Opening Night...',
+        created_by=7,
+        album_id=8,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Opening+NIght+INK.mp3'
+    )
+    welcome_to_horrowood = Song(
+        name='Welcome to Horrrowood',
+        created_by=7,
+        album_id=8,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Welcome+To+Horrorwood.mp3'
+    )
+    a_rash_decision = Song(
+        name='A Rash Decision',
+        created_by=7,
+        album_id=8,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/A+rash+decision+INK.mp3'
+    )
+    assault_and_batteries = Song(
+        name='Assault & Batteries',
+        created_by=7,
+        album_id=8,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Assault+%26+batteries+INK.mp3'
+    )
+    the_shower_scene = Song(
+        name='The Shower Scene',
+        created_by=7,
+        album_id=8,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/The+shower+scene+INK.mp3'
+    )
+    funeral_derangements = Song(
+        name='Funeral Derangements',
+        created_by=7,
+        album_id=8,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Funeral+Derangements+INK.mp3'
+    )
+    rainy_day = Song(
+        name='Rainy Day',
+        created_by=7,
+        album_id=8,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Rainy+Day+INK.mp3'
+    )
+    hip_to_be_scared = Song(
+        name='Hip to be Scared (feat. Jacoby Shaddix)',
+        created_by=7,
+        album_id=8,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Hip+to+be+scared+INK.mp3'
+    )
+    take_your_pick = Song(
+        name='Take Your Pick (feat. Corpsegrinder)',
+        created_by=7,
+        album_id=8,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Take+your+pick+INK.mp3'
+    )
+    the_box = Song(
+        name='The Box (feat. Brandon Saller & Ryan Kirby)',
+        created_by=7,
+        album_id=8,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/The+box+INK.mp3'
+    )
+    fly = Song(
+        name='F.L.Y. (feat. Buddy Nielsen)',
+        created_by=7,
+        album_id=8,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/F.L.Y+INK.mp3'
+    )
+    wurst_vacation = Song(
+        name='Wurst Vacations',
+        created_by=7,
+        album_id=8,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Wurst+Vacation+INK.mp3'
+    )
+    ex_mortis = Song(
+        name='Ex Mørtis',
+        created_by=7,
+        album_id=8,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ex-mortis+INK.mp3'
+    )
+    farewell_to_flesh = Song(
+        name='Farewell II Flesh',
+        created_by=7,
+        album_id=8,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Farewell+II+Flesh+INK.mp3'
+    )
+
     db.session.add(never_there)
     db.session.add(a_flag_to_wave)
     db.session.add(poverty_of_self)
@@ -676,6 +761,21 @@ def seed_songs():
     db.session.add(a_hill_to_die_upon)
     db.session.add(extermination_campaign)
     db.session.add(the_left_hand_path)
+
+    db.session.add(opening_night)
+    db.session.add(welcome_to_horrowood)
+    db.session.add(a_rash_decision)
+    db.session.add(assault_and_batteries)
+    db.session.add(the_shower_scene)
+    db.session.add(funeral_derangements)
+    db.session.add(rainy_day)
+    db.session.add(hip_to_be_scared)
+    db.session.add(take_me_first)
+    db.session.add(the_box)
+    db.session.add(fly)
+    db.session.add(wurst_vacation)
+    db.session.add(ex_mortis)
+    db.session.add(farewell_to_flesh)
 
     db.session.commit()
 

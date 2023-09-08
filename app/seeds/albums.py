@@ -54,42 +54,42 @@ def seed_albums():
     )
     fracture = Album(
         name='Fracture',
-        created_by_id=6,
-        art='/Bad-omens-the-death-of-peace-of-mind.png'
+        created_by_id=7,
+        art='https://tritone-spotify-clone.s3.amazonaws.com/Fracture-Bleed-From-Within+art.jpg'
     )
     the_silver_scream_2 = Album(
         name='Welcome to Horrorwood: The Silver Scream 2',
-        created_by_id=7,
-        art='/Bad-omens-the-death-of-peace-of-mind.png'
+        created_by_id=8,
+        art='https://tritone-spotify-clone.s3.amazonaws.com/INK+The+silver+scream+2.jpg'
     )
     the_silver_scream = Album(
         name='The Silver Scream',
-        created_by_id=7,
+        created_by_id=8,
         art='/Bad-omens-the-death-of-peace-of-mind.png'
     )
     every_trick_in_the_book = Album(
         name='Every Trick In The Book',
-        created_by_id=7,
+        created_by_id=8,
         art='/Bad-omens-the-death-of-peace-of-mind.png'
     )
     desolation = Album(
         name='Desolation',
-        created_by_id=8,
+        created_by_id=9,
         art='/Bad-omens-the-death-of-peace-of-mind.png'
     )
     heaven_in_hiding = Album(
         name='Heaven in Hiding',
-        created_by_id=8,
+        created_by_id=9,
         art='/Bad-omens-the-death-of-peace-of-mind.png'
     )
     macro = Album(
         name='Macro',
-        created_by_id=9,
+        created_by_id=10,
         art='/Bad-omens-the-death-of-peace-of-mind.png'
     )
     wallflowers = Album(
         name = 'Wallflowers',
-        created_by_id=9,
+        created_by_id=10,
         art='/Bad-omens-the-death-of-peace-of-mind.png'
     )
 
@@ -104,7 +104,7 @@ def seed_albums():
     db.session.add(a_hill_to_die_upon)
     # db.session.add(bad_omens_self_titled)
     # db.session.add(fracture)
-    # db.session.add(the_silver_scream_2)
+    db.session.add(the_silver_scream_2)
     # db.session.add(the_silver_scream)
     # db.session.add(every_trick_in_the_book)
     # db.session.add(desolation)
