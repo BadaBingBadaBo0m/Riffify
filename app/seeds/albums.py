@@ -70,7 +70,7 @@ def seed_albums():
     every_trick_in_the_book = Album(
         name='Every Trick In The Book',
         created_by_id=8,
-        art='/Bad-omens-the-death-of-peace-of-mind.png'
+        art='https://tritone-spotify-clone.s3.amazonaws.com/Every+Trick+in+the+book+INK.jpg'
     )
     desolation = Album(
         name='Desolation',
@@ -106,7 +106,7 @@ def seed_albums():
     # db.session.add(fracture)
     db.session.add(the_silver_scream_2)
     db.session.add(the_silver_scream)
-    # db.session.add(every_trick_in_the_book)
+    db.session.add(every_trick_in_the_book)
     # db.session.add(desolation)
     # db.session.add(heaven_in_hiding)
     # db.session.add(macro)

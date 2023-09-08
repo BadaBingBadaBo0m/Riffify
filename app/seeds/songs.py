@@ -745,6 +745,67 @@ def seed_songs():
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Your+Number's+Up+(Scream)+-+HQ+-+Lyrics.mp3"
     )
 
+    the_nature_of_the_beast = Song(
+        name='The Nature of the Beast',
+        created_by=8,
+        album_id=10,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/The+nature+of+the+beast+INK.mp3"
+    )
+    communion_of_the_cursed = Song(
+        name='Communion of the Cursed',
+        created_by=8,
+        album_id=10,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Communion+of+the+cursed+INK.mp3"
+    )
+    bloodbath_and_beyond = Song(
+        name='Bloodbath & Beyond',
+        created_by=8,
+        album_id=10,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Bloodbath+and+Beyond+INK.mp3"
+    )
+    the_plot_sickens = Song(
+        name='The Plot Sickens',
+        created_by=8,
+        album_id=10,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/The+plot+Sickens+INK.mp3"
+    )
+    star_crossed_enemies = Song(
+        name='Star-Crossed Enemies',
+        created_by=8,
+        album_id=10,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Star+crossed+enemies+INK.mp3"
+    )
+    me_myself_and_hyde = Song(
+        name='Me, Myself & Hyde',
+        created_by=8,
+        album_id=10,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Me+myself+and+hyde+INK.mp3"
+    )
+    alice = Song(
+        name='Alice',
+        created_by=8,
+        album_id=10,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Alice+INK.mp3"
+    )
+    the_people_in_the_attic = Song(
+        name='The People in the Attic',
+        created_by=8,
+        album_id=10,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/The+people+in+the+attic+INK.mp3"
+    )
+    Tess_Timony = Song(
+        name='Tess-Timony',
+        created_by=8,   
+        album_id=10,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Tess-Timony+INK.mp3"
+    )
+    hell_in_the_hallways = Song(
+        name='Hell in the Hallways',
+        created_by=8,
+        album_id=10,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Hell+in+the+hallways+INK.mp3"
+    )
+
     db.session.add(never_there)
     db.session.add(a_flag_to_wave)
     db.session.add(poverty_of_self)
@@ -876,6 +937,19 @@ def seed_songs():
     db.session.add(love_bites)
     db.session.add(it_is_the_end)
     db.session.add(your_numbers_up)
+
+    db.session.add(the_nature_of_the_beast)
+    db.session.add(communion_of_the_cursed)
+    db.session.add(bloodbath_and_beyond)
+    db.session.add(the_plot_sickens)
+    db.session.add(star_crossed_enemies)
+    db.session.add(me_myself_and_hyde)
+    db.session.add(alice)
+    db.session.add(the_people_in_the_attic)
+    db.session.add(Tess_Timony)
+    db.session.add(hell_in_the_hallways)
+
+    db.session.add(the_nature_of_the_beast)
 
     db.session.commit()
 
