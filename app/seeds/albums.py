@@ -65,7 +65,7 @@ def seed_albums():
     the_silver_scream = Album(
         name='The Silver Scream',
         created_by_id=8,
-        art='/Bad-omens-the-death-of-peace-of-mind.png'
+        art="https://tritone-spotify-clone.s3.amazonaws.com/Ice_Nine_Kills_%E2%80%93_The_Silver_Scream.png"
     )
     every_trick_in_the_book = Album(
         name='Every Trick In The Book',
@@ -105,7 +105,7 @@ def seed_albums():
     # db.session.add(bad_omens_self_titled)
     # db.session.add(fracture)
     db.session.add(the_silver_scream_2)
-    # db.session.add(the_silver_scream)
+    db.session.add(the_silver_scream)
     # db.session.add(every_trick_in_the_book)
     # db.session.add(desolation)
     # db.session.add(heaven_in_hiding)

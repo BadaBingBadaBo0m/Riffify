@@ -660,6 +660,91 @@ def seed_songs():
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Farewell+II+Flesh+INK.mp3'
     )
 
+    the_american_nightmare = Song(
+        name='The American Nightmare',
+        created_by=8,
+        album_id=9,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+The+American+Nightmare+(A+Nightmare+On+Elm+Street)+-+HQ+-+Lyrics.mp3'
+    )
+    thank_got_its_friday = Song(
+        name='Thank God It\'s Friday',
+        created_by=8,
+        album_id=9,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Thank+God%2C+It's+Friday+(Friday+The+13th)+-+HQ+-+Lyrics.mp3"
+    )
+    stabbing_in_the_dark = Song(
+        name='Stabbing in the Dark',
+        created_by=8,
+        album_id=9,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Stabbing+In+The+Dark+(Halloween)+-+HQ+-+Lyrics.mp3'
+    )
+    savages = Song(
+        name='SAVAGES',
+        created_by=8,
+        album_id=9,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Savages+(The+Texas+Chainsaw+Massacre)+-+HQ+-+Lyrics.mp3'
+    )
+    the_jig_is_up = Song(
+        name='The Jig is Up (feat. Randy Strohmeyer)',
+        created_by=8,
+        album_id=9,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+The+Jig+Is+Up+ft.+Randy+Strohmeyer+(Saw)+-+HQ+-+Lyrics.mp3'
+    )
+    a_grave_mistake = Song(
+        name='A Grave Mistake',
+        created_by=8,
+        album_id=9,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/A+Grave+Mistake+-+Ice+Nine+Kills+Lyrics.mp3'
+    )
+    rocking_the_boat = Song(
+        name='Rocking the Boat (feat. Jeremy Schwartz)',
+        created_by=8,
+        album_id=9,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Rocking+The+Boat+ft.+Jeremy+Schwartz+(Jaws)+-+HQ+-+Lyrics.mp3'
+    )
+    enjoy_your_slay = Song(
+        name='Enjoy Your Slay (feat. Sam Kubrick)',
+        created_by=8,
+        album_id=9,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Enjoy+your+slay.mp3'
+    )
+    freak_flag = Song(
+        name='Freak Flag',
+        created_by=8,
+        album_id=9,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Freak+Flag+(The+Devil's+Rejects)+-+HQ+-+Lyrics.mp3"
+    )
+    the_world_in_my_hands = Song(
+        name='The World in My Hands (feat. Tony Lovato)',
+        created_by=8,
+        album_id=9,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+The+World+In+My+Hands+ft.+Tony+Lovato+(Edward+Scissorhands)+-+HQ+-+Lyrics.mp3'
+    )
+    merry_axemas = Song(
+        name='Merry Axe-mas',
+        created_by=8,
+        album_id=9,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Merry+Axe-Mas+(Silent+Night%2C+Deadly+Night)+-+HQ+-+Lyrics.mp3'
+    )
+    love_bites = Song(
+        name='Love Bites (feat. Chelsea Talmadge)',
+        created_by=8,
+        album_id=9,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Love+Bites+ft.+Chelsea+Talmadge+(An+American+Werewolf+In+London)+-+HQ+-+Lyrics.mp3'
+    )
+    it_is_the_end = Song(
+        name='IT is the End (feat. Less Than Jake, Fenix TX, JR Wasilewski, Buddy Schaub & Will Salazar)',
+        created_by=8,
+        album_id=9,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+IT+Is+The+End+ft.+Peter+Wasilewski+%26+Buddy+Schaub+(Stephen+King's+IT)+-+HQ+-+Lyrics.mp3"
+    )
+    your_numbers_up = Song(
+        name='Your Number\'s Up',
+        created_by=8,
+        album_id=9,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Your+Number's+Up+(Scream)+-+HQ+-+Lyrics.mp3"
+    )
+
     db.session.add(never_there)
     db.session.add(a_flag_to_wave)
     db.session.add(poverty_of_self)
@@ -776,6 +861,21 @@ def seed_songs():
     db.session.add(wurst_vacation)
     db.session.add(ex_mortis)
     db.session.add(farewell_to_flesh)
+
+    db.session.add(the_american_nightmare)
+    db.session.add(thank_got_its_friday)
+    db.session.add(stabbing_in_the_dark)
+    db.session.add(savages)
+    db.session.add(the_jig_is_up)
+    db.session.add(a_grave_mistake)
+    db.session.add(rocking_the_boat)
+    db.session.add(enjoy_your_slay)
+    db.session.add(freak_flag)
+    db.session.add(the_world_in_my_hands)
+    db.session.add(merry_axemas)
+    db.session.add(love_bites)
+    db.session.add(it_is_the_end)
+    db.session.add(your_numbers_up)
 
     db.session.commit()
 
