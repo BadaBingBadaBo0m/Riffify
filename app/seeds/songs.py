@@ -1053,9 +1053,9 @@ def seed_songs():
     # db.session.add(Tess_Timony)
     # db.session.add(hell_in_the_hallways)
 
-    # db.session.add(heaven_shall_burn)
-    # db.session.add(desolation)
-    # db.session.add(come_hell_or_high_water)
+    db.session.add(heaven_shall_burn)
+    db.session.add(desolation)
+    db.session.add(come_hell_or_high_water)
 
     # db.session.add(i_am_become_a_name)
     # db.session.add(ghost)
