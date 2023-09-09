@@ -806,6 +806,110 @@ def seed_songs():
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Hell+in+the+hallways+INK.mp3"
     )
 
+    heaven_shall_burn = Song(
+        name='Heaven Shall Burn',
+        created_by=9,
+        album_id=11,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Heaven+shall+burn+Imminence.mp3"
+    )
+    desolation = Song(
+        name='Desolation',
+        created_by=9,
+        album_id=11,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Desolation+Imminence.mp3"
+    )
+    come_hell_or_high_water = Song(
+        name='Come Hell or High Water',
+        created_by=9,
+        album_id=11,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Come+hell+or+high+water+imminence.mp3"
+    )
+
+    i_am_become_a_name = Song(
+        name='I am Become a Name...',
+        created_by=10,
+        album_id=12,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/I+am+become+a+name+Imminence.mp3"
+    )
+    ghost = Song(
+        name='Ghost',
+        created_by=10,
+        album_id=12,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Ghost+Imminence.mp3"
+    )
+    temptation = Song(
+        name='Temptation',
+        created_by=10,
+        album_id=12,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Temptation+Imminence.mp3"
+    )
+    surrender = Song(
+        name='Surrender',
+        created_by=10,
+        album_id=12,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Surrender+Imminence.mp3"
+    )
+    chasing_shadows = Song(
+        name='Chasing Shadows',
+        created_by=10,
+        album_id=12,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Chasing+shadows+Imminence.mp3"
+    )
+    moth_to_a_flame = Song(
+        name='Moth to a Flame',
+        created_by=10,
+        album_id=12,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Moth+to+a+flame+Imminence.mp3"
+    )
+    alleviate = Song(
+        name='Alleviate',
+        created_by=10,
+        album_id=12,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Alleviate+Imminence.mp3"
+    )
+    enslaved = Song(
+        name='Enslaved',
+        created_by=10,
+        album_id=12,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Enslaved+Imminence.mp3"
+    )
+    disappear = Song(
+        name='Disappear',
+        created_by=10,
+        album_id=12,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Dissapear+Imminence.mp3"
+    )
+    lost_and_left_behind = Song(
+        name='Lost and Left Behind',
+        created_by=10,
+        album_id=12,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Lost+and+left+behing+Imminence.mp3"
+    )
+    this_too_shall_pass = Song(
+        name='این نیز بگذرد',
+        created_by=10,
+        album_id=12,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/This+too+shall+pass+Imminence.mp3"
+    )
+    infinity = Song(
+        name='∞',
+        created_by=10,
+        album_id=12,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Infinity+Imminence.mp3"
+    )
+    heaven_in_hiding = Song(
+        name='Heaven in Hiding',
+        created_by=10,
+        album_id=12,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Heaven+in+hiding+Imminence.mp3"
+    )
+    jaded = Song(
+        name='Jaded',
+        created_by=10,
+        album_id=12,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Jaded+Imminence.mp3"
+    )
+
     db.session.add(never_there)
     db.session.add(a_flag_to_wave)
     db.session.add(poverty_of_self)
@@ -949,7 +1053,24 @@ def seed_songs():
     db.session.add(Tess_Timony)
     db.session.add(hell_in_the_hallways)
 
-    db.session.add(the_nature_of_the_beast)
+    db.session.add(heaven_shall_burn)
+    db.session.add(desolation)
+    db.session.add(come_hell_or_high_water)
+
+    db.session.add(i_am_become_a_name)
+    db.session.add(ghost)
+    db.session.add(temptation)
+    db.session.add(surrender)
+    db.session.add(chasing_shadows)
+    db.session.add(moth_to_a_flame)
+    db.session.add(alleviate)
+    db.session.add(enslaved)
+    db.session.add(disappear)
+    db.session.add(lost_and_left_behind)
+    db.session.add(this_too_shall_pass)
+    db.session.add(infinity)
+    db.session.add(heaven_in_hiding)
+    db.session.add(jaded)
 
     db.session.commit()
 

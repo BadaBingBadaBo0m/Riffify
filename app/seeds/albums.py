@@ -72,15 +72,15 @@ def seed_albums():
         created_by_id=8,
         art='https://tritone-spotify-clone.s3.amazonaws.com/Every+Trick+in+the+book+INK.jpg'
     )
-    desolation = Album(
-        name='Desolation',
+    heaven_shall_burn = Album(
+        name='Heaven Shall Burn',
         created_by_id=9,
-        art='/Bad-omens-the-death-of-peace-of-mind.png'
+        art='https://tritone-spotify-clone.s3.amazonaws.com/Heaven+Shall+Burn+Art+Imminence.png'
     )
     heaven_in_hiding = Album(
         name='Heaven in Hiding',
         created_by_id=9,
-        art='/Bad-omens-the-death-of-peace-of-mind.png'
+        art='https://tritone-spotify-clone.s3.amazonaws.com/Heaven+in+hiding+art.jpg'
     )
     macro = Album(
         name='Macro',
@@ -107,8 +107,8 @@ def seed_albums():
     db.session.add(the_silver_scream_2)
     db.session.add(the_silver_scream)
     db.session.add(every_trick_in_the_book)
-    # db.session.add(desolation)
-    # db.session.add(heaven_in_hiding)
+    db.session.add(heaven_shall_burn)
+    db.session.add(heaven_in_hiding)
     # db.session.add(macro)
     # db.session.add(wallflowers)
     db.session.commit()
