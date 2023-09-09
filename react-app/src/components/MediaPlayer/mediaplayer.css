@@ -1,11 +1,32 @@
 #media-player-container {
   color: white;
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
   align-items: center;
   padding-top: 10px;
   z-index: 1;
   background-color: black;
+
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "SongInfo MediaControls Volume";
+}
+
+#media-player-song-info-container {
+  grid-area: SongInfo;
+}
+
+#media-player-controls-container {
+  grid-area: MediaControls;
+}
+
+#song-volume-bar-container {
+  grid-area: Volume;
 }
 
 #hidden {
@@ -110,9 +131,17 @@
   width: 25rem;
 }
 
+#song-volume-bar-container {
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+}
+
 #song-volume-bar {
   /* height: 1rem; */
   width: 7rem;
+  margin-right: 1rem;
   /* display: flex;
   align-items: center;
   justify-content: center;

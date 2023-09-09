@@ -1,8 +1,8 @@
 import React, { useState, useRef, useContext, useEffect } from 'react'
 import Slider from 'rc-slider'
+import "rc-slider/assets/index.css";
 import { SongContext } from '../../context/Song';
 import './mediaplayer.css'
-import SongPlayBar from './SongPlayBar';
 
 const MediaPlayer = () => {
   // const [play, setPlay] = useState(false);
@@ -183,27 +183,29 @@ const MediaPlayer = () => {
         </div>
       </div>
 
-      <div id='song-volume-bar'>
-        <Slider
-          min={0}
-          max={.5}
-          step={0.01}
-          value={volume}
-          onChange={handleVolume}
-          trackStyle={
-            { backgroundColor: '#1ed760' }
-          }
-          railStyle={
-            { backgroundColor: '#4d4d4d' }
-          }
-          handleStyle={[
-            {
-              backgroundColor: 'white',
-              border: 'none',
-              opacity: 1
+      <div id='song-volume-bar-container'>
+        <div id='song-volume-bar'>
+          <Slider
+            min={0}
+            max={.5}
+            step={0.01}
+            value={volume}
+            onChange={handleVolume}
+            trackStyle={
+              { backgroundColor: '#1ed760' }
             }
-          ]}
-        />
+            railStyle={
+              { backgroundColor: '#4d4d4d' }
+            }
+            handleStyle={[
+              {
+                backgroundColor: 'white',
+                border: 'none',
+                opacity: 1
+              }
+            ]}
+          />
+        </div>
       </div>
       {/* <input
         type='range'
