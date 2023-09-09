@@ -10,7 +10,7 @@ class Song(db.Model):
         __table_args__ = { 'schema': SCHEMA }
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), nullable=False)
+    name = db.Column(db.String(90), nullable=False)
     artists = db.Column(db.String(50))
     created_by = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     plays = db.Column(db.Integer, default=0)
