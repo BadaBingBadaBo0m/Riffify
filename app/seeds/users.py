@@ -90,7 +90,7 @@ def seed_users():
         username='bobbie', 
         email='bobbie@aa.io',
         first_name='Bobbie', 
-        last_name='Bob',  
+        last_name='Bob', 
         password='password')
 
     db.session.add(currents)
