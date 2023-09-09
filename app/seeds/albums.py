@@ -82,15 +82,15 @@ def seed_albums():
         created_by_id=9,
         art='https://tritone-spotify-clone.s3.amazonaws.com/Heaven+in+hiding+art.jpg'
     )
-    macro = Album(
-        name='Macro',
-        created_by_id=10,
-        art='/Bad-omens-the-death-of-peace-of-mind.png'
-    )
     wallflowers = Album(
         name = 'Wallflowers',
         created_by_id=10,
-        art='/Bad-omens-the-death-of-peace-of-mind.png'
+        art='https://tritone-spotify-clone.s3.amazonaws.com/Wallflowers+art+JINJER.jpg'
+    )
+    macro = Album(
+        name='Macro',
+        created_by_id=10,
+        art='https://tritone-spotify-clone.s3.amazonaws.com/Macro+art+Jinjer.jpg'
     )
 
     db.session.add(the_way_it_ends)
@@ -109,8 +109,8 @@ def seed_albums():
     db.session.add(every_trick_in_the_book)
     db.session.add(heaven_shall_burn)
     db.session.add(heaven_in_hiding)
-    # db.session.add(macro)
-    # db.session.add(wallflowers)
+    db.session.add(wallflowers)
+    db.session.add(macro)
     db.session.commit()
 
 def undo_albums():

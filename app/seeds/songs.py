@@ -910,6 +910,73 @@ def seed_songs():
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Jaded+Imminence.mp3"
     )
 
+    call_me_a_symbol = Song(
+        name='Call Me a Symbol',
+        created_by=11,
+        album_id=13,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Call+me+a+symbol+Jinjer.mp3"
+    )
+    collosus = Song(
+        name='Collosus',
+        created_by=11,
+        album_id=13,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Colossus+Jinjer.mp3"
+    )
+    vortex = Song(
+        name='Vortex',
+        created_by=11,
+        album_id=13,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Vortex+Jinjer.mp3"
+    )
+    disclosure = Song(
+        name='Disclosure',
+        created_by=11,
+        album_id=13,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Disclosure+Jinjer.mp3"
+    )
+    copy_cat = Song(
+        name='Copy Cat',
+        created_by=11,
+        album_id=13,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Copycat+Jinjer.mp3"
+    )
+    pearls_and_swine = Song(
+        name='Pearls and Swine',
+        created_by=11,
+        album_id=13,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Pearls+and+Swine+Jinjer.mp3"
+    )
+    sleep_of_righteous = Song(
+        name='Sleep of Righteous',
+        created_by=11,
+        album_id=13,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Sleep+of+the+Righteous+Jinjer.mp3"
+    )
+    wallflower = Song(
+        name='Wallflower',
+        created_by=11,
+        album_id=13,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Wallflower+Jinjer.mp3"
+    )
+    dead_hands_feel_no_pain = Song(
+        name='Dead Hands Feel No Pain',
+        created_by=11,
+        album_id=13,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Dead+hands+feel+no+pain+Jinjer.mp3"
+    )
+    as_i_boil_ice = Song(
+        name='As I Boil Ice',
+        created_by=11,
+        album_id=13,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/As+I+Boil+Ice+Jinjer.mp3"
+    )
+    mediator = Song(
+        name='Mediator',
+        created_by=11,
+        album_id=13,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Mediator+Jinjer.mp3"
+    )
+
     db.session.add(never_there)
     db.session.add(a_flag_to_wave)
     db.session.add(poverty_of_self)
@@ -1071,6 +1138,18 @@ def seed_songs():
     db.session.add(infinity)
     db.session.add(heaven_in_hiding)
     db.session.add(jaded)
+
+    db.session.add(call_me_a_symbol)
+    db.session.add(collosus)
+    db.session.add(vortex)
+    db.session.add(disclosure)
+    db.session.add(copy_cat)
+    db.session.add(pearls_and_swine)
+    db.session.add(sleep_of_righteous)
+    db.session.add(wallflower)
+    db.session.add(dead_hands_feel_no_pain)
+    db.session.add(as_i_boil_ice)
+    db.session.add(mediator)
 
     db.session.commit()
 
