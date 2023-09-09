@@ -733,7 +733,7 @@ def seed_songs():
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Love+Bites+ft.+Chelsea+Talmadge+(An+American+Werewolf+In+London)+-+HQ+-+Lyrics.mp3'
     )
     it_is_the_end = Song(
-        name='IT is the End (feat. Less Than Jake, Fenix TX, JR Wasilewski, Buddy Schaub & Will Salazar)',
+        name='IT is the End',
         created_by=8,
         album_id=9,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+IT+Is+The+End+ft.+Peter+Wasilewski+%26+Buddy+Schaub+(Stephen+King's+IT)+-+HQ+-+Lyrics.mp3"
