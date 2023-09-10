@@ -52,11 +52,6 @@ def seed_albums():
         created_by_id=6,
         art='https://tritone-spotify-clone.s3.amazonaws.com/A+hill+to+die++upon+art+Mental+Cureltyjpg.jpg'
     )
-    fracture = Album(
-        name='Fracture',
-        created_by_id=7,
-        art='https://tritone-spotify-clone.s3.amazonaws.com/Fracture-Bleed-From-Within+art.jpg'
-    )
     the_silver_scream_2 = Album(
         name='Welcome to Horrorwood: The Silver Scream 2',
         created_by_id=8,
@@ -92,6 +87,11 @@ def seed_albums():
         created_by_id=10,
         art='https://tritone-spotify-clone.s3.amazonaws.com/Macro+art+Jinjer.jpg'
     )
+    fracture = Album(
+        name='Fracture',
+        created_by_id=7,
+        art='https://tritone-spotify-clone.s3.amazonaws.com/Fracture-Bleed-From-Within+art.jpg'
+    )
 
     db.session.add(the_way_it_ends)
     db.session.add(the_death_we_seek)
@@ -103,7 +103,6 @@ def seed_albums():
     db.session.add(the_death_of_peace_of_mind)
     db.session.add(a_hill_to_die_upon)
     # db.session.add(bad_omens_self_titled)
-    # db.session.add(fracture)
     db.session.add(the_silver_scream_2)
     db.session.add(the_silver_scream)
     db.session.add(every_trick_in_the_book)
@@ -111,6 +110,7 @@ def seed_albums():
     db.session.add(heaven_in_hiding)
     db.session.add(wallflowers)
     db.session.add(macro)
+    db.session.add(fracture)
     db.session.commit()
 
 def undo_albums():

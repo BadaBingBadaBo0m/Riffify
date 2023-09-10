@@ -24,11 +24,11 @@ const AlbumInfo = () => {
   }, [albumId, user])
 
   const handleSongChange = (song) => {
-    setCurrentSong(song)
     setContextSongList(songList)
+    setCurrentSong(song)
     setContextAlbum(album)
     setContextPlaylist(null)
-    setPlay(true)
+    // setPlay(true)
   }
 
   const handleAlbumPlayButton = () => {
