@@ -977,6 +977,61 @@ def seed_songs():
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Mediator+Jinjer.mp3"
     )
 
+    on_the_top = Song(
+        name='On the Top',
+        created_by=11,
+        album_id=14,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Jinjer+-+On+The+Top+w+lyrics.mp3'
+    )
+    pit_of_consciousness = Song(
+        name='Pit of Consciousness',
+        created_by=11,
+        album_id=14,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Jinjer+-+Pit+Of+Consciousness+w+lyrics.mp3'
+    )
+    judgement_and_punishment = Song(
+        name='Judgement (& Punishment)',
+        created_by=11,
+        album_id=14,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Jinjer+-+Judgement+(%26+Punishment)+w+lyrics.mp3'
+    )
+    retrospect = Song(
+        name='Retrospect',
+        created_by=11,
+        album_id=14,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Jinjer+-+Retrospection+w+lyrics.mp3'
+    )
+    pausing_death = Song(
+        name='Pausing Death',
+        created_by=11,
+        album_id=14,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Jinjer+-+Pausing+Death+w+lyrics.mp3'
+    )
+    noah = Song(
+        name='Noah',
+        created_by=11,
+        album_id=14,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Jinjer+-+Noah+w+lyrics.mp3'
+    )
+    home_back = Song(
+        name='Home Back',
+        created_by=11,
+        album_id=14,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Jinjer+-+Home+Back+w+lyrics.mp3'
+    )
+    the_prophecy = Song(
+        name='The Prophecy',
+        created_by=11,
+        album_id=14,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Jinjer+-+The+Prophecy+w+lyrics.mp3'
+    )
+    lainnerep = Song(
+        name='lainnereP',
+        created_by=11,
+        album_id=14,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/lainnereP.mp3'
+    )
+
     db.session.add(never_there)
     db.session.add(a_flag_to_wave)
     db.session.add(poverty_of_self)
@@ -1150,6 +1205,16 @@ def seed_songs():
     db.session.add(dead_hands_feel_no_pain)
     db.session.add(as_i_boil_ice)
     db.session.add(mediator)
+
+    db.session.add(on_the_top)
+    db.session.add(pit_of_consciousness)
+    db.session.add(judgement_and_punishment)
+    db.session.add(retrospect)
+    db.session.add(pausing_death)
+    db.session.add(noah)
+    db.session.add(home_back)
+    db.session.add(the_prophecy)
+    db.session.add(lainnerep)
 
     db.session.commit()
 
