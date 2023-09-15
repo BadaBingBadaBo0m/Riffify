@@ -808,226 +808,226 @@ def seed_songs():
 
     heaven_shall_burn = Song(
         name='Heaven Shall Burn',
-        created_by=9,
+        created_by=8,
         album_id=11,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Heaven+shall+burn+Imminence.mp3"
     )
     desolation = Song(
         name='Desolation',
-        created_by=9,
+        created_by=8,
         album_id=11,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Desolation+Imminence.mp3"
     )
     come_hell_or_high_water = Song(
         name='Come Hell or High Water',
-        created_by=9,
+        created_by=8,
         album_id=11,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Come+hell+or+high+water+imminence.mp3"
     )
 
     i_am_become_a_name = Song(
         name='I am Become a Name...',
-        created_by=10,
+        created_by=8,
         album_id=12,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/I+am+become+a+name+Imminence.mp3"
     )
     ghost = Song(
         name='Ghost',
-        created_by=10,
+        created_by=8,
         album_id=12,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Ghost+Imminence.mp3"
     )
     temptation = Song(
         name='Temptation',
-        created_by=10,
+        created_by=8,
         album_id=12,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Temptation+Imminence.mp3"
     )
     surrender = Song(
         name='Surrender',
-        created_by=10,
+        created_by=8,
         album_id=12,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Surrender+Imminence.mp3"
     )
     chasing_shadows = Song(
         name='Chasing Shadows',
-        created_by=10,
+        created_by=8,
         album_id=12,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Chasing+shadows+Imminence.mp3"
     )
     moth_to_a_flame = Song(
         name='Moth to a Flame',
-        created_by=10,
+        created_by=8,
         album_id=12,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Moth+to+a+flame+Imminence.mp3"
     )
     alleviate = Song(
         name='Alleviate',
-        created_by=10,
+        created_by=8,
         album_id=12,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Alleviate+Imminence.mp3"
     )
     enslaved = Song(
         name='Enslaved',
-        created_by=10,
+        created_by=8,
         album_id=12,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Enslaved+Imminence.mp3"
     )
     disappear = Song(
         name='Disappear',
-        created_by=10,
+        created_by=8,
         album_id=12,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Dissapear+Imminence.mp3"
     )
     lost_and_left_behind = Song(
         name='Lost and Left Behind',
-        created_by=10,
+        created_by=8,
         album_id=12,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Lost+and+left+behing+Imminence.mp3"
     )
     this_too_shall_pass = Song(
         name='این نیز بگذرد',
-        created_by=10,
+        created_by=8,
         album_id=12,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/This+too+shall+pass+Imminence.mp3"
     )
     infinity = Song(
         name='∞',
-        created_by=10,
+        created_by=8,
         album_id=12,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Infinity+Imminence.mp3"
     )
     heaven_in_hiding = Song(
         name='Heaven in Hiding',
-        created_by=10,
+        created_by=8,
         album_id=12,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Heaven+in+hiding+Imminence.mp3"
     )
     jaded = Song(
         name='Jaded',
-        created_by=10,
+        created_by=8,
         album_id=12,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Jaded+Imminence.mp3"
     )
 
     call_me_a_symbol = Song(
         name='Call Me a Symbol',
-        created_by=11,
+        created_by=9,
         album_id=13,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Call+me+a+symbol+Jinjer.mp3"
     )
     collosus = Song(
         name='Collosus',
-        created_by=11,
+        created_by=9,
         album_id=13,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Colossus+Jinjer.mp3"
     )
     vortex = Song(
         name='Vortex',
-        created_by=11,
+        created_by=9,
         album_id=13,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Vortex+Jinjer.mp3"
     )
     disclosure = Song(
         name='Disclosure',
-        created_by=11,
+        created_by=9,
         album_id=13,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Disclosure+Jinjer.mp3"
     )
     copy_cat = Song(
         name='Copy Cat',
-        created_by=11,
+        created_by=9,
         album_id=13,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Copycat+Jinjer.mp3"
     )
     pearls_and_swine = Song(
         name='Pearls and Swine',
-        created_by=11,
+        created_by=9,
         album_id=13,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Pearls+and+Swine+Jinjer.mp3"
     )
     sleep_of_righteous = Song(
         name='Sleep of Righteous',
-        created_by=11,
+        created_by=9,
         album_id=13,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Sleep+of+the+Righteous+Jinjer.mp3"
     )
     wallflower = Song(
         name='Wallflower',
-        created_by=11,
+        created_by=9,
         album_id=13,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Wallflower+Jinjer.mp3"
     )
     dead_hands_feel_no_pain = Song(
         name='Dead Hands Feel No Pain',
-        created_by=11,
+        created_by=9,
         album_id=13,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Dead+hands+feel+no+pain+Jinjer.mp3"
     )
     as_i_boil_ice = Song(
         name='As I Boil Ice',
-        created_by=11,
+        created_by=9,
         album_id=13,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/As+I+Boil+Ice+Jinjer.mp3"
     )
     mediator = Song(
         name='Mediator',
-        created_by=11,
+        created_by=9,
         album_id=13,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Mediator+Jinjer.mp3"
     )
 
     on_the_top = Song(
         name='On the Top',
-        created_by=11,
+        created_by=9,
         album_id=14,
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Jinjer+-+On+The+Top+w+lyrics.mp3'
     )
     pit_of_consciousness = Song(
         name='Pit of Consciousness',
-        created_by=11,
+        created_by=9,
         album_id=14,
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Jinjer+-+Pit+Of+Consciousness+w+lyrics.mp3'
     )
     judgement_and_punishment = Song(
         name='Judgement (& Punishment)',
-        created_by=11,
+        created_by=9,
         album_id=14,
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Jinjer+-+Judgement+(%26+Punishment)+w+lyrics.mp3'
     )
     retrospect = Song(
         name='Retrospect',
-        created_by=11,
+        created_by=9,
         album_id=14,
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Jinjer+-+Retrospection+w+lyrics.mp3'
     )
     pausing_death = Song(
         name='Pausing Death',
-        created_by=11,
+        created_by=9,
         album_id=14,
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Jinjer+-+Pausing+Death+w+lyrics.mp3'
     )
     noah = Song(
         name='Noah',
-        created_by=11,
+        created_by=9,
         album_id=14,
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Jinjer+-+Noah+w+lyrics.mp3'
     )
     home_back = Song(
         name='Home Back',
-        created_by=11,
+        created_by=9,
         album_id=14,
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Jinjer+-+Home+Back+w+lyrics.mp3'
     )
     the_prophecy = Song(
         name='The Prophecy',
-        created_by=11,
+        created_by=9,
         album_id=14,
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Jinjer+-+The+Prophecy+w+lyrics.mp3'
     )
     lainnerep = Song(
         name='lainnereP',
-        created_by=11,
+        created_by=9,
         album_id=14,
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/lainnereP.mp3'
     )
