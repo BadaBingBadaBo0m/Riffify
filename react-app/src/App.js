@@ -44,15 +44,6 @@ function App() {
           <Route path='*'>
             <h2>Page not found</h2>
           </Route>
-          {/* <Route path="/login" >
-            <LoginFormPage />
-          </Route>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route> */}
-          {/* <Route path='/upload'>
-            <UploadPicture />
-          </Route> */}
         </Switch>
       )}
     </>

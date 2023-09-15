@@ -662,146 +662,146 @@ def seed_songs():
 
     the_american_nightmare = Song(
         name='The American Nightmare',
-        created_by=8,
+        created_by=7,
         album_id=9,
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+The+American+Nightmare+(A+Nightmare+On+Elm+Street)+-+HQ+-+Lyrics.mp3'
     )
     thank_got_its_friday = Song(
         name='Thank God It\'s Friday',
-        created_by=8,
+        created_by=7,
         album_id=9,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Thank+God%2C+It's+Friday+(Friday+The+13th)+-+HQ+-+Lyrics.mp3"
     )
     stabbing_in_the_dark = Song(
         name='Stabbing in the Dark',
-        created_by=8,
+        created_by=7,
         album_id=9,
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Stabbing+In+The+Dark+(Halloween)+-+HQ+-+Lyrics.mp3'
     )
     savages = Song(
         name='SAVAGES',
-        created_by=8,
+        created_by=7,
         album_id=9,
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Savages+(The+Texas+Chainsaw+Massacre)+-+HQ+-+Lyrics.mp3'
     )
     the_jig_is_up = Song(
         name='The Jig is Up (feat. Randy Strohmeyer)',
-        created_by=8,
+        created_by=7,
         album_id=9,
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+The+Jig+Is+Up+ft.+Randy+Strohmeyer+(Saw)+-+HQ+-+Lyrics.mp3'
     )
     a_grave_mistake = Song(
         name='A Grave Mistake',
-        created_by=8,
+        created_by=7,
         album_id=9,
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/A+Grave+Mistake+-+Ice+Nine+Kills+Lyrics.mp3'
     )
     rocking_the_boat = Song(
         name='Rocking the Boat (feat. Jeremy Schwartz)',
-        created_by=8,
+        created_by=7,
         album_id=9,
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Rocking+The+Boat+ft.+Jeremy+Schwartz+(Jaws)+-+HQ+-+Lyrics.mp3'
     )
     enjoy_your_slay = Song(
         name='Enjoy Your Slay (feat. Sam Kubrick)',
-        created_by=8,
+        created_by=7,
         album_id=9,
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Enjoy+your+slay.mp3'
     )
     freak_flag = Song(
         name='Freak Flag',
-        created_by=8,
+        created_by=7,
         album_id=9,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Freak+Flag+(The+Devil's+Rejects)+-+HQ+-+Lyrics.mp3"
     )
     the_world_in_my_hands = Song(
         name='The World in My Hands (feat. Tony Lovato)',
-        created_by=8,
+        created_by=7,
         album_id=9,
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+The+World+In+My+Hands+ft.+Tony+Lovato+(Edward+Scissorhands)+-+HQ+-+Lyrics.mp3'
     )
     merry_axemas = Song(
         name='Merry Axe-mas',
-        created_by=8,
+        created_by=7,
         album_id=9,
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Merry+Axe-Mas+(Silent+Night%2C+Deadly+Night)+-+HQ+-+Lyrics.mp3'
     )
     love_bites = Song(
         name='Love Bites (feat. Chelsea Talmadge)',
-        created_by=8,
+        created_by=7,
         album_id=9,
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Love+Bites+ft.+Chelsea+Talmadge+(An+American+Werewolf+In+London)+-+HQ+-+Lyrics.mp3'
     )
     it_is_the_end = Song(
         name='IT is the End',
-        created_by=8,
+        created_by=7,
         album_id=9,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+IT+Is+The+End+ft.+Peter+Wasilewski+%26+Buddy+Schaub+(Stephen+King's+IT)+-+HQ+-+Lyrics.mp3"
     )
     your_numbers_up = Song(
         name='Your Number\'s Up',
-        created_by=8,
+        created_by=7,
         album_id=9,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Ice+Nine+Kills+-+Your+Number's+Up+(Scream)+-+HQ+-+Lyrics.mp3"
     )
 
     the_nature_of_the_beast = Song(
         name='The Nature of the Beast',
-        created_by=8,
+        created_by=7,
         album_id=10,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/The+nature+of+the+beast+INK.mp3"
     )
     communion_of_the_cursed = Song(
         name='Communion of the Cursed',
-        created_by=8,
+        created_by=7,
         album_id=10,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Communion+of+the+cursed+INK.mp3"
     )
     bloodbath_and_beyond = Song(
         name='Bloodbath & Beyond',
-        created_by=8,
+        created_by=7,
         album_id=10,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Bloodbath+and+Beyond+INK.mp3"
     )
     the_plot_sickens = Song(
         name='The Plot Sickens',
-        created_by=8,
+        created_by=7,
         album_id=10,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/The+plot+Sickens+INK.mp3"
     )
     star_crossed_enemies = Song(
         name='Star-Crossed Enemies',
-        created_by=8,
+        created_by=7,
         album_id=10,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Star+crossed+enemies+INK.mp3"
     )
     me_myself_and_hyde = Song(
         name='Me, Myself & Hyde',
-        created_by=8,
+        created_by=7,
         album_id=10,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Me+myself+and+hyde+INK.mp3"
     )
     alice = Song(
         name='Alice',
-        created_by=8,
+        created_by=7,
         album_id=10,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Alice+INK.mp3"
     )
     the_people_in_the_attic = Song(
         name='The People in the Attic',
-        created_by=8,
+        created_by=7,
         album_id=10,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/The+people+in+the+attic+INK.mp3"
     )
     Tess_Timony = Song(
         name='Tess-Timony',
-        created_by=8,   
+        created_by=7,   
         album_id=10,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Tess-Timony+INK.mp3"
     )
     hell_in_the_hallways = Song(
         name='Hell in the Hallways',
-        created_by=8,
+        created_by=7,
         album_id=10,
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Hell+in+the+hallways+INK.mp3"
     )
@@ -1143,6 +1143,7 @@ def seed_songs():
     db.session.add(rainy_day)
     db.session.add(hip_to_be_scared)
     db.session.add(take_me_first)
+    db.session.add(take_your_pick)
     db.session.add(the_box)
     db.session.add(fly)
     db.session.add(wurst_vacation)

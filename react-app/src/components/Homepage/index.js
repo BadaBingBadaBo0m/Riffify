@@ -2,12 +2,10 @@ import React, { useState, useContext } from 'react'
 import SideBar from '../SideBar'
 import MediaPlayer from '../MediaPlayer'
 import Navbar from '../Navbar'
-import { SongContext } from '../../context/Song';
 
 import './homepage.css'
 
 const HomePage = ({ Content, type }) => {
-  const { currentSong, setCurrentSong, contextAlbum } = useContext(SongContext)
 
   return (
     <div id='home-container'>

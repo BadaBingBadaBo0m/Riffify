@@ -54,42 +54,42 @@ def seed_albums():
     )
     the_silver_scream_2 = Album(
         name='Welcome to Horrorwood: The Silver Scream 2',
-        created_by_id=8,
+        created_by_id=7,
         art='https://tritone-spotify-clone.s3.amazonaws.com/INK+The+silver+scream+2.jpg'
     )
     the_silver_scream = Album(
         name='The Silver Scream',
-        created_by_id=8,
+        created_by_id=7,
         art="https://tritone-spotify-clone.s3.amazonaws.com/Ice_Nine_Kills_%E2%80%93_The_Silver_Scream.png"
     )
     every_trick_in_the_book = Album(
         name='Every Trick In The Book',
-        created_by_id=8,
+        created_by_id=7,
         art='https://tritone-spotify-clone.s3.amazonaws.com/Every+Trick+in+the+book+INK.jpg'
     )
     heaven_shall_burn = Album(
         name='Heaven Shall Burn',
-        created_by_id=9,
+        created_by_id=8,
         art='https://tritone-spotify-clone.s3.amazonaws.com/Heaven+Shall+Burn+Art+Imminence.png'
     )
     heaven_in_hiding = Album(
         name='Heaven in Hiding',
-        created_by_id=9,
+        created_by_id=8,
         art='https://tritone-spotify-clone.s3.amazonaws.com/Heaven+in+hiding+art.jpg'
     )
     wallflowers = Album(
         name = 'Wallflowers',
-        created_by_id=10,
+        created_by_id=9,
         art='https://tritone-spotify-clone.s3.amazonaws.com/Wallflowers+art+JINJER.jpg'
     )
     macro = Album(
         name='Macro',
-        created_by_id=10,
+        created_by_id=9,
         art='https://tritone-spotify-clone.s3.amazonaws.com/Macro+art+Jinjer.jpg'
     )
     fracture = Album(
         name='Fracture',
-        created_by_id=7,
+        created_by_id=10,
         art='https://tritone-spotify-clone.s3.amazonaws.com/Fracture-Bleed-From-Within+art.jpg'
     )
 
