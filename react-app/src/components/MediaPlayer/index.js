@@ -7,7 +7,7 @@ import './mediaplayer.css'
 const MediaPlayer = () => {
   // const [play, setPlay] = useState(false);
   const [currentTime, setCurrentTime] = useState(0)
-  const [duration, setDuration] = useState(0)
+  const [duration, setDuration] = useState(null)
   const [volume, setVolume] = useState(1)
   const [repeat, setRepeat] = useState(false)
   const [shuffle, setShuffle] = useState(false)
@@ -29,7 +29,8 @@ const MediaPlayer = () => {
       setPlay(false)
     }
 
-    setCurrentSongIndex(contextSongList.map((songMap) => songMap.id).indexOf(currentSong?.id) - 1)
+    setCurrentSongIndex(contextSongList.map((songMap) => songMap.id).indexOf(currentSong?.id))
+    console.log(contextSongList.map((songMap) => songMap.id).indexOf(currentSong?.id))
 
     const localAudio = localStorage.getItem('tritone-volume')
     if (localAudio) {
