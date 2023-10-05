@@ -14,7 +14,7 @@ const MediaPlayer = () => {
   const [currentSongIndex, setCurrentSongIndex] = useState(null)
   const { currentSong, setCurrentSong, contextAlbum, contextSongList, contextPlaylist, play, setPlay } = useContext(SongContext)
   const audioRef = useRef()
-  const randomIndex = Math.floor(Math.random() * (contextSongList.length - 0) + 0)
+  const randomIndex = Math.floor(Math.random() * (contextSongList.length))
 
   useEffect(() => {
     setTimeout(() => {
