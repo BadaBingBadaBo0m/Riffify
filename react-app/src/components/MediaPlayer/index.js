@@ -46,11 +46,11 @@ const MediaPlayer = () => {
       audioRef.current.loop = false
     }
 
-    if (currentTime === duration && !repeat) {
+    if (currentTime === duration && !repeat && !shuffle) {
       setCurrentSong(contextSongList[currentSongIndex + 1] || contextSongList[0])
     }
 
-    if (currentTime === duration && shuffle) {
+    if (currentTime === duration && shuffle && !repeat) {
       setCurrentSong(contextSongList[randomIndex])
     }
 
