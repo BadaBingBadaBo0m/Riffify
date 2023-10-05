@@ -1032,7 +1032,66 @@ def seed_songs():
         song_body='https://tritone-spotify-clone.s3.amazonaws.com/lainnereP.mp3'
     )
 
-    
+    the_end_of_all_we_know = Song(
+        name="The End Of All We Know",
+        created_by=10,
+        album_id=15,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Bleed+from+within+The+End+Of+All+We+Know.mp3"
+    )
+    pathfinder = Song(
+        name="Pathfinder",
+        created_by=10,
+        album_id=15,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Bleed+from+within+Pathfinder.mp3"
+    )
+    into_nothing = Song(
+        name="Into Nothing",
+        created_by=10,
+        album_id=15,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Bleed+from+within+Into+Nothing.mp3"
+    )
+    fall_away = Song(
+        name="Fall Away",
+        created_by=10,
+        album_id=15,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Bleed+from+within+Fall+away.mp3"
+    )
+    fracture = Song(
+        name="Fracture",
+        created_by=10,
+        album_id=15,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Bleed+from+within+Fracture.mp3"
+    )
+    night_crossing = Song(
+        name='Night Crossing',
+        created_by=10,
+        album_id=15,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Bleed+from+within+Night+Crossing.mp3"
+    )
+    for_all_to_see = Song(
+        name="For All To See",
+        created_by=10,
+        album_id=15,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Bleed+from+within+For+all+to+see.mp3"
+    )
+    ascend = Song(
+        name='Ascend',
+        created_by=10,
+        album_id=15,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Bleed+from+within+Ascend.mp3"
+    )
+    utopia = Song(
+        name='Utopia',
+        created_by=10,
+        album_id=15,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Bleed+from+within+Utopia.mp3"
+    )
+    a_depth_that_no_one_dares = Song(
+        name="A Depth That No One Dares",
+        created_by=10,
+        album_id=15,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Bleed+from+within+A+depth+that+no+one+dares.mp3"
+    )
 
     db.session.add(never_there)
     db.session.add(a_flag_to_wave)
@@ -1218,6 +1277,17 @@ def seed_songs():
     db.session.add(home_back)
     db.session.add(the_prophecy)
     db.session.add(lainnerep)
+
+    db.session.add(the_end_of_all_we_know)
+    db.session.add(pathfinder)
+    db.session.add(into_nothing)
+    db.session.add(fall_away)
+    db.session.add(fracture)
+    db.session.add(night_crossing)
+    db.session.add(for_all_to_see)
+    db.session.add(ascend)
+    db.session.add(utopia)
+    db.session.add(a_depth_that_no_one_dares)
 
     db.session.commit()
 
