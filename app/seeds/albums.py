@@ -97,6 +97,11 @@ def seed_albums():
         created_by_id=11,
         art='https://tritone-spotify-clone.s3.amazonaws.com/Wank+ablum+art.jpg'
     )
+    iowa = Album(
+        name="Iowa",
+        created_by_id=11,
+        art="https://tritone-spotify-clone.s3.amazonaws.com/Slipknot_Iowa.jpg"
+    )
 
     db.session.add(the_way_it_ends)
     db.session.add(the_death_we_seek)
@@ -117,6 +122,7 @@ def seed_albums():
     db.session.add(macro)
     db.session.add(fracture)
     db.session.add(we_are_not_your_kind)
+    # db.session.add(iowa)
     db.session.commit()
 
 def undo_albums():
