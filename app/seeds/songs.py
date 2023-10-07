@@ -1093,6 +1093,97 @@ def seed_songs():
         song_body="https://tritone-spotify-clone.s3.amazonaws.com/Bleed+from+within+A+depth+that+no+one+dares.mp3"
     )
 
+    insert_coin = Song(
+        name='Insert Coin',
+        created_by=11,
+        album_id=16,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Slipknot+insert+coin.mp3"
+    )
+    unsainted = Song(
+        name='Unsainted',
+        created_by=11,
+        album_id=16,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Slipknot+Unstainted.mp3"
+    )
+    Birth_of_the_cruel = Song(
+        name="Birth of the Cruel",
+        created_by=11,
+        album_id=16,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Slipknot+Birth+of+the+curel.mp3"
+    )
+    death_because_of_death = Song(
+        name="Death Because of Death",
+        created_by=11,
+        album_id=16,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Slipknot+Death+because+of+death.mp3"
+    )
+    nero_forte = Song(
+        name="Nero Forte",
+        created_by=11,
+        album_id=16,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Slipknot+Neo+forte.mp3"
+    )
+    critical_darling = Song(
+        name="Critical Darling",
+        created_by=11,
+        album_id=16,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Slipknot+Critical+Darling.mp3"
+    )
+    a_liars_funeral = Song(
+        name="A Liar's Funeral",
+        created_by=11,
+        album_id=16,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Slipknot+A+liars+funeral.mp3"
+    )
+    red_flag = Song(
+        name="Red Flag",
+        created_by=11,
+        album_id=16,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Slipknot+Red+flag.mp3"
+    )
+    spiders = Song(
+        name="Spiders",
+        created_by=11,
+        album_id=16,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Slipknot+Spiders.mp3"
+    )
+    whats_next = Song(
+        name="What's Next",
+        created_by=11,
+        album_id=16,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Slipknot+Whats+next.mp3'
+    )
+    orphan = Song(
+        name="Orphan",
+        created_by=11,
+        album_id=16,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Slipknot+Orphan.mp3"
+    )
+    my_pain = Song(
+        name="My Pain",
+        created_by=11,
+        album_id=16,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Slipknot+My+pain.mp3"
+    )
+    not_long_for_this_world = Song(
+        name="Not Long for This World",
+        created_by=11,
+        album_id=16,
+        song_body='https://tritone-spotify-clone.s3.amazonaws.com/Slipknot+Not+long+for+this+world.mp3'
+    )
+    solway_firth = Song(
+        name="Solway Firth",
+        created_by=11,
+        album_id=16,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Slipknot+Solway+Firth.mp3"
+    )
+    all_out_life = Song(
+        name="All Out Life",
+        created_by=11,
+        album_id=16,
+        song_body="https://tritone-spotify-clone.s3.amazonaws.com/Slipknot+All+out+life.mp3"
+    )
+
     db.session.add(never_there)
     db.session.add(a_flag_to_wave)
     db.session.add(poverty_of_self)
@@ -1288,6 +1379,22 @@ def seed_songs():
     db.session.add(ascend)
     db.session.add(utopia)
     db.session.add(a_depth_that_no_one_dares)
+
+    db.session.add(insert_coin)
+    db.session.add(unsainted)
+    db.session.add(Birth_of_the_cruel)
+    db.session.add(death_because_of_death)
+    db.session.add(nero_forte)
+    db.session.add(critical_darling)
+    db.session.add(a_liars_funeral)
+    db.session.add(red_flag)
+    db.session.add(whats_next)
+    db.session.add(spiders)
+    db.session.add(orphan)
+    db.session.add(my_pain)
+    db.session.add(not_long_for_this_world)
+    db.session.add(solway_firth)
+    db.session.add(all_out_life)
 
     db.session.commit()
 
