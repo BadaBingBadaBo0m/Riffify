@@ -74,6 +74,13 @@ def seed_users():
         last_name='Jer',
         password='password'
     )
+    slipknot = User(
+        username="Slipknot",
+        email='slipknot@aa.io',
+        first_name='Slip',
+        last_name='Knot',
+        password='password'
+    )
     demo = User(
         username='Demo', 
         email='demo@aa.io', 
@@ -103,6 +110,7 @@ def seed_users():
     db.session.add(imminence)
     db.session.add(jinjer)
     db.session.add(bleed_from_within)
+    db.session.add(slipknot)
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
