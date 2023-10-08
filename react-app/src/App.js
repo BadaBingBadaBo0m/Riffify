@@ -13,6 +13,7 @@ import LikedSongs from "./components/LikedSongs";
 import { authenticate } from "./store/session";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import Loading from "./components/Loading";
+import Demo from "./components/GameDemo";
 // import Navigation from "./components/Navigation";
 
 function App() {
@@ -40,6 +41,10 @@ function App() {
           </Route>
           <Route path='/loading'>
             <HomePage Content={Loading} />
+          </Route>
+          <Route path='/demo'>
+            {/* <Demo /> */}
+            <HomePage Content={Demo} />
           </Route>
           <Route path='*'>
             <h2>Page not found</h2>
