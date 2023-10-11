@@ -3,10 +3,10 @@ import { Unity, useUnityContext } from "react-unity-webgl";
 
 function Demo() {
   const { unityProvider } = useUnityContext({
-    loaderUrl: "Build/RythmGame.loader.js",
-    dataUrl: "Build/RythmGame.data",
-    frameworkUrl: "Build/RythmGame.framework.js",
-    codeUrl: "Build/RythmGame.wasm",
+    loaderUrl: "Build/RhythmDemo.loader.js",
+    dataUrl: "Build/RhythmDemo.data",
+    frameworkUrl: "Build/RhythmDemo.framework.js",
+    codeUrl: "Build/RhythmDemo.wasm",
   });
 
   return (
