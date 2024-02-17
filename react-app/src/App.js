@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, StaticRouter } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import UploadPicture from "./components/AWSForm";
@@ -10,6 +10,7 @@ import AlbumForm from "./components/AlbumForm";
 import AlbumInfo from "./components/AlbumInfo";
 import PlaylistInfo from "./components/Playlist";
 import LikedSongs from "./components/LikedSongs";
+import PageNotFound from "./components/PageNotFound";
 import { authenticate } from "./store/session";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import Loading from "./components/Loading";
@@ -42,7 +43,7 @@ function App() {
             <HomePage Content={Loading} />
           </Route>
           <Route path='*'>
-            <h2>Page not found</h2>
+            <PageNotFound />
           </Route>
         </Switch>
       )}

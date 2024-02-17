@@ -89,7 +89,7 @@ const MediaPlayer = () => {
     if (shuffle) {
       setCurrentSong(contextSongList[randomIndex])
     } else {
-      setCurrentSong(contextSongList[currentSongIndex + 2] || contextSongList[0])
+      setCurrentSong(contextSongList[currentSongIndex + 1] || contextSongList[0])
     }
   }
 
@@ -217,6 +217,7 @@ const MediaPlayer = () => {
         value={volume}
         onChange={handleVolume}
       /> */}
+      <div onClick={e => console.log(currentSong)}>current song</div>
     </div >
   )
 }
