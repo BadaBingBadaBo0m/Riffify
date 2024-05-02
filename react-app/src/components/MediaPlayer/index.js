@@ -151,15 +151,6 @@ const MediaPlayer = () => {
         </div>
 
         <div id='volume-controls-container'>
-          {/* <input
-            type='range'
-            id='song-play-bar'
-            min={0}
-            max={duration || ''}
-            step={1}
-            value={currentTime}
-            onChange={handleCurrentTime}
-          /> */}
           <Slider
             min={0}
             max={duration || ''}
@@ -208,15 +199,6 @@ const MediaPlayer = () => {
           />
         </div>
       </div>
-      {/* <input
-        type='range'
-        id='song-volume-bar'
-        min={0}
-        max={1}
-        step={0.01}
-        value={volume}
-        onChange={handleVolume}
-      /> */}
     </div >
   )
 }
