@@ -217,7 +217,6 @@ const MediaPlayer = () => {
         value={volume}
         onChange={handleVolume}
       /> */}
-      <div onClick={e => console.log(currentSong)}>current song</div>
     </div >
   )
 }
