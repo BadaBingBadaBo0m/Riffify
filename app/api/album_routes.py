@@ -71,7 +71,6 @@ def get_current_users_albums():
 
     return { 'albums': users_albums }
 
-
 @album_routes.route("/new", methods=["POST"])
 @login_required
 def create_new_album():
