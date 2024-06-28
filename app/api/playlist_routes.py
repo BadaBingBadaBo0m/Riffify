@@ -55,7 +55,6 @@ def get_songs_in_playlist(id):
     song_list = []
 
     for song in playlist.songs:
-        # album = Album.query.get(song.album_id)
         album = db.session.query(Album, User) \
         .join(User, song.created_by == User.id) \
         .filter(Album.id == song.album_id).first()
