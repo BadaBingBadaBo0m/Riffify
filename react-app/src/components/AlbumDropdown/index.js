@@ -11,7 +11,6 @@ import AlbumForm from '../AlbumForm';
 
 const AlbumDropdown = ({ album }) => {
   const user = useSelector((state) => state.session.user);
-  // const album = useSelector((state) => state.albums.singleAlbum)
   const { currentSong, setCurrentSong } = useContext(SongContext)
   const dispatch = useDispatch();
   const history = useHistory()
@@ -89,12 +88,6 @@ const AlbumDropdown = ({ album }) => {
             </li>
           </ul>
         </div>
-
-        {/* <div className={classShowMenu}>
-          <ul className={notOwnedAlbum}>
-            <li>Bruh not owned</li>
-          </ul>
-        </div> */}
       </div >
     </>
   )
