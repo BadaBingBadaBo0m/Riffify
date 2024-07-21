@@ -110,11 +110,6 @@ const LikedSongs = () => {
                   <button className='song-list-play-button' onClick={() => setPlay(false)}>
                     {<i className="fa-solid fa-pause"></i>}
                   </button>}
-                {/* {user && <button
-                  className='song-list-play-button'
-                  onClick={() => handleSongChange(song)}
-                > {<i className="fa-solid fa-play"></i>}
-                </button>} */}
                 <img src={song.album.art} id='playlist-song-album-art'></img>
                 <div className='song-info'>
                   <p className='song-name'>{song.name}</p>
