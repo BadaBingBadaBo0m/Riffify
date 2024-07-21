@@ -70,7 +70,6 @@ const AlbumForm = ({ type, album }) => {
         await dispatch(getUsersAlbums())
         closeModal()
       }
-      // history.push(`/albums/${updated_album.id}`)
     }
   }
 
@@ -90,17 +89,6 @@ const AlbumForm = ({ type, album }) => {
           />
         </div>
 
-        {/* <div className='album-form-input-container'>
-          <label htmlFor='name'>Description {errors.description && <span className='errors'>{errors.description}</span>}</label>
-          <textarea
-            className='album-form-textarea'
-            type='text'
-            required
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div> */}
-
         <div className='album-form-input-container'>
           <label htmlFor='name'>Album art {errors.art && <span className='errors'>{errors.art}</span>}</label>
           <input
@@ -114,15 +102,6 @@ const AlbumForm = ({ type, album }) => {
 
         <button id='album-form-submit' type='submit' onClick={handleSubmit}>Submit</button>
         {(imageLoading) && <p>Loading...</p>}
-
-        {/* <div className='album-form-input-container'>
-          <label htmlFor='name'>Featured artists</label>
-          <input
-            className='album-form-input'
-            type='text'
-            value={artists}
-          />
-        </div> */}
 
       </form>
     </div >
