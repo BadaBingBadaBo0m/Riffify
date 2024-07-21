@@ -66,7 +66,6 @@ def create_new_song(albumId):
         song = form.data["song_body"]
         song.filename = get_unique_filename(song.filename)
         upload = upload_file_to_s3(song)
-        # print(upload)
 
         if "url" not in upload:
         # if the dictionary doesn't have a url key
@@ -111,7 +110,6 @@ def update_song(id):
             song_body = form.data["song_body"]
             song_body.filename = get_unique_filename(song_body.filename)
             upload = upload_file_to_s3(song_body)
-            # print(upload)
 
             if "url" not in upload:
             # if the dictionary doesn't have a url key

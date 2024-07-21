@@ -55,7 +55,6 @@ def get_songs_in_playlist(id):
     song_list = []
 
     for song in playlist.songs:
-        # album = Album.query.get(song.album_id)
         album = db.session.query(Album, User) \
         .join(User, song.created_by == User.id) \
         .filter(Album.id == song.album_id).first()
@@ -191,7 +190,6 @@ def update_playlist(id):
             image = form.data["picture"]
             image.filename = get_unique_filename(image.filename)
             upload = upload_file_to_s3(image)
-            # print(upload)
             if "url" not in upload:
                 # if the dictionary doesn't have a url key
                 # it means that there was an error when you tried to upload

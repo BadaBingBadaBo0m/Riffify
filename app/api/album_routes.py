@@ -102,9 +102,6 @@ def create_new_album():
         )
         db.session.add(new_album)
         db.session.commit()
-        # new_image = Post(image= url)
-        # db.session.add(new_image)
-        # db.session.commit()
         return { **new_album.to_dict(), 'created_by': user.private_to_dict() }, 200
 
     if form.errors:
@@ -136,7 +133,6 @@ def update_album(id):
             image = form.data["art"]
             image.filename = get_unique_filename(image.filename)
             upload = upload_file_to_s3(image)
-            # print(upload)
 
             if "url" not in upload:
             # if the dictionary doesn't have a url key
