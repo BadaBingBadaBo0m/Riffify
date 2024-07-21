@@ -28,7 +28,6 @@ const AlbumInfo = () => {
     setCurrentSong(song)
     setContextAlbum(album)
     setContextPlaylist(null)
-    // setPlay(true)
   }
 
   const handleAlbumPlayButton = () => {
@@ -61,12 +60,10 @@ const AlbumInfo = () => {
 
   if (!album || !songList || album.id != albumId) return <Loading />
   const albumDate = new Date(album.created_at)
-  // console.log(user.id, album)
   return (
     <div id='album-details-container'>
       <div
         // Remnants from an attempt to make the background the same color as album cover
-        // style={{ backgroundImage: `url(${album.art})` }}
         className='blurred-background'>
 
         <div
@@ -78,7 +75,6 @@ const AlbumInfo = () => {
             <p>Album</p>
             <h1>{album.name}</h1>
             <div id='album-creator-info-container'>
-              {/* <img src={album.created_by?.profile_pic} id='artistPfp'></img> */}
               <p>{album.created_by?.username} &#x2022; {albumDate.getFullYear()} &#x2022; {songList.length} songs</p>
             </div>
           </div>
