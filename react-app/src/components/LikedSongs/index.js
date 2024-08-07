@@ -4,9 +4,9 @@ import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux";
 import Loading from '../Loading';
 import { getLikedSongs, getPlaylist, getPlaylistSongs, addSongToLikedSongs, removeSongFromLikedSongs } from '../../store/playlists';
-import PlaylistDropdown from '../PlaylistDropdown';
-import SongDropdown from '../SongDropdown';
-import PlaylistSongDropdown from '../PlaylistSongDropdown';
+// import PlaylistDropdown from '../PlaylistDropdown';
+// import SongDropdown from '../SongDropdown';
+// import PlaylistSongDropdown from '../PlaylistSongDropdown';
 // import './playlist.css'
 
 const LikedSongs = () => {
